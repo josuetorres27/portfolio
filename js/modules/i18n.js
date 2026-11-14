@@ -290,6 +290,14 @@
       exitTooltip.textContent = (dict && dict.adv_exit) ? dict.adv_exit : (activeLang === 'es' ? 'Salir' : 'Exit');
     }
 
+    // The companion's sprites share its name: "Pixel Josue" in English, "Josué Pixel" in Spanish.
+    if (dict && dict.adv_companion_name) {
+      ['hero-portal-sprite', 'flying-pixel-sprite-img', 'rail-character-sprite', 'dialogue-avatar-sprite'].forEach(function (id) {
+        var sprite = document.getElementById(id);
+        if (sprite) sprite.alt = dict.adv_companion_name;
+      });
+    }
+
     if (window.PortfolioAudio && typeof window.PortfolioAudio.updateUI === 'function') {
       window.PortfolioAudio.updateUI();
     }
