@@ -1,106 +1,118 @@
 # Josue Torres Sibaja — Software Engineering Portfolio
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorressibaja.com-3b82f6?style=flat-square&logo=google-chrome&logoColor=white)](https://josuetorressibaja.com/)
-[![CI Test Suite](https://github.com/josuetorres27/josuetorres27.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/josuetorres27/josuetorres27.github.io/actions/workflows/ci.yml)
-[![Automated Tests](https://img.shields.io/badge/Tests-312%20Passing-success?style=flat-square&logo=python&logoColor=white)](#automated-testing--quality-assurance)
-[![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorressibaja.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#portfolio-key-features)
-[![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#portfolio-key-features)
+[![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#features)
+[![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#features)
+[![CI Test Suite](https://img.shields.io/github/actions/workflow/status/josuetorres27/josuetorres27.github.io/ci.yml?style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/josuetorres27/josuetorres27.github.io/actions/workflows/ci.yml)
+[![Automated Tests](https://img.shields.io/badge/Tests-312%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
+[![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorressibaja.com/)
 
-Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in Information Technology infrastructure & web administration, applied AI workflows, and personal interests — wrapped in a custom retro gaming and terminal aesthetic.
+This repository contains the source of a personal software engineering portfolio. The website presents academic background, featured software engineering projects, production experience in Information Technology infrastructure and web administration, applied AI workflows, and personal interests, in a custom retro gaming and terminal style.
 
-**Live Website:** [https://josuetorressibaja.com](https://josuetorressibaja.com)
+**Live:** [https://josuetorressibaja.com](https://josuetorressibaja.com)
 
 ---
 
 ## About Me
 
-I am a **Computer Science Graduating Senior** (Software Engineering emphasis) at the **University of Costa Rica (UCR)** (all coursework completed Dec 2026; degree expected April 2027). I build scalable, full-stack, systems-level, and distributed software using modern engineering practices and AI agentic workflows, backed by solid foundations in data structures, algorithms, object-oriented design, and practical university infrastructure and software engineering experience.
+I am a Computer Science Graduating Senior (Software Engineering emphasis) at the University of Costa Rica (UCR) (all coursework completed Dec 2026; degree expected Apr 2027). I build scalable, full-stack, systems-level, and distributed software using modern engineering practices and AI agentic workflows, backed by solid foundations in data structures, algorithms, object-oriented design, and practical university infrastructure and software engineering experience.
 
-- **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — University of Costa Rica (UCR) *(Mar 2023 – Dec 2026 · Coursework Completed · Degree Expected April 2027)*
-- **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency — Universidad Nacional, 2019 – 2021 · 13 Levels / 520 Hours)
-- **Current Role:** Information Technology Support Assistant at University of Costa Rica (Orientation Office) *(Aug 2026 – Present · Active Contract)*
-- **Availability:** Full-Time Entry-Level & Junior Software Engineering Roles *(Available Immediately)*
+- **Education:** B.Sc. in Computer Science (Software Engineering Emphasis), University of Costa Rica (UCR), Mar 2023 – Dec 2026; coursework completed, degree expected Apr 2027.
+- **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency; Universidad Nacional, 2019 – 2021; 13 levels / 520 hours).
+- **Current Role:** Information Technology Support Assistant at University of Costa Rica (Orientation Office), Aug 2026 – Present (active contract).
+- **Availability:** Full-time entry-level and junior Software Engineering roles, available immediately.
 
 ---
 
-## Technical Stack & Skills
+## Tech Stack
 
-| Category | Technologies & Tools |
+| Category | Technologies and Tools |
 | :--- | :--- |
 | **Languages** | Python, C++, TypeScript, JavaScript (ES6+), C#, Java, SQL, HTML5, CSS3 |
-| **Frameworks & Libraries** | Next.js 16, React 19, ASP.NET Core, Node.js, Tailwind CSS |
+| **Frameworks and Libraries** | Next.js 16, React 19, ASP.NET Core, Node.js, Tailwind CSS |
 | **Databases** | Microsoft SQL Server, PostgreSQL |
-| **Developer Tools & Infrastructure** | Git, GitHub Actions (CI/CD), Linux, Windows, Docker, Visual Studio, VS Code |
-| **Applied AI & Agentic Workflows** | Multi-Agent Systems, Autonomous Coding Agents, Google Antigravity, Claude Code, GitHub Copilot, Tool & Function Calling, Prompt & Context Engineering |
+| **Developer Tools and Infrastructure** | Git, GitHub Actions (CI/CD), Linux, Windows, Docker, Visual Studio, VS Code |
+| **Applied AI and Agentic Workflows** | Multi-Agent Systems, Autonomous Coding Agents, Google Antigravity, Claude Code, GitHub Copilot, Tool & Function Calling, Prompt & Context Engineering |
 
 ---
 
 ## Featured Projects
 
-### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr) *(Institutional Project · Concludes Dec 2026)*
-Full-stack institutional and scientific-data platform developed for the **Solar Astrophysics and Space Weather Laboratory (LASCE)** at the Universidad de Costa Rica.
-- **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr)
-- **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce)
+### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr) (Institutional Project · Concludes Dec 2026)
+
+Full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory (LASCE) at the Universidad de Costa Rica.
+
+- **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr).
+- **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce).
 - **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
 - **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
 
-### [CS Interactive Workshop](https://workshop.josuetorressibaja.com/) *(Sep 2024 – Present)*
+### [CS Interactive Workshop](https://workshop.josuetorressibaja.com/) (Sep 2024 – Present)
+
 Interactive web workshop for Computer Science students at the Universidad de Costa Rica, built on visual simulations backed by real C and C++ engines.
-- **Live App:** [https://workshop.josuetorressibaja.com/](https://workshop.josuetorressibaja.com/)
-- **Repository:** [josuetorres27/cs-interactive-workshop](https://github.com/josuetorres27/cs-interactive-workshop)
+
+- **Live App:** [https://workshop.josuetorressibaja.com/](https://workshop.josuetorressibaja.com/).
+- **Repository:** [josuetorres27/cs-interactive-workshop](https://github.com/josuetorres27/cs-interactive-workshop).
 - **Stack:** C11, C++17, POSIX Threads, OpenMP, BSD Sockets (TCP/IP), JavaScript, Firebase (Hosting, Auth, Firestore), GitHub Actions.
 - **Highlights:** Twelve stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, and SQL; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; Google sign-in with cloud-saved progress; and a CI pipeline running 1,376 automated tests before every deployment.
 
-### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer) *(Oct 2026 – Present · UCR)*
-Research project for **CI-0140 Software Quality**: an engine and web service that renews timestamps on digitally signed PDF documents for long-term preservation (PAdES-B-LTA / ETSI EN 319 142), in line with Costa Rica's Law 8454.
-- **Repository:** [josuetorres27/pades-lta-renewer](https://github.com/josuetorres27/pades-lta-renewer)
+### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer) (Oct 2026 – Present · UCR)
+
+Research project for CI-0140 Software Quality: an engine and web service that renews timestamps on digitally signed PDF documents for long-term preservation (PAdES-B-LTA / ETSI EN 319 142), in line with Costa Rica's Law 8454.
+
+- **Repository:** [josuetorres27/pades-lta-renewer](https://github.com/josuetorres27/pades-lta-renewer).
 - **Stack:** Python, Flask, cryptography, asn1crypto, pypdf, RFC 3161, X.509, OCSP, CRL, pytest.
 - **Highlights:** RFC 3161 client for the SINPE Time Stamping Authority (BCCR), X.509 chain reconstruction up to the national root CA with OCSP/CRL revocation checks, and incremental PDF updates that add `/DSS` evidence and `/DocTimeStamp` seals without invalidating existing signatures.
-- **Co-author:** Gabriel Serrano Rojas
+- **Co-Author:** Gabriel Serrano Rojas.
 
-### ¿Quién controla nuestra atención? *(Ethical Vodcast)*
+### ¿Quién controla nuestra atención? (Ethical Vodcast)
+
 Audiovisual ethical investigation analyzing algorithmic recommendation engines, the attention economy, and the professional responsibilities of computing engineers.
-- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 — Detrás de Cámaras (YouTube)](https://youtu.be/MKMLW2HJ6zo)
-- **Co-creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/)
+
+- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 — Detrás de Cámaras (YouTube)](https://youtu.be/MKMLW2HJ6zo).
+- **Co-Creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/).
 - **Production:** Multi-camera setup, scriptwriting, professional sound engineering, and post-production editing.
 
-### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) *(UCR)*
+### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) (UCR)
+
 Desktop administration platform that digitizes microscopy workflows and manages biological specimen collections.
-- **Repository:** [RolandoVillavicencio013/biological-microscope-administration-panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel)
+
+- **Repository:** [RolandoVillavicencio013/biological-microscope-administration-panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel).
 - **Stack:** C#, ASP.NET Core, .NET, PostgreSQL, Desktop Architecture, Visual Studio.
 - **Highlights:** Hierarchical data organization (Groups, Boxes, Slides), high-fidelity microscopy imaging, and offline-capable workstation data persistence.
 
-### ThemePark UCR — Virtual University Simulation *(UCR)*
+### ThemePark UCR — Virtual University Simulation (UCR)
+
 Virtual campus simulation built in Unity with a decoupled backend architecture.
+
 - **Stack:** C#, ASP.NET Core, RESTful APIs, SQL Server, Unity Integration, Scrum.
 - **Highlights:** Decoupled REST services for real-time interaction with virtual campus buildings, facilities, and interactive learning objects.
 
 ---
 
-## Portfolio Key Features
+## Features
 
-- **Retro Gaming Aesthetic & Interactive Adventure Mode:** Custom stepped pixel-art frames, arcade CRT/terminal window headers, quest tags, and an interactive pixel companion with animated checkpoints, responsive dialogue engine, and smooth section navigation.
-- **Procedural 8-Bit Audio Synthesis:** Real-time retro sound effects (blip, coin, jump, level-up, exit) synthesized on-the-fly using native **Web Audio API** oscillators — zero external audio files or dependencies.
-- **Zero-Build Static Performance:** Built with clean HTML5, Tailwind CSS, and vanilla ES6+ JavaScript. Blazing-fast load times with zero framework bundle overhead.
+- **Retro Gaming Aesthetic and Interactive Adventure Mode:** Custom stepped pixel-art frames, arcade CRT/terminal window headers, quest tags, and an interactive pixel companion with animated checkpoints, responsive dialogue engine, and smooth section navigation.
+- **Procedural 8-Bit Audio Synthesis:** Real-time retro sound effects (blip, coin, jump, level-up, exit) synthesized on the fly using native Web Audio API oscillators, with zero external audio files or dependencies.
+- **Zero-Build Static Site:** Built with clean HTML5, Tailwind CSS, and vanilla ES6+ JavaScript, with zero framework bundle overhead.
 - **Dual-Language Architecture (EN / ES):** Complete client-side internationalization system (`I18N`) with persistent language preference, `?lang=en|es` URL parameter support, and translated `aria-label` and tooltip bindings.
-- **Adaptive Theme Engine:** Seamless Dark and Light theme switching with custom retro color palettes, system preference detection, and smooth color transitions.
-- **Cross-Platform Responsive & Accessible:** Optimized for devices ranging from mobile (360px – 414px) and tablet (768px – 834px) to widescreen desktop, adhering to semantic HTML, keyboard navigation, and WCAG contrast guidelines.
-- **Interactive Galleries & Lightbox:** Custom carousels and full-screen image inspection modal with geolocation metadata and photography details.
+- **Adaptive Theme Engine:** Dark and Light theme switching with custom retro color palettes, system preference detection, and smooth color transitions.
+- **Cross-Platform Responsive and Accessible:** Optimized for devices ranging from mobile (360px – 414px) and tablet (768px – 834px) to widescreen desktop, adhering to semantic HTML, keyboard navigation, and WCAG contrast guidelines.
+- **Interactive Galleries and Lightbox:** Custom carousels and a full-screen image inspection modal with geolocation metadata and photography details.
 
 ---
 
-## Automated Testing & Quality Assurance
+## Testing
 
-To ensure rock-solid production stability and guarantee that no component or translation breaks silently, this repository includes an automated test suite of **312 tests** executed on Python 3.12+ and integrated into GitHub Actions CI:
+The repository includes an automated test suite of 312 tests, executed on Python 3.12+ and integrated into GitHub Actions CI, so that no component or translation breaks silently:
 
 - **Internationalization Suite (`tests/test_i18n.py`):** 264 tests validating symmetry across all 254 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` DOM bindings.
-- **DOM & Semantic Integrity (`tests/test_dom_integrity.py`):** 32 tests verifying HTML5 compliance, OpenGraph metadata, Twitter cards, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
+- **DOM and Semantic Integrity (`tests/test_dom_integrity.py`):** 32 tests verifying HTML5 compliance, OpenGraph metadata, Twitter cards, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
 - **Assets Integrity (`tests/test_assets_integrity.py`):** 10 tests verifying that every image, sprite sheet, icon, PDF document, and modular script referenced across the codebase physically exists on disk with non-zero size.
-- **JavaScript Syntax & Scope Hygiene (`tests/test_js_syntax.py`):** 6 tests performing lexical scope tracking to prevent variable redeclaration collisions (e.g. duplicate `const`/`let`), delimiter balancing (`{}`, `[]`, `()`), and absence of debugger leftovers.
+- **JavaScript Syntax and Scope Hygiene (`tests/test_js_syntax.py`):** 6 tests performing lexical scope tracking to prevent variable redeclaration collisions (e.g. duplicate `const`/`let`), delimiter balancing (`{}`, `[]`, `()`), and absence of debugger leftovers.
 
-### Running Tests Locally
+Run the suite locally:
 
 ```bash
 python tests/run_tests.py
@@ -114,12 +126,12 @@ The site is fully static (no build step), so every push to `main` goes live with
 
 - **Primary:** [josuetorressibaja.com](https://josuetorressibaja.com) on GitHub Pages, with HTTPS enforced and DNS managed on Cloudflare (`www` redirects to the apex domain).
 - **Mirror:** [josuetorres.tech](https://josuetorres.tech), redeployed on a Coolify server by `deploy.yml`.
-- **Search engines:** the page declares `josuetorressibaja.com` as its canonical address, so every copy points to one URL.
-- **Quality gate:** `ci.yml` runs the full test suite on every push and pull request.
+- **Search Engines:** The page declares `josuetorressibaja.com` as its canonical address, so every copy points to one URL.
+- **Quality Gate:** `ci.yml` runs the full test suite on every push and pull request.
 
 ---
 
-## Repository Structure
+## Project Structure
 
 ```text
 josuetorres27.github.io/
@@ -163,16 +175,17 @@ josuetorres27.github.io/
 
 ---
 
-## Curriculum Vitae, Resume & Certifications
+## Resume & Certifications
 
-You can view or download my latest resumes and official certifications directly from the repository:
+The latest resumes and certifications are available in `docs/`:
+
 - [English Resume (PDF)](./docs/Josue_Torres_Resume.pdf)
 - [Curriculum Vitae en Español (PDF)](./docs/Josue_Torres_CV.pdf)
 - [UNA Conversational English Certificate (PDF)](./docs/Josue_Torres_English_Certificate_UNA.pdf)
 
 ---
 
-## Contact & Connect
+## Contact
 
 - **LinkedIn:** [linkedin.com/in/josue-torres-sibaja](https://www.linkedin.com/in/josue-torres-sibaja/)
 - **GitHub:** [github.com/josuetorres27](https://github.com/josuetorres27)
@@ -180,6 +193,4 @@ You can view or download my latest resumes and official certifications directly 
 
 ---
 
-<div align="center">
-  <sub>Designed & Developed by Josue Torres Sibaja · Hosted on josuetorressibaja.com</sub>
-</div>
+Created by **Josue Torres Sibaja** · [Portfolio](https://josuetorressibaja.com/) · [LinkedIn](https://www.linkedin.com/in/josue-torres-sibaja/) · [GitHub](https://github.com/josuetorres27)
