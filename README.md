@@ -46,12 +46,12 @@ Full-stack institutional and scientific-data platform developed for the **Solar 
 - **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
 - **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
 
-### [CS Interactive Workshop](https://cs-interactive-workshop.web.app/) *(Sep 2024 – Present)*
+### [CS Interactive Workshop](https://workshop.josuetorressibaja.com/) *(Sep 2024 – Present)*
 Interactive web workshop for Computer Science students at the Universidad de Costa Rica, built on visual simulations backed by real C and C++ engines.
-- **Live App:** [https://cs-interactive-workshop.web.app](https://cs-interactive-workshop.web.app/)
+- **Live App:** [https://workshop.josuetorressibaja.com/](https://workshop.josuetorressibaja.com/)
 - **Repository:** [josuetorres27/cs-interactive-workshop](https://github.com/josuetorres27/cs-interactive-workshop)
 - **Stack:** C11, C++17, POSIX Threads, OpenMP, BSD Sockets (TCP/IP), JavaScript, Firebase (Hosting, Auth, Firestore), GitHub Actions.
-- **Highlights:** Stations on algorithms, data structures, concurrency, networking, interview patterns, and SQL; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; and a CI pipeline running more than 880 automated tests before every deployment.
+- **Highlights:** Twelve stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, and SQL; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; Google sign-in with cloud-saved progress; and a CI pipeline running more than 1,000 automated tests before every deployment.
 
 ### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer) *(Oct 2026 – Present · UCR)*
 Research project for **CI-0140 Software Quality**: an engine and web service that renews timestamps on digitally signed PDF documents for long-term preservation (PAdES-B-LTA / ETSI EN 319 142), in line with Costa Rica's Law 8454.
@@ -108,6 +108,17 @@ python tests/run_tests.py
 
 ---
 
+## Hosting & Deployment
+
+The site is fully static (no build step), so every push to `main` goes live without a bundler:
+
+- **Primary:** [josuetorressibaja.com](https://josuetorressibaja.com) on GitHub Pages, with HTTPS enforced and DNS managed on Cloudflare (`www` redirects to the apex domain).
+- **Mirror:** [josuetorres.tech](https://josuetorres.tech), redeployed on a Coolify server by `deploy.yml`.
+- **Search engines:** the page declares `josuetorressibaja.com` as its canonical address, so every copy points to one URL.
+- **Quality gate:** `ci.yml` runs the full test suite on every push and pull request.
+
+---
+
 ## Repository Structure
 
 ```text
@@ -115,7 +126,7 @@ josuetorres27.github.io/
 ├── .github/
 │   └── workflows/
 │       ├── ci.yml                                  # GitHub Actions automated test runner
-│       └── deploy.yml                              # Coolify production deployment pipeline
+│       └── deploy.yml                              # Triggers the josuetorres.tech mirror on Coolify
 ├── css/
 │   └── styles.css                                  # Custom retro, CRT scanlines & pixel styling
 ├── docs/
@@ -145,6 +156,7 @@ josuetorres27.github.io/
 │   ├── test_assets_integrity.py                    # Images, sprites, icons, documents & scripts
 │   ├── test_js_syntax.py                           # Balanced tokens, lexical scopes & syntax
 │   └── run_tests.py                                # Master CLI runner with formatted report
+├── CNAME                                           # Custom domain for GitHub Pages
 ├── index.html                                      # Semantic, accessible HTML markup structure
 └── README.md                                       # Repository documentation & presentation
 ```
