@@ -16,7 +16,7 @@ This repository contains the source of a personal software engineering portfolio
 
 ## About Me
 
-I am a Computer Science Graduating Senior (Software Engineering emphasis) at the University of Costa Rica (UCR) (all coursework completed Dec 2026; degree expected Apr 2027). I build scalable, full-stack, systems-level, and distributed software using modern engineering practices and AI agentic workflows, backed by solid foundations in data structures, algorithms, object-oriented design, and practical university infrastructure and software engineering experience.
+I am a Computer Science Graduating Senior (Software Engineering emphasis) at the University of Costa Rica (UCR), with all coursework completed in Dec 2026 and the degree expected in Apr 2027. I build scalable, full-stack, systems-level, and distributed software using modern engineering practices and AI agentic workflows, backed by solid foundations in data structures, algorithms, object-oriented design, and practical university infrastructure and software engineering experience.
 
 - **Education:** B.Sc. in Computer Science (Software Engineering emphasis), University of Costa Rica (UCR), Mar 2023 – Dec 2026; coursework completed, degree expected Apr 2027.
 - **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency; National University of Costa Rica (UNA), 2019 – 2021; 13 levels / 520 hours).
