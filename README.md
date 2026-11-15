@@ -18,9 +18,9 @@ This repository contains the source of a personal software engineering portfolio
 
 I am a Computer Science Graduating Senior (Software Engineering emphasis) at the University of Costa Rica (UCR) (all coursework completed Dec 2026; degree expected Apr 2027). I build scalable, full-stack, systems-level, and distributed software using modern engineering practices and AI agentic workflows, backed by solid foundations in data structures, algorithms, object-oriented design, and practical university infrastructure and software engineering experience.
 
-- **Education:** B.Sc. in Computer Science (Software Engineering Emphasis), University of Costa Rica (UCR), Mar 2023 – Dec 2026; coursework completed, degree expected Apr 2027.
-- **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency; Universidad Nacional, 2019 – 2021; 13 levels / 520 hours).
-- **Current Role:** Information Technology Support Assistant at University of Costa Rica (Orientation Office), Aug 2026 – Present (active contract).
+- **Education:** B.Sc. in Computer Science (Software Engineering emphasis), University of Costa Rica (UCR), Mar 2023 – Dec 2026; coursework completed, degree expected Apr 2027.
+- **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency; National University of Costa Rica (UNA), 2019 – 2021; 13 levels / 520 hours).
+- **Current Role:** Information Technology Support Assistant at the University of Costa Rica (Orientation Office), Aug 2026 – Present (active contract).
 - **Availability:** Full-time entry-level and junior Software Engineering roles, available immediately.
 
 ---
@@ -41,7 +41,7 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 
 ### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr) (Institutional Project · Concludes Dec 2026)
 
-Full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory (LASCE) at the Universidad de Costa Rica.
+Full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory (LASCE) at the University of Costa Rica.
 
 - **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr).
 - **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce).
@@ -50,7 +50,7 @@ Full-stack institutional and scientific-data platform developed for the Solar As
 
 ### [CS Interactive Workshop](https://workshop.josuetorressibaja.com/) (Sep 2024 – Present)
 
-Interactive web workshop for Computer Science students at the Universidad de Costa Rica, built on visual simulations backed by real C and C++ engines.
+Interactive web workshop for Computer Science students at the University of Costa Rica, built on visual simulations backed by real C and C++ engines.
 
 - **Live App:** [https://workshop.josuetorressibaja.com/](https://workshop.josuetorressibaja.com/).
 - **Repository:** [josuetorres27/cs-interactive-workshop](https://github.com/josuetorres27/cs-interactive-workshop).
