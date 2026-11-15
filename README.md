@@ -39,15 +39,6 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 
 ## Featured Projects
 
-### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr)
-
-Full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory (LASCE) at the University of Costa Rica.
-
-- **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr).
-- **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce).
-- **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
-- **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
-
 ### [CS Interactive Workshop](https://workshop.josuetorressibaja.com/)
 
 Interactive web workshop for Computer Science students at the University of Costa Rica, built on visual simulations backed by real C and C++ engines.
@@ -65,6 +56,15 @@ Research project for CI-0140 Software Quality: an engine and web service that re
 - **Stack:** Python, Flask, cryptography, asn1crypto, pypdf, RFC 3161, X.509, OCSP, CRL, pytest.
 - **Highlights:** RFC 3161 client for the SINPE Time Stamping Authority (BCCR), X.509 chain reconstruction up to the national root CA with OCSP/CRL revocation checks, and incremental PDF updates that add `/DSS` evidence and `/DocTimeStamp` seals without invalidating existing signatures.
 - **Co-Author:** Gabriel Serrano Rojas.
+
+### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr)
+
+Full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory (LASCE) at the University of Costa Rica.
+
+- **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr).
+- **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce).
+- **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
+- **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
 
 ### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) (UCR)
 
