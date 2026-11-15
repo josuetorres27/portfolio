@@ -2324,3 +2324,24 @@
         animation: none !important;
       }
     }
+
+    /* Hero headline: the size follows the width of the text column (capped at the usual sizes),
+       so the longest phrase, "& Técnico en Tecnologías de la Información", wraps into whole lines
+       without leaving a word stranded. 7.6cqi is the largest size at which it still fits in 3 lines.
+       Browsers without container query units ignore these rules and keep the Tailwind sizes. */
+    #hero-text-col {
+      container-type: inline-size;
+    }
+    #hero-headline {
+      font-size: min(1.875rem, 7.6cqi);
+    }
+    @media (min-width: 640px) {
+      #hero-headline {
+        font-size: min(3rem, 7.6cqi);
+      }
+    }
+    @media (min-width: 1024px) {
+      #hero-headline {
+        font-size: min(55px, 7.6cqi);
+      }
+    }
