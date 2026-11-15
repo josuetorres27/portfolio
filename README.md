@@ -117,8 +117,7 @@ python tests/run_tests.py
 The site is fully static (no build step), so every push to `main` goes live without a bundler:
 
 - **Primary:** [josuetorressibaja.com](https://josuetorressibaja.com) on GitHub Pages, with HTTPS enforced and DNS managed on Cloudflare (`www` redirects to the apex domain).
-- **Mirror:** [josuetorres.tech](https://josuetorres.tech), redeployed on a Coolify server by `deploy.yml`.
-- **Search Engines:** The page declares `josuetorressibaja.com` as its canonical address, so every copy points to one URL.
+- **Search Engines:** The page declares `josuetorressibaja.com` as its canonical address and publishes a `sitemap.xml` and `robots.txt` for it.
 - **Quality Gate:** `ci.yml` runs the full test suite on every push and pull request.
 
 ---
@@ -129,8 +128,7 @@ The site is fully static (no build step), so every push to `main` goes live with
 portfolio/
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml                               # GitHub Actions automated test runner
-│       └── deploy.yml                           # Triggers the josuetorres.tech mirror on Coolify
+│       └── ci.yml                               # GitHub Actions automated test runner
 ├── css/
 │   └── styles.css                               # Custom retro, CRT scanlines & pixel styling
 ├── docs/
