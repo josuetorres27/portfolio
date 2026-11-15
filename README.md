@@ -70,7 +70,7 @@ Research project for CI-0140 Software Quality: an engine and web service that re
 
 Audiovisual ethical investigation analyzing algorithmic recommendation engines, the attention economy, and the professional responsibilities of computing engineers.
 
-- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 — Detrás de Cámaras (YouTube)](https://youtu.be/MKMLW2HJ6zo).
+- **Episodes:** [Episode 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episode 2 — Behind the Scenes (YouTube)](https://youtu.be/MKMLW2HJ6zo).
 - **Co-Creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/).
 - **Production:** Multi-camera setup, scriptwriting, professional sound engineering, and post-production editing.
 
@@ -180,7 +180,7 @@ josuetorres27.github.io/
 The latest resumes and certifications are available in `docs/`:
 
 - [English Resume (PDF)](./docs/Josue_Torres_Resume.pdf)
-- [Curriculum Vitae en Español (PDF)](./docs/Josue_Torres_CV.pdf)
+- [Curriculum Vitae in Spanish (PDF)](./docs/Josue_Torres_CV.pdf)
 - [UNA Conversational English Certificate (PDF)](./docs/Josue_Torres_English_Certificate_UNA.pdf)
 
 ---
