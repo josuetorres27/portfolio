@@ -128,9 +128,50 @@
     }
   }
 
+  // The headline is only animated while it can be seen: it is a large gradient text, and
+  // repainting it every 82 ms while the reader is further down the page (or in another tab)
+  // only takes frame time away from scrolling and the companion.
+  var isTypewriterOnScreen = true;
+  var isTypewriterPaused = false;
+
+  function canAnimateTypewriter() {
+    return isTypewriterOnScreen && !document.hidden;
+  }
+
+  function resumeTypewriter() {
+    if (!isTypewriterPaused || !canAnimateTypewriter()) return;
+    isTypewriterPaused = false;
+    if (typewriterTimeout) clearTimeout(typewriterTimeout);
+    typewriterTimeout = setTimeout(tickTypewriter, 120);
+  }
+
+  document.addEventListener('visibilitychange', resumeTypewriter);
+  if ('IntersectionObserver' in window) {
+    var observeTypewriter = function () {
+      var wrap = document.getElementById('hero-typewriter-wrapper');
+      if (!wrap) return;
+      new IntersectionObserver(function (entries) {
+        isTypewriterOnScreen = entries[entries.length - 1].isIntersecting;
+        resumeTypewriter();
+      }).observe(wrap);
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', observeTypewriter);
+    } else {
+      observeTypewriter();
+    }
+  }
+
   function tickTypewriter() {
     var el = document.getElementById('hero-typewriter');
     if (!el || !activePhrases.length) return;
+
+    if (!canAnimateTypewriter()) {
+      // Stop scheduling; the observer or visibilitychange resumes from the same character.
+      isTypewriterPaused = true;
+      typewriterTimeout = null;
+      return;
+    }
 
     var fullPhrase = activePhrases[currentPhraseIndex % activePhrases.length];
 
