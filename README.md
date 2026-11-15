@@ -132,9 +132,9 @@ portfolio/
 ├── css/
 │   └── styles.css                               # Custom retro, CRT scanlines & pixel styling
 ├── docs/
-│   ├── Josue_Torres_Resume.pdf                  # English Resume (PDF)
-│   ├── Josue_Torres_CV.pdf                      # Spanish Curriculum Vitae (PDF)
-│   └── Josue_Torres_English_Certificate_UNA.pdf # UNA Conversational English Certificate (PDF)
+│   ├── Josue_Torres_Sibaja_Resume.pdf                  # English Resume (PDF)
+│   ├── Josue_Torres_Sibaja_CV.pdf                      # Spanish Curriculum Vitae (PDF)
+│   └── Josue_Torres_Sibaja_English_Certificate_UNA.pdf # UNA Conversational English Certificate (PDF)
 ├── img/
 │   ├── portfolio.jpeg                           # Professional profile photograph
 │   ├── icons/                                   # Custom retro pixel-art icon suite (favicon.png is the navbar copy of favicon.ico)
@@ -175,9 +175,9 @@ portfolio/
 
 The latest resumes and certifications are available in `docs/`:
 
-- [English Resume (PDF)](./docs/Josue_Torres_Resume.pdf)
-- [Curriculum Vitae in Spanish (PDF)](./docs/Josue_Torres_CV.pdf)
-- [UNA Conversational English Certificate (PDF)](./docs/Josue_Torres_English_Certificate_UNA.pdf)
+- [English Resume (PDF)](./docs/Josue_Torres_Sibaja_Resume.pdf)
+- [Curriculum Vitae in Spanish (PDF)](./docs/Josue_Torres_Sibaja_CV.pdf)
+- [UNA Conversational English Certificate (PDF)](./docs/Josue_Torres_Sibaja_English_Certificate_UNA.pdf)
 
 ---
 
