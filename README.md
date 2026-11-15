@@ -137,40 +137,40 @@ The site is fully static (no build step), so every push to `main` goes live with
 josuetorres27.github.io/
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml                                  # GitHub Actions automated test runner
-│       └── deploy.yml                              # Triggers the josuetorres.tech mirror on Coolify
+│       ├── ci.yml                               # GitHub Actions automated test runner
+│       └── deploy.yml                           # Triggers the josuetorres.tech mirror on Coolify
 ├── css/
-│   └── styles.css                                  # Custom retro, CRT scanlines & pixel styling
+│   └── styles.css                               # Custom retro, CRT scanlines & pixel styling
 ├── docs/
-│   ├── Josue_Torres_Resume.pdf                     # English Resume (PDF)
-│   ├── Josue_Torres_CV.pdf                         # Spanish Curriculum Vitae (PDF)
-│   └── Josue_Torres_English_Certificate_UNA.pdf    # UNA Conversational English Certificate (PDF)
+│   ├── Josue_Torres_Resume.pdf                  # English Resume (PDF)
+│   ├── Josue_Torres_CV.pdf                      # Spanish Curriculum Vitae (PDF)
+│   └── Josue_Torres_English_Certificate_UNA.pdf # UNA Conversational English Certificate (PDF)
 ├── img/
-│   ├── portfolio.jpeg                              # Professional profile photograph
-│   ├── icons/                                      # Custom retro pixel-art icon suite
-│   ├── character-sprites/                          # Pixel companion animation sprite sheets
-│   ├── experience/                                 # Workplace & IT operations photographic evidence
-│   ├── handicrafts/                                # Foamy clay sculpting & TCU workshop creations
-│   └── photography/                                # Costa Rica landscape & nature gallery
+│   ├── portfolio.jpeg                           # Professional profile photograph
+│   ├── icons/                                   # Custom retro pixel-art icon suite
+│   ├── character-sprites/                       # Pixel companion animation sprite sheets
+│   ├── experience/                              # Workplace & IT operations photographic evidence
+│   ├── handicrafts/                             # Foamy clay sculpting & TCU workshop creations
+│   └── photography/                             # Costa Rica landscape & nature gallery
 ├── js/
 │   ├── modules/
-│   │   ├── audio.js                                # Native Web Audio API 8-bit retro sound synthesizer
-│   │   ├── theme.js                                # Dark/Light mode engine & icon synchronization
-│   │   ├── ui.js                                   # Dropdowns, mobile menu & clipboard manager
-│   │   ├── i18n.js                                 # Bilingual translation engine & hero typewriter
-│   │   ├── lightbox.js                             # Touch carousel & full-screen photo viewer
-│   │   └── adventure.js                            # 8-bit companion, rail map & scrollytelling
-│   ├── translations.js                             # Bilingual (EN/ES) dictionaries (254 keys)
-│   └── main.js                                     # Application orchestrator (window.Portfolio)
+│   │   ├── audio.js                             # Native Web Audio API 8-bit retro sound synthesizer
+│   │   ├── theme.js                             # Dark/Light mode engine & icon synchronization
+│   │   ├── ui.js                                # Dropdowns, mobile menu & clipboard manager
+│   │   ├── i18n.js                              # Bilingual translation engine & hero typewriter
+│   │   ├── lightbox.js                          # Touch carousel & full-screen photo viewer
+│   │   └── adventure.js                         # 8-bit companion, rail map & scrollytelling
+│   ├── translations.js                          # Bilingual (EN/ES) dictionaries (254 keys)
+│   └── main.js                                  # Application orchestrator (window.Portfolio)
 ├── tests/
-│   ├── test_i18n.py                                # Symmetry, encoding, non-emptiness & DOM checks
-│   ├── test_dom_integrity.py                       # DOCTYPE, OpenGraph, JSON-LD, IDs & A11y
-│   ├── test_assets_integrity.py                    # Images, sprites, icons, documents & scripts
-│   ├── test_js_syntax.py                           # Balanced tokens, lexical scopes & syntax
-│   └── run_tests.py                                # Master CLI runner with formatted report
-├── CNAME                                           # Custom domain for GitHub Pages
-├── index.html                                      # Semantic, accessible HTML markup structure
-└── README.md                                       # Repository documentation & presentation
+│   ├── test_i18n.py                             # Symmetry, encoding, non-emptiness & DOM checks
+│   ├── test_dom_integrity.py                    # DOCTYPE, OpenGraph, JSON-LD, IDs & A11y
+│   ├── test_assets_integrity.py                 # Images, sprites, icons, documents & scripts
+│   ├── test_js_syntax.py                        # Balanced tokens, lexical scopes & syntax
+│   └── run_tests.py                             # Master CLI runner with formatted report
+├── CNAME                                        # Custom domain for GitHub Pages
+├── index.html                                   # Semantic, accessible HTML markup structure
+└── README.md                                    # Repository documentation & presentation
 ```
 
 ---
