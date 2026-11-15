@@ -1,7 +1,7 @@
 """
 Tests for Portfolio Internationalization (i18n)
 Validates symmetry, completeness, formatting, non-emptiness, and DOM consistency
-across all 254 translation keys between EN and ES.
+across all 253 translation keys between EN and ES.
 """
 
 import os
