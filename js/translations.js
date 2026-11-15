@@ -10,7 +10,7 @@
         nav_interests: "Hobbies",
         nav_contact: "Contact",
 
-        hero_badge: "Computer Science Graduating Senior · Open to Full-Time Entry-Level & Junior Roles",
+        hero_badge: "Open to Full-Time Entry-Level & Junior Roles",
         hero_greeting: `Hi, I'm <span class="text-white">Josue Torres Sibaja</span>`,
         hero_phrases: [
           "Computer Science\nGraduating Senior",
@@ -318,7 +318,7 @@
         nav_interests: "Hobbies",
         nav_contact: "Contacto",
 
-        hero_badge: "Egresado en Ciencias de la Computación · Disponible para Roles Junior a Tiempo Completo",
+        hero_badge: "Disponible para Roles Junior a Tiempo Completo",
         hero_greeting: `Hola, soy <span class="text-white">Josué Torres Sibaja</span>`,
         hero_phrases: [
           "Egresado en Ciencias\nde la Computación",
