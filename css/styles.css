@@ -5,7 +5,7 @@
       width: 100%;
     }
 
-    /* Suavizado de bordes y selecciones */
+    /* Text selection colors */
     ::selection {
       background-color: #0284c7;
       color: #ffffff;
