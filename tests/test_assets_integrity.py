@@ -114,6 +114,40 @@ class TestAssetsIntegrity(unittest.TestCase):
             self.assertTrue(os.path.exists(icon_path), f"Sound icon missing: {icon}")
             self.assertGreater(os.path.getsize(icon_path), 0, f"Sound icon is empty: {icon}")
 
+    def test_favicon_set_is_complete(self):
+        """Verify the full icon set (ICO sizes, SVG, apple-touch-icon, manifest icons) exists and is linked."""
+        import json
+        import struct
+
+        with open(os.path.join(ROOT_DIR, "favicon.ico"), "rb") as f:
+            _, kind, count = struct.unpack("<HHH", f.read(6))
+            self.assertEqual(kind, 1, "favicon.ico is not an icon file")
+            sizes = set()
+            for _ in range(count):
+                w, h = struct.unpack("<BB", f.read(2))
+                f.read(14)
+                sizes.add((w or 256, h or 256))
+        for size in [(16, 16), (32, 32), (48, 48)]:
+            self.assertIn(size, sizes, f"favicon.ico lacks the {size[0]}x{size[1]} frame")
+
+        with open(os.path.join(ROOT_DIR, "favicon.svg"), "r", encoding="utf-8") as f:
+            self.assertIn("<svg", f.read(), "favicon.svg is not an SVG")
+
+        with open(os.path.join(ROOT_DIR, "apple-touch-icon.png"), "rb") as f:
+            head = f.read(24)
+        self.assertEqual(head[:8], b"\x89PNG\r\n\x1a\n", "apple-touch-icon.png is not a PNG")
+        self.assertEqual(struct.unpack(">II", head[16:24]), (180, 180), "apple-touch-icon.png must be 180x180")
+
+        with open(os.path.join(ROOT_DIR, "site.webmanifest"), "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+        for icon in manifest["icons"]:
+            self.assertTrue(os.path.exists(self._resolve_path("." + icon["src"])), f"Manifest icon missing: {icon['src']}")
+
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            html = f.read()
+        for needle in ['href="/favicon.ico"', 'href="/favicon.svg"', 'href="/apple-touch-icon.png"', 'href="/site.webmanifest"', 'name="theme-color"']:
+            self.assertIn(needle, html, f"index.html does not declare {needle}")
+
     def test_photography_photos_exist(self):
         """Verify that all photography gallery images exist and are non-empty."""
         photo_dir = os.path.join(ROOT_DIR, "img", "photography")
