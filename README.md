@@ -66,7 +66,7 @@ Full-stack institutional and scientific-data platform developed for the Solar As
 - **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
 - **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
 
-### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) (UCR)
+### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel)
 
 Desktop administration platform that digitizes microscopy workflows and manages biological specimen collections.
 
@@ -74,7 +74,7 @@ Desktop administration platform that digitizes microscopy workflows and manages 
 - **Stack:** C#, ASP.NET Core, .NET, PostgreSQL, Desktop Architecture, Visual Studio.
 - **Highlights:** Hierarchical data organization (Groups, Boxes, Slides), high-fidelity microscopy imaging, and offline-capable workstation data persistence.
 
-### ThemePark UCR — Virtual University Simulation (UCR)
+### ThemePark UCR — Virtual University Simulation
 
 Virtual campus simulation built in Unity with a decoupled backend architecture.
 
