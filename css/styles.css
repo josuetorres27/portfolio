@@ -476,12 +476,12 @@
     #hero-photo-wrapper:hover .pixel-quest-btn span[data-i18n="adventure_badge"] {
       color: #6ee7b7;
     }
+    /* No backdrop-filter here: the card is 92% opaque, so a blur behind it is not visible,
+       and ~30 blurred cards made every scroll frame re-render each card's backdrop. */
     .pixel-frame-inner {
       background: rgba(15, 23, 42, 0.92);
       width: 100%;
       height: 100%;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
     @keyframes quest-beacon {
       0%, 100% { transform: scale(1); opacity: 1; }
@@ -546,14 +546,16 @@
       animation: pop-out-arc 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     }
 
-    /* Adventure Mode Stage Wrapper Shift (transform keeps the slide on the compositor, no page relayout per frame) */
+    /* Adventure Mode Stage Wrapper Shift (transform keeps the slide on the compositor, no page relayout per frame).
+       A 2D translate is still animated on the compositor, but unlike translate3d it does not keep the whole
+       page in one giant GPU layer after the slide, which made long scrolls stutter in adventure mode. */
     #adventure-stage-wrapper {
       position: relative;
       width: 100%;
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .adventure-stage-shifted #adventure-stage-wrapper {
-      transform: translate3d(calc(var(--adv-content-shift, 36px) * -1), 0, 0);
+      transform: translateX(calc(var(--adv-content-shift, 36px) * -1));
     }
     .adventure-stage-shifted #adventure-stage-wrapper header,
     .adventure-stage-shifted #adventure-stage-wrapper footer {
@@ -2016,10 +2018,10 @@
       background: #38bdf8 !important; /* Illuminated Cyan Stepped Border including corners on hover! */
       filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.45)) drop-shadow(0 20px 25px rgba(0, 0, 0, 0.6)) !important;
     }
+    /* No backdrop-filter: the box is fixed over scrolling content and 96% opaque, so the blur was
+       invisible but had to be recomputed on every scroll frame. */
     #adventure-dialogue-inner {
       background: rgba(2, 6, 23, 0.96) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
       width: 100% !important;
       height: 100% !important;
       box-sizing: border-box !important;

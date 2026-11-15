@@ -519,6 +519,22 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertNotIn("-translate-y-2", adv_code)
         self.assertNotIn("-translate-y-3", adv_code)
 
+    def test_long_scrolls_avoid_per_frame_blur(self):
+        """Verify long scrolls (e.g. a companion jump to the last section) don't re-blur the page every frame."""
+        with open(os.path.join(ROOT_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        # 1. The ~30 near-opaque cards and the fixed dialogue box have no backdrop blur
+        card_rule = css_code.split(".pixel-frame-inner {")[1].split("}")[0]
+        self.assertNotIn("backdrop-filter", card_rule)
+        dialogue_rule = css_code.split("#adventure-dialogue-inner {")[1].split("}")[0]
+        self.assertNotIn("backdrop-filter", dialogue_rule)
+
+        # 2. The shifted page uses a 2D translate, so it does not stay in one giant GPU layer
+        shifted_rule = css_code.split(".adventure-stage-shifted #adventure-stage-wrapper {")[1].split("}")[0]
+        self.assertIn("translateX(", shifted_rule)
+        self.assertNotIn("translate3d", shifted_rule)
+
     def test_adventure_intro_cancelled_on_close(self):
         """Verify the intro timers are tied to a session so closing mid-intro never revives the rail or dialogue."""
         with open(os.path.join(ROOT_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
