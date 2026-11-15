@@ -156,6 +156,47 @@
     typewriterTimeout = setTimeout(tickTypewriter, delta);
   }
 
+  // Reserves the height of the tallest phrase (at the current width), so the content below
+  // the headline never moves while the phrases change.
+  function reserveTypewriterHeight() {
+    var wrap = document.getElementById('hero-typewriter-wrapper');
+    var el = document.getElementById('hero-typewriter');
+    if (!wrap || !el || !activePhrases.length) return;
+
+    var probe = el.cloneNode(false);
+    probe.removeAttribute('id');
+    probe.setAttribute('aria-hidden', 'true');
+    probe.style.cssText = 'visibility:hidden;position:absolute;pointer-events:none;width:' + wrap.clientWidth + 'px';
+    wrap.appendChild(probe);
+
+    // Both languages count, so the page layout is identical in English and Spanish.
+    var phrases = activePhrases.slice();
+    if (typeof I18N !== 'undefined') {
+      ['en', 'es'].forEach(function (code) {
+        if (I18N[code] && Array.isArray(I18N[code].hero_phrases)) {
+          phrases = phrases.concat(I18N[code].hero_phrases);
+        }
+      });
+    }
+
+    var tallest = 0;
+    phrases.forEach(function (phrase) {
+      probe.innerHTML = escapeTypewriterHtml(phrase).replace(/\n/g, '<br>');
+      tallest = Math.max(tallest, probe.getBoundingClientRect().height);
+    });
+    wrap.removeChild(probe);
+
+    if (tallest > 0) wrap.style.minHeight = Math.ceil(tallest) + 'px';
+  }
+
+  var reserveResizeTimeout = null;
+  window.addEventListener('resize', function () {
+    if (reserveResizeTimeout) clearTimeout(reserveResizeTimeout);
+    reserveResizeTimeout = setTimeout(reserveTypewriterHeight, 120);
+  });
+  window.addEventListener('load', reserveTypewriterHeight);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserveTypewriterHeight);
+
   function initTypewriter(phrases) {
     if (typewriterTimeout) {
       clearTimeout(typewriterTimeout);
@@ -171,6 +212,8 @@
     var el = document.getElementById('hero-typewriter');
     var cursor = document.getElementById('hero-typewriter-cursor');
     if (!el) return;
+
+    reserveTypewriterHeight();
 
     if (cursor) cursor.style.display = 'none';
 

@@ -321,7 +321,7 @@
         hero_greeting: `Hola, soy <span class="text-white">Josué Torres Sibaja</span>`,
         hero_phrases: [
           "Egresado en Ciencias\nde la Computación",
-          "Desarrollador Full-Stack\n& Técnico en Tecnologías de la Información",
+          "Desarrollador Full-Stack\n& Soporte en TI",
           "Construyendo Software\nEscalable y Confiable"
         ],
         hero_bio: `Egresado en Ciencias de la Computación (énfasis en Ingeniería de Software) de la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Enfocado en construir software escalable de alto rendimiento y arquitecturas modernas con lenguajes como <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> y <span class="whitespace-nowrap"><span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>.</span>`,
