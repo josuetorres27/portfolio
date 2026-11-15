@@ -46,7 +46,7 @@ Interactive web workshop for Computer Science students at the University of Cost
 - **Live App:** [https://workshop.josuetorressibaja.com/](https://workshop.josuetorressibaja.com/).
 - **Repository:** [josuetorres27/cs-interactive-workshop](https://github.com/josuetorres27/cs-interactive-workshop).
 - **Stack:** C11, C++17, POSIX Threads, OpenMP, BSD Sockets (TCP/IP), JavaScript, Firebase (Hosting, Auth, Firestore), GitHub Actions.
-- **Highlights:** Twelve stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, and SQL; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; Google sign-in with cloud-saved progress; and a CI pipeline running 1,376 automated tests before every deployment.
+- **Highlights:** Twelve stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, and SQL; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; Google sign-in with cloud-saved progress; and a CI pipeline running 1,382 automated tests before every deployment.
 
 ### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer)
 
