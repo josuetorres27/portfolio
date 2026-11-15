@@ -20,7 +20,7 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 
 - **Education:** B.Sc. in Computer Science (Software Engineering emphasis), University of Costa Rica (UCR), Mar 2023 – Dec 2026; coursework completed, degree expected Apr 2027.
 - **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency; National University of Costa Rica (UNA), 2019 – 2021; 13 levels / 520 hours).
-- **Current Role:** Information Technology Support Assistant at the University of Costa Rica (Orientation Office), Aug 2026 – Present (active contract).
+- **Work Experience:** Information Technology Support Assistant at the University of Costa Rica (Orientation Office), Aug 2026 – Dec 2026 (fixed-term contract).
 - **Availability:** Full-time entry-level and junior Software Engineering roles, available immediately.
 
 ---
