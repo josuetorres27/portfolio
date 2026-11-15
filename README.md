@@ -149,7 +149,7 @@ portfolio/
 │   ├── portfolio.jpeg                           # Professional profile photograph
 │   ├── icons/                                   # Custom retro pixel-art icon suite
 │   ├── character-sprites/                       # Pixel companion animation sprite sheets
-│   ├── experience/                              # Workplace & IT operations photographic evidence
+│   ├── experience/                              # Workplace & Information Technology operations photographic evidence
 │   ├── handicrafts/                             # Foamy clay sculpting & TCU workshop creations
 │   └── photography/                             # Costa Rica landscape & nature gallery
 ├── js/
