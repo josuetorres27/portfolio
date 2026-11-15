@@ -220,7 +220,8 @@
       function handleTrigger() {
         var img = trigger.querySelector('img');
         if (!img) return;
-        var src = img.getAttribute('src');
+        // Cards show a lighter copy; the viewer opens the full-resolution photo.
+        var src = img.getAttribute('data-full-src') || img.getAttribute('src');
         var captionEl = trigger.querySelector('span[data-i18n]');
         var captionKey = captionEl ? captionEl.getAttribute('data-i18n') : null;
         var locUrl = trigger.getAttribute('data-location-url');

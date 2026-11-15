@@ -91,7 +91,7 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 - **Dual-Language Architecture (EN / ES):** Complete client-side internationalization system (`I18N`) with persistent language preference, `?lang=en|es` URL parameter support, and translated `aria-label` and tooltip bindings.
 - **Adaptive Theme Engine:** Dark and Light theme switching with custom retro color palettes, system preference detection, and smooth color transitions.
 - **Cross-Platform Responsive and Accessible:** Optimized for devices ranging from mobile (360px – 414px) and tablet (768px – 834px) to widescreen desktop, adhering to semantic HTML, keyboard navigation, and WCAG contrast guidelines.
-- **Interactive Galleries and Lightbox:** Custom carousels and a full-screen image inspection modal with geolocation metadata and photography details.
+- **Interactive Galleries and Lightbox:** Custom carousels and a full-screen image inspection modal with geolocation metadata and photography details. Cards load 1000 px copies from each photo folder's `thumbs/` and decode them asynchronously; the modal opens the full-resolution photo.
 
 ---
 
