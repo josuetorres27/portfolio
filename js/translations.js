@@ -110,7 +110,7 @@
         skill_ci_title: "Testing & CI/CD",
         skill_ci_sub: "GitHub Actions",
 
-        projects_section_tag: "05. Code Portfolio",
+        projects_section_tag: "05. Project Portfolio",
         projects_heading: "Featured Projects",
         lasce_badge: "Institutional Project · Concludes Dec 2026",
         lasce_title: "LASCE — Institutional Scientific Web Platform",
@@ -417,7 +417,7 @@
         skill_ci_title: "Testing & CI/CD",
         skill_ci_sub: "GitHub Actions",
 
-        projects_section_tag: "05. Portafolio de Código",
+        projects_section_tag: "05. Portafolio de Proyectos",
         projects_heading: "Proyectos Destacados",
         lasce_badge: "Proyecto Institucional · Finaliza Dic 2026",
         lasce_title: "LASCE — Plataforma Web Científica Institucional",
