@@ -115,7 +115,7 @@ class TestAssetsIntegrity(unittest.TestCase):
             self.assertGreater(os.path.getsize(icon_path), 0, f"Sound icon is empty: {icon}")
 
     def test_favicon_set_is_complete(self):
-        """Verify the full icon set (ICO sizes, SVG, apple-touch-icon, manifest icons) exists and is linked."""
+        """Verify the full icon set (ICO frames in multiples of 48 px, SVG, apple-touch-icon, manifest icons) exists and is linked."""
         import json
         import struct
 
@@ -127,7 +127,7 @@ class TestAssetsIntegrity(unittest.TestCase):
                 w, h = struct.unpack("<BB", f.read(2))
                 f.read(14)
                 sizes.add((w or 256, h or 256))
-        for size in [(16, 16), (32, 32), (48, 48)]:
+        for size in [(48, 48), (96, 96), (144, 144), (192, 192)]:
             self.assertIn(size, sizes, f"favicon.ico lacks the {size[0]}x{size[1]} frame")
 
         with open(os.path.join(ROOT_DIR, "favicon.svg"), "r", encoding="utf-8") as f:
