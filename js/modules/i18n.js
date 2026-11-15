@@ -210,15 +210,8 @@
     probe.style.cssText = 'visibility:hidden;position:absolute;pointer-events:none;width:' + wrap.clientWidth + 'px';
     wrap.appendChild(probe);
 
-    // Both languages count, so the page layout is identical in English and Spanish.
+    // Only the active language counts, so each language reserves just the space it needs.
     var phrases = activePhrases.slice();
-    if (typeof I18N !== 'undefined') {
-      ['en', 'es'].forEach(function (code) {
-        if (I18N[code] && Array.isArray(I18N[code].hero_phrases)) {
-          phrases = phrases.concat(I18N[code].hero_phrases);
-        }
-      });
-    }
 
     var tallest = 0;
     phrases.forEach(function (phrase) {
