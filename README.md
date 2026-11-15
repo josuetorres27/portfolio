@@ -5,7 +5,7 @@
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#features)
 [![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#features)
 [![CI Test Suite](https://img.shields.io/github/actions/workflow/status/josuetorres27/portfolio/ci.yml?style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/josuetorres27/portfolio/actions/workflows/ci.yml)
-[![Automated Tests](https://img.shields.io/badge/Tests-313%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
+[![Automated Tests](https://img.shields.io/badge/Tests-312%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
 [![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorressibaja.com/)
 
 This repository contains the source of a personal software engineering portfolio. The website presents academic background, featured software engineering projects, production experience in Information Technology infrastructure and web administration, applied AI workflows, and personal interests, in a custom retro gaming and terminal style.
@@ -20,7 +20,7 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 
 - **Education:** B.Sc. in Computer Science (Software Engineering emphasis), University of Costa Rica (UCR), Mar 2023 – Dec 2026; coursework completed, degree expected Apr 2027.
 - **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency; National University of Costa Rica (UNA), 2019 – 2021; 13 levels / 520 hours).
-- **Work Experience:** Information Technology Support Assistant at the University of Costa Rica (Orientation Office), Aug 2026 – Dec 2026 (fixed-term contract).
+- **Work Experience:** Information Technology Support Assistant at the University of Costa Rica (Orientation Office), Aug 2026 – Dec 2026.
 - **Availability:** Full-time entry-level and junior Software Engineering roles, available immediately.
 
 ---
@@ -39,7 +39,7 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 
 ## Featured Projects
 
-### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr) (Institutional Project · Concludes Dec 2026)
+### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr)
 
 Full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory (LASCE) at the University of Costa Rica.
 
@@ -48,7 +48,7 @@ Full-stack institutional and scientific-data platform developed for the Solar As
 - **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
 - **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
 
-### [CS Interactive Workshop](https://workshop.josuetorressibaja.com/) (Sep 2024 – Present)
+### [CS Interactive Workshop](https://workshop.josuetorressibaja.com/)
 
 Interactive web workshop for Computer Science students at the University of Costa Rica, built on visual simulations backed by real C and C++ engines.
 
@@ -57,7 +57,7 @@ Interactive web workshop for Computer Science students at the University of Cost
 - **Stack:** C11, C++17, POSIX Threads, OpenMP, BSD Sockets (TCP/IP), JavaScript, Firebase (Hosting, Auth, Firestore), GitHub Actions.
 - **Highlights:** Twelve stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, and SQL; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; Google sign-in with cloud-saved progress; and a CI pipeline running 1,376 automated tests before every deployment.
 
-### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer) (Oct 2026 – Present · UCR)
+### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer)
 
 Research project for CI-0140 Software Quality: an engine and web service that renews timestamps on digitally signed PDF documents for long-term preservation (PAdES-B-LTA / ETSI EN 319 142), in line with Costa Rica's Law 8454.
 
@@ -65,14 +65,6 @@ Research project for CI-0140 Software Quality: an engine and web service that re
 - **Stack:** Python, Flask, cryptography, asn1crypto, pypdf, RFC 3161, X.509, OCSP, CRL, pytest.
 - **Highlights:** RFC 3161 client for the SINPE Time Stamping Authority (BCCR), X.509 chain reconstruction up to the national root CA with OCSP/CRL revocation checks, and incremental PDF updates that add `/DSS` evidence and `/DocTimeStamp` seals without invalidating existing signatures.
 - **Co-Author:** Gabriel Serrano Rojas.
-
-### ¿Quién controla nuestra atención? (Ethical Vodcast)
-
-Audiovisual ethical investigation analyzing algorithmic recommendation engines, the attention economy, and the professional responsibilities of computing engineers.
-
-- **Episodes:** [Episode 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episode 2 — Behind the Scenes (YouTube)](https://youtu.be/MKMLW2HJ6zo).
-- **Co-Creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/).
-- **Production:** Multi-camera setup, scriptwriting, professional sound engineering, and post-production editing.
 
 ### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) (UCR)
 
@@ -105,9 +97,9 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 
 ## Testing
 
-The repository includes an automated test suite of 313 tests, executed on Python 3.12+ and integrated into GitHub Actions CI, so that no component or translation breaks silently:
+The repository includes an automated test suite of 312 tests, executed on Python 3.12+ and integrated into GitHub Actions CI, so that no component or translation breaks silently:
 
-- **Internationalization Suite (`tests/test_i18n.py`):** 264 tests validating symmetry across all 254 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` DOM bindings.
+- **Internationalization Suite (`tests/test_i18n.py`):** 263 tests validating symmetry across all 253 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` DOM bindings.
 - **DOM and Semantic Integrity (`tests/test_dom_integrity.py`):** 33 tests verifying HTML5 compliance, OpenGraph metadata, Twitter cards, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
 - **Assets Integrity (`tests/test_assets_integrity.py`):** 10 tests verifying that every image, sprite sheet, icon, PDF document, and modular script referenced across the codebase physically exists on disk with non-zero size.
 - **JavaScript Syntax and Scope Hygiene (`tests/test_js_syntax.py`):** 6 tests performing lexical scope tracking to prevent variable redeclaration collisions (e.g. duplicate `const`/`let`), delimiter balancing (`{}`, `[]`, `()`), and absence of debugger leftovers.
