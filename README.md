@@ -29,11 +29,12 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 
 | Category | Technologies and Tools |
 | :--- | :--- |
-| **Languages** | Python, C++, TypeScript, JavaScript (ES6+), C#, Java, SQL, HTML5, CSS3 |
-| **Frameworks and Libraries** | Next.js 16, React 19, ASP.NET Core, Node.js, Tailwind CSS |
-| **Databases** | Microsoft SQL Server, PostgreSQL |
-| **Developer Tools and Infrastructure** | Git, GitHub Actions (CI/CD), Linux, Windows, Docker, Visual Studio, VS Code |
-| **Applied AI and Agentic Workflows** | Multi-Agent Systems, Autonomous Coding Agents, Google Antigravity, Claude Code, GitHub Copilot, Tool & Function Calling, Prompt & Context Engineering |
+| **Languages** | Python, C++, C, C#, Java, TypeScript, JavaScript, SQL, HTML/CSS |
+| **Frameworks and Libraries** | Next.js, React, Node.js, Flask, ASP.NET Core, Prisma, Tailwind CSS |
+| **Data and Infrastructure** | PostgreSQL, SQL Server, Redis, MinIO, Firebase, Docker, GitHub Actions, Linux, Playwright |
+| **Applied AI** | Claude Code, GitHub Copilot, Google Antigravity, Multi-Agent Systems, Prompt & Context Engineering |
+| **Specialized** | Applied Cryptography (PKI, X.509, RFC 3161, OCSP), Pthreads, OpenMP, TCP/IP Sockets |
+| **Practices** | Data Structures & Algorithms, OOP, SOLID, REST APIs, CI/CD, Agile/Scrum |
 
 ---
 
@@ -46,7 +47,7 @@ Interactive web workshop for Computer Science students at the University of Cost
 - **Live App:** [https://workshop.josuetorressibaja.com/](https://workshop.josuetorressibaja.com/).
 - **Repository:** [josuetorres27/cs-interactive-workshop](https://github.com/josuetorres27/cs-interactive-workshop).
 - **Stack:** C11, C++17, POSIX Threads, OpenMP, BSD Sockets (TCP/IP), JavaScript, Firebase (Hosting, Auth, Firestore), GitHub Actions.
-- **Highlights:** Twelve stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, and SQL; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; Google sign-in with cloud-saved progress; and a CI pipeline running 1,382 automated tests before every deployment.
+- **Highlights:** Thirteen stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, SQL, and Git; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; a Git station that hashes objects exactly like real Git; Google sign-in with cloud-saved progress; and a CI pipeline running 1,538 automated tests before every deployment.
 
 ### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer)
 
@@ -71,14 +72,14 @@ Full-stack institutional and scientific-data platform developed for the Solar As
 Desktop administration platform that digitizes microscopy workflows and manages biological specimen collections.
 
 - **Repository:** [RolandoVillavicencio013/biological-microscope-administration-panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel).
-- **Stack:** C#, ASP.NET Core, .NET, PostgreSQL, Desktop Architecture, Visual Studio.
+- **Stack:** C#, ASP.NET Core, PostgreSQL, JavaScript, HTML/CSS, Desktop Architecture, Visual Studio.
 - **Highlights:** Hierarchical data organization (Groups, Boxes, Slides), high-fidelity microscopy imaging, and offline-capable workstation data persistence.
 
 ### ThemePark UCR — Virtual University Simulation
 
 Virtual campus simulation built in Unity with a decoupled backend architecture.
 
-- **Stack:** C#, ASP.NET Core, RESTful APIs, SQL Server, Unity Integration, Scrum.
+- **Stack:** C#, ASP.NET Core, REST APIs, SQL Server, Unity, Scrum.
 - **Highlights:** Decoupled REST services for real-time interaction with virtual campus buildings, facilities, and interactive learning objects.
 
 ---
