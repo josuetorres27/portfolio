@@ -65,7 +65,7 @@ Full-stack institutional and scientific-data platform developed for the Solar As
 - **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr).
 - **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce).
 - **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
-- **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
+- **Contributions:** Built the news, research, publications, gallery and academic-activities modules, research-area detail pages with research-group filters, and the scientific collaborations section. Developed content management for the ROSAC radio observatory (instruments, awards, construction stages, photos and logos) and migrated it from local storage to the database, with file and image uploads to object storage, URL validation, 404 handling and optimistic concurrency control. Added Spanish/English support for scientific and institutional content, reusable modal, confirmation and accessible skeleton-loading components, keyboard and multimedia accessibility, and standardized sign-in and registration errors. Contributed unit, end-to-end and Storybook tests with cross-browser fixes (viewport, WebKit), plus real content, the sitemap and technical documentation, across the full cycle from implementation to maintenance.
 
 ### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel)
 

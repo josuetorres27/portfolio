@@ -112,12 +112,12 @@
 
         projects_section_tag: "05. Project Portfolio",
         projects_heading: "Featured Projects",
-        lasce_badge: "Institutional Project · Concludes Dec 2026",
+        lasce_badge: "Institutional Project · Aug 2026 – Dec 2026",
         lasce_title: "LASCE — Institutional Scientific Web Platform",
         lasce_sub: "Solar Astrophysics and Space Weather Laboratory",
         lasce_btn: "Visit Production",
         lasce_p1: "LASCE is a full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory of the University of Costa Rica. The platform provides a bilingual public portal for presenting research areas, scientific publications, news, collaborations, researchers, scientific instruments, space-weather projects, and the ROSAC radio observatory.",
-        lasce_p3: `<strong class="text-cyan-400 font-semibold">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.`,
+        lasce_p3: `<strong class="text-cyan-400 font-semibold">Key Contributions:</strong> Built the news, research, publications, gallery and academic-activities modules, research-area detail pages with research-group filters, and the scientific collaborations section. Developed content management for the ROSAC radio observatory (instruments, awards, construction stages, photos and logos) and migrated it from local storage to the database, with file and image uploads to object storage, URL validation, 404 handling and optimistic concurrency control. Added Spanish/English support for scientific and institutional content, reusable modal, confirmation and accessible skeleton-loading components, keyboard and multimedia accessibility, and standardized sign-in and registration errors. Contributed unit, end-to-end and Storybook tests with cross-browser fixes (viewport, WebKit), plus real content, the sitemap and technical documentation, across the full cycle from implementation to maintenance.`,
 
         p0_type: "Ethical Analysis & Tech Governance · Audiovisual Production",
         p0_date: "Oct 2026",
@@ -419,12 +419,12 @@
 
         projects_section_tag: "05. Portafolio de Proyectos",
         projects_heading: "Proyectos Destacados",
-        lasce_badge: "Proyecto Institucional · Finaliza Dic 2026",
+        lasce_badge: "Proyecto Institucional · Ago 2026 – Dic 2026",
         lasce_title: "LASCE — Plataforma Web Científica Institucional",
         lasce_sub: "Laboratorio de Astrofísica Solar y Clima Espacial",
         lasce_btn: "Visitar Producción",
         lasce_p1: "Plataforma web institucional y de datos científicos desarrollada para el Laboratorio de Astrofísica Solar y Clima Espacial de la Universidad de Costa Rica. Provee un portal público bilingüe para la presentación de líneas de investigación, publicaciones científicas, noticias, colaboraciones, instrumentos espaciales y el observatorio de radio ROSAC.",
-        lasce_p3: `<strong class="text-cyan-400 font-semibold">Contribuciones clave:</strong> Desarrollo integral de la suite CMS para noticias y observatorio ROSAC (flujos de creación, edición, borrado, transacciones Prisma, subida a MinIO y control de concurrencia optimista), estandarización de componentes modales de gestión, accesibilidad WCAG y cobertura automatizada con Playwright E2E y Vitest.`,
+        lasce_p3: `<strong class="text-cyan-400 font-semibold">Contribuciones clave:</strong> Desarrollé los módulos de noticias, investigación, publicaciones, galería y actividades académicas, las páginas de detalle de las áreas de investigación con filtros por grupo y la sección de colaboraciones científicas. Construí la gestión de contenido del observatorio de radio ROSAC (instrumentos, reconocimientos, etapas de construcción, fotografías y logotipos) y la migré del almacenamiento local a la base de datos, con carga de archivos e imágenes a almacenamiento de objetos, validación de URL, respuestas 404 y control de concurrencia optimista. Agregué soporte español-inglés para el contenido científico e institucional, componentes reutilizables de modales, confirmaciones y estados de carga skeleton accesibles, accesibilidad de teclado y multimedia, y mensajes de error estandarizados en autenticación y registro. Aporté pruebas unitarias, end-to-end y de Storybook con correcciones entre navegadores (viewport, WebKit), además de datos reales, el sitemap y documentación técnica, en todo el ciclo: implementación, pruebas, correcciones, documentación y mantenimiento.`,
 
         p0_type: "Análisis Ético & Gobernanza Tecnológica · Producción Audiovisual",
         p0_date: "Oct 2026",
