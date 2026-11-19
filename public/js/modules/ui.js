@@ -128,14 +128,14 @@
   }
 
   var CHARACTER_SPRITES = [
-    './img/character-sprites/idle.png',
-    './img/character-sprites/front.png',
-    './img/character-sprites/jump.png',
-    './img/character-sprites/walk-1.png',
-    './img/character-sprites/walk-2.png',
-    './img/character-sprites/back.png',
-    './img/character-sprites/back-walk-1.png',
-    './img/character-sprites/back-walk-2.png'
+    '/img/character-sprites/idle.png',
+    '/img/character-sprites/front.png',
+    '/img/character-sprites/jump.png',
+    '/img/character-sprites/walk-1.png',
+    '/img/character-sprites/walk-2.png',
+    '/img/character-sprites/back.png',
+    '/img/character-sprites/back-walk-1.png',
+    '/img/character-sprites/back-walk-2.png'
   ];
 
   function setupPreloader() {

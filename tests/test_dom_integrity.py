@@ -248,10 +248,10 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertEqual(len(pulse_badge_matches), 0, f"Found pulsing badges with drop-shadow duplicating letters: {pulse_badge_matches}")
 
     def test_navbar_monogram_icon_source(self):
-        """Verify the navbar monogram icon references ./img/icons/favicon.png."""
+        """Verify the navbar monogram icon references /img/icons/favicon.png."""
         monograms = [img for img in self.collector.images if img.get("alt") == "Josue"]
         self.assertEqual(len(monograms), 1, "Expected exactly one navbar monogram image")
-        self.assertEqual(monograms[0].get("src"), "./img/icons/favicon.png")
+        self.assertEqual(monograms[0].get("src"), "/img/icons/favicon.png")
         self.assertEqual(monograms[0].get("class"), "w-full h-full object-cover pixelated")
 
     def test_sun_button_light_background_restored(self):
@@ -459,18 +459,18 @@ class TestDOMIntegrity(unittest.TestCase):
 
         # 1. Check <link rel="preload" as="image"> in <head> for all 8 sprites
         for sprite in sprites:
-            preload_tag = f'<link rel="preload" as="image" href="./img/character-sprites/{sprite}">'
+            preload_tag = f'<link rel="preload" as="image" href="/img/character-sprites/{sprite}">'
             self.assertIn(preload_tag, index_code, f"Missing preload tag in head for {sprite}")
 
         # 2. Check DOM cache container exists and holds all 8 sprites
         self.assertIn('id="character-sprites-cache"', index_code)
         for sprite in sprites:
-            img_tag = f'src="./img/character-sprites/{sprite}"'
+            img_tag = f'src="/img/character-sprites/{sprite}"'
             self.assertIn(img_tag, index_code, f"Missing cached img element for {sprite}")
 
         # 3. Check ui.js defines CHARACTER_SPRITES with all 8 sprites
         for sprite in sprites:
-            sprite_path = f'./img/character-sprites/{sprite}'
+            sprite_path = f'/img/character-sprites/{sprite}'
             self.assertIn(sprite_path, ui_code, f"Missing sprite path {sprite} in ui.js")
 
         # 4. Check sprite decoding and global caching

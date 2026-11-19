@@ -175,7 +175,7 @@ class TestAssetsIntegrity(unittest.TestCase):
     def test_js_referenced_local_assets_exist(self):
         """Verify any asset paths referenced in JS files exist on disk."""
         for js_text in self.js_texts:
-            asset_refs = re.findall(r'["\'](\./img/[^"\']+)["\']', js_text)
+            asset_refs = re.findall(r'["\'](/img/[^"\']+)["\']', js_text)
             for ref in asset_refs:
                 full_path = self._resolve_path(ref)
                 self.assertTrue(os.path.exists(full_path), f"Asset referenced in JS not found on disk: {ref}")
