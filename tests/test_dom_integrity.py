@@ -256,7 +256,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_sun_button_light_background_restored(self):
         """Verify the sun button in light mode has its clean white background restored."""
-        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
+        css_path = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -265,7 +265,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_primary_button_hover_effects(self):
         """Verify primary blue/celeste button has an illuminated hover effect and glow in light mode."""
-        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
+        css_path = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -275,7 +275,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_stepped_border_badges_light_mode_corners(self):
         """Verify tech capsules and Guía badges use stepped border bevel system with 1.5px inset in light mode."""
-        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
+        css_path = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -338,7 +338,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_hero_cursor_blink_calmed(self):
         """Verify the hero typewriter cursor blink rate is slowed down to 1s (calmed by ~0.2s from 0.8s)."""
-        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
+        css_path = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -347,7 +347,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_preloader_animation_and_fadeout_integrity(self):
         """Verify preloader fadeout transition, hidden styles, and progress animation logic."""
-        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
+        css_path = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
         ui_path = os.path.join(PUBLIC_DIR, "js", "modules", "ui.js")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
@@ -374,7 +374,7 @@ class TestDOMIntegrity(unittest.TestCase):
         """Verify the loading bar on the preloader screen has an outer wrapper casing container that encases the chassis and bar."""
         with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
+        css_path = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -482,7 +482,7 @@ class TestDOMIntegrity(unittest.TestCase):
         """Verify programmatic scroll flag suppresses thrashing during startAdventure and sprites have GPU acceleration."""
         with open(os.path.join(PUBLIC_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
             adv_code = f.read()
-        with open(os.path.join(PUBLIC_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+        with open(os.path.join(ROOT_DIR, "src", "styles", "styles.css"), "r", encoding="utf-8") as f:
             css_code = f.read()
 
         # 1. startAdventure sets isProgrammaticScroll = true to prevent scroll listener thrashing
@@ -499,7 +499,7 @@ class TestDOMIntegrity(unittest.TestCase):
         """Verify the companion, rail indicator and page shift animate with transform, never top/left layout."""
         with open(os.path.join(PUBLIC_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
             adv_code = f.read()
-        with open(os.path.join(PUBLIC_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+        with open(os.path.join(ROOT_DIR, "src", "styles", "styles.css"), "r", encoding="utf-8") as f:
             css_code = f.read()
 
         # 1. Walker and indicator move with translate3d, not the top property
@@ -524,7 +524,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_long_scrolls_avoid_per_frame_blur(self):
         """Verify long scrolls (e.g. a companion jump to the last section) don't re-blur the page every frame."""
-        with open(os.path.join(PUBLIC_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+        with open(os.path.join(ROOT_DIR, "src", "styles", "styles.css"), "r", encoding="utf-8") as f:
             css_code = f.read()
 
         # 1. The ~30 near-opaque cards and the fixed dialogue box have no backdrop blur

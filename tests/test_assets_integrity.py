@@ -12,7 +12,7 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 DIST_DIR = os.path.join(ROOT_DIR, "dist")
 INDEX_PATH = os.path.join(DIST_DIR, "index.html")
-CSS_PATH = os.path.join(PUBLIC_DIR, "css", "styles.css")
+CSS_PATH = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
 JS_DIR = os.path.join(PUBLIC_DIR, "js")
 
 
@@ -76,9 +76,9 @@ class TestAssetsIntegrity(unittest.TestCase):
             self.assertGreater(os.path.getsize(full_path), 0, f"Document file is empty: {doc}")
 
     def test_css_stylesheet_exists(self):
-        """Verify css/styles.css exists and is non-empty."""
-        self.assertTrue(os.path.exists(CSS_PATH), "css/styles.css does not exist")
-        self.assertGreater(os.path.getsize(CSS_PATH), 100, "css/styles.css is empty or too small")
+        """Verify src/styles/styles.css exists and is non-empty."""
+        self.assertTrue(os.path.exists(CSS_PATH), "src/styles/styles.css does not exist")
+        self.assertGreater(os.path.getsize(CSS_PATH), 100, "src/styles/styles.css is empty or too small")
 
     def test_all_character_sprites_exist(self):
         """Verify all essential adventure mode character pixel sprites exist."""

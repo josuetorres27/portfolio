@@ -1,5 +1,7 @@
 ---
-// Tailwind is compiled at build time from tailwind.config.mjs (it used to run from the Play CDN).
+// The retro, pixel and CRT styles come first and Tailwind (compiled from tailwind.config.mjs)
+// after them, the same cascade order the page had with the Play CDN.
+import '../styles/styles.css';
 import '../styles/tailwind.css';
 ---
 <!DOCTYPE html>
@@ -100,8 +102,6 @@ import '../styles/tailwind.css';
     window.__portfolioLoaderActive = true;
   </script>
 
-  <!-- Custom Retro, Pixel & CRT Aesthetic Styles -->
-  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
 
