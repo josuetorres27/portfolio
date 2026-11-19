@@ -91,7 +91,7 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 - **Procedural 8-Bit Audio Synthesis:** Real-time retro sound effects (blip, coin, jump, level-up, exit) synthesized on the fly using native Web Audio API oscillators, with zero external audio files or dependencies.
 - **Static Site Built with Astro:** One Astro component per section, Tailwind CSS compiled at build time, and the interactive features in vanilla ES6+ JavaScript modules, so the browser receives plain HTML, one stylesheet, and no framework runtime.
 - **Dual-Language Architecture (EN / ES):** Each language is pre-rendered as its own page, English at `/` and Spanish at `/es/`, with its own title, description, canonical address, and `hreflang` alternates. The language switch, the saved preference, and the `?lang=en|es` URL parameter take visitors to the matching page, and every `aria-label`, tooltip, and alt text is translated.
-- **Adaptive Theme Engine:** Dark and Light theme switching with custom retro color palettes, system preference detection, and smooth color transitions.
+- **Adaptive Theme Engine:** Dark and Light themes with custom retro color palettes, a remembered choice (dark by default), and a light mode built on soft cool-gray surfaces instead of pure white, so it is easy on the eyes.
 - **Cross-Platform Responsive and Accessible:** Optimized for devices ranging from mobile (360px – 414px) and tablet (768px – 834px) to widescreen desktop, adhering to semantic HTML, keyboard navigation, and WCAG contrast guidelines.
 - **Interactive Galleries and Lightbox:** Custom carousels and a full-screen image inspection modal with geolocation metadata and photography details. Cards load 1000 px copies from each photo folder's `thumbs/` and decode them asynchronously; the modal opens the full-resolution photo.
 
@@ -103,7 +103,7 @@ The repository includes an automated test suite of 330 tests, executed on Python
 
 - **Internationalization Suite (`tests/test_i18n.py`):** 267 tests validating symmetry across all 257 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` bindings on both pages.
 - **Localized Pages (`tests/test_localized_pages.py`):** 13 tests verifying that `/` and `/es/` each declare their language, title, description, canonical address, and `hreflang` alternates, render every translated element and attribute in that language, ship only that language to the scripts, link to each other from the language switch, and appear in the sitemap.
-- **DOM and Semantic Integrity (`tests/test_dom_integrity.py`):** 33 tests verifying HTML5 compliance, OpenGraph metadata, Twitter cards, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
+- **DOM and Semantic Integrity (`tests/test_dom_integrity.py`):** 33 tests verifying HTML5 compliance, OpenGraph metadata, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
 - **Assets Integrity (`tests/test_assets_integrity.py`):** 11 tests verifying that every image, sprite sheet, icon, PDF document, and modular script referenced across the codebase physically exists on disk with non-zero size.
 - **JavaScript Syntax and Scope Hygiene (`tests/test_js_syntax.py`):** 6 tests performing lexical scope tracking to prevent variable redeclaration collisions (e.g. duplicate `const`/`let`), delimiter balancing (`{}`, `[]`, `()`), and absence of debugger leftovers.
 
@@ -146,8 +146,7 @@ portfolio/
 ├── .github/
 │   └── workflows/
 │       ├── ci.yml                               # Builds the site and runs the test suite
-│       ├── pages.yml                            # Builds, tests and deploys dist/ to GitHub Pages
-│       └── deploy.yml                           # Coolify deployment webhook
+│       └── pages.yml                            # Builds, tests and deploys dist/ to GitHub Pages
 ├── public/                                      # Copied as is to the root of the built site
 │   ├── docs/
 │   │   ├── Josue_Torres_Sibaja_Resume.pdf                  # English Resume (PDF)
