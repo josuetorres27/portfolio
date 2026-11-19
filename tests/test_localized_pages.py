@@ -14,6 +14,7 @@ from html.parser import HTMLParser
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIST_DIR = os.path.join(ROOT_DIR, "dist")
+PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 SITE = "https://josuetorressibaja.com"
 
 PAGES = {
@@ -183,6 +184,14 @@ class TestLocalizedPages(unittest.TestCase):
                 self.assertIn(f'aria-label="{html.escape(aria, quote=True)}"', page)
             for tooltip in strings["adv_node_tooltips"]:
                 self.assertIn(html.escape(tooltip, quote=False), page)
+
+    def test_sitemap_lists_both_languages(self):
+        """Verify the sitemap lists / and /es/ with their hreflang alternates."""
+        with open(os.path.join(PUBLIC_DIR, "sitemap.xml"), "r", encoding="utf-8") as f:
+            sitemap = f.read()
+        for info in PAGES.values():
+            self.assertIn(f"<loc>{info['url']}</loc>", sitemap)
+        self.assertEqual(sitemap.count('hreflang="es"'), 2)
 
 
 if __name__ == "__main__":
