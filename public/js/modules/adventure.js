@@ -102,7 +102,7 @@
       advDialogueTimer = null;
     }
     if (avatarSprite) {
-      avatarSprite.src = './img/character-sprites/front.png';
+      avatarSprite.src = '/img/character-sprites/front.png';
     }
     var chars = buildDialogueTypewriter(dialogueTextEl, text);
     var idx = 0;
@@ -205,7 +205,7 @@
       var afkText = dict.adv_afk || '';
       var avatarSprite = document.getElementById('dialogue-avatar-sprite');
       if (avatarSprite) {
-        avatarSprite.src = './img/character-sprites/front.png';
+        avatarSprite.src = '/img/character-sprites/front.png';
         hopSprite(avatarSprite);
       }
       playSound('blip');
@@ -276,9 +276,9 @@
         }
 
         var isMovingUp = currentAdvLevel < previousAdvLevel;
-        var walkFrame1 = isMovingUp ? './img/character-sprites/back-walk-1.png' : './img/character-sprites/walk-1.png';
-        var walkFrame2 = isMovingUp ? './img/character-sprites/back-walk-2.png' : './img/character-sprites/walk-2.png';
-        var idleFrame = isMovingUp ? './img/character-sprites/back.png' : './img/character-sprites/idle.png';
+        var walkFrame1 = isMovingUp ? '/img/character-sprites/back-walk-1.png' : '/img/character-sprites/walk-1.png';
+        var walkFrame2 = isMovingUp ? '/img/character-sprites/back-walk-2.png' : '/img/character-sprites/walk-2.png';
+        var idleFrame = isMovingUp ? '/img/character-sprites/back.png' : '/img/character-sprites/idle.png';
 
         // First step lands on the same frame the glide starts, so the sprite never slides while standing still.
         var step = 1;
@@ -298,7 +298,7 @@
             if (isMovingUp) {
               walkerIdleTimeout = setTimeout(function () {
                 if (!walkerAnimInterval && walkerSprite) {
-                  walkerSprite.src = './img/character-sprites/idle.png';
+                  walkerSprite.src = '/img/character-sprites/idle.png';
                 }
               }, 220);
             }
@@ -358,7 +358,7 @@
       setRailOffset(indicator, 0);
       indicator.classList.add('opacity-0');
     }
-    if (walkerSprite) walkerSprite.src = './img/character-sprites/walk-1.png';
+    if (walkerSprite) walkerSprite.src = '/img/character-sprites/walk-1.png';
 
     if (heroImg) {
       heroImg.classList.remove('blur-0', 'scale-100', 'opacity-100');
@@ -375,7 +375,7 @@
     }
 
     if (portalSpriteWrap && portalSprite) {
-      portalSprite.src = './img/character-sprites/front.png';
+      portalSprite.src = '/img/character-sprites/front.png';
       portalSprite.style.transition = 'none';
       portalSprite.style.transform = 'translateY(0px) scale(1, 1)';
       portalSpriteWrap.classList.remove('opacity-0', 'hidden');
@@ -383,7 +383,7 @@
 
       later(function () {
         playSound('jump');
-        portalSprite.src = './img/character-sprites/jump.png';
+        portalSprite.src = '/img/character-sprites/jump.png';
         portalSprite.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
         portalSprite.style.transform = 'translateY(-48px)';
 
@@ -392,7 +392,7 @@
           portalSprite.style.transform = 'translateY(0px)';
 
           later(function () {
-            portalSprite.src = './img/character-sprites/front.png';
+            portalSprite.src = '/img/character-sprites/front.png';
             playSound('coin');
             portalSprite.style.transition = 'transform 0.18s ease-out';
             portalSprite.style.transform = 'scale(1.08, 0.92)';
@@ -407,10 +407,10 @@
 
               // Start on a walk frame right away so the sprite never slides while standing.
               var portalStep = 1;
-              portalSprite.src = './img/character-sprites/walk-1.png';
+              portalSprite.src = '/img/character-sprites/walk-1.png';
               var portalWalkInterval = every(function () {
                 portalStep++;
-                portalSprite.src = (portalStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
+                portalSprite.src = (portalStep % 2 === 1) ? '/img/character-sprites/walk-1.png' : '/img/character-sprites/walk-2.png';
               }, 120);
 
               later(function () {
@@ -469,7 +469,7 @@
 
                   walker.style.transition = 'none';
                   setRailOffset(walker, startTop);
-                  walkerSprite.src = './img/character-sprites/walk-1.png';
+                  walkerSprite.src = '/img/character-sprites/walk-1.png';
                   walker.classList.remove('opacity-0');
 
                   void walker.offsetHeight;
@@ -481,28 +481,28 @@
                   var railStep = 1;
                   var railWalkInterval = every(function () {
                     railStep++;
-                    walkerSprite.src = (railStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
+                    walkerSprite.src = (railStep % 2 === 1) ? '/img/character-sprites/walk-1.png' : '/img/character-sprites/walk-2.png';
                   }, 110);
 
                   later(function () {
                     clearInterval(railWalkInterval);
                     walker.style.transition = '';
-                    walkerSprite.src = './img/character-sprites/jump.png';
+                    walkerSprite.src = '/img/character-sprites/jump.png';
                     hopSprite(walkerSprite);
                     playSound('coin');
 
                     later(function () {
-                      walkerSprite.src = './img/character-sprites/idle.png';
+                      walkerSprite.src = '/img/character-sprites/idle.png';
                     }, 250);
 
                     if (indicator) indicator.classList.remove('opacity-0');
 
                     showDialogueBox();
                     if (avatarSprite) {
-                      avatarSprite.src = './img/character-sprites/jump.png';
+                      avatarSprite.src = '/img/character-sprites/jump.png';
                       hopSprite(avatarSprite);
                       later(function () {
-                        avatarSprite.src = './img/character-sprites/front.png';
+                        avatarSprite.src = '/img/character-sprites/front.png';
                       }, 450);
                     }
 
@@ -617,11 +617,11 @@
     }
     if (walkerSprite) {
       walkerSprite.classList.remove('animate-pixel-jump');
-      walkerSprite.src = './img/character-sprites/idle.png';
+      walkerSprite.src = '/img/character-sprites/idle.png';
     }
     if (avatarSprite) {
       avatarSprite.classList.remove('animate-pixel-jump');
-      avatarSprite.src = './img/character-sprites/front.png';
+      avatarSprite.src = '/img/character-sprites/front.png';
     }
 
     var railNodes = document.querySelectorAll('.rail-node');
@@ -710,10 +710,10 @@
         playSound('jump');
         if (avatarSprite) {
           avatarSprite.classList.add('animate-pixel-jump');
-          avatarSprite.src = './img/character-sprites/jump.png';
+          avatarSprite.src = '/img/character-sprites/jump.png';
           setTimeout(function () {
             avatarSprite.classList.remove('animate-pixel-jump');
-            avatarSprite.src = './img/character-sprites/front.png';
+            avatarSprite.src = '/img/character-sprites/front.png';
             isAvatarJumping = false;
           }, 500);
         } else {
@@ -838,10 +838,10 @@
         var walkerSprite = document.getElementById('rail-character-sprite');
         if (walkerSprite) {
           walkerSprite.classList.add('animate-pixel-jump');
-          walkerSprite.src = './img/character-sprites/jump.png';
+          walkerSprite.src = '/img/character-sprites/jump.png';
           setTimeout(function () {
             walkerSprite.classList.remove('animate-pixel-jump');
-            walkerSprite.src = './img/character-sprites/idle.png';
+            walkerSprite.src = '/img/character-sprites/idle.png';
             isWalkerJumping = false;
             railWalker.classList.remove('is-jumping');
           }, 500);

@@ -1,0 +1,179 @@
+---
+import { useTranslations } from '../../i18n/index.js';
+
+const t = useTranslations(Astro.currentLocale);
+---
+<!-- ================= TECHNICAL SKILLS ================= -->
+<section id="skills" class="py-12 md:py-16 border-t border-slate-800/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex items-center gap-3 mb-8">
+      <span class="h-px w-8 bg-brand-500"></span>
+      <h2 data-i18n="skills_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">{t.skills_section_tag}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Category 1: Languages -->
+      <div class="card-hover pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center min-w-0">
+              <span class="text-indigo-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/languages.sh</span>
+            </div>
+            <span class="font-pixel text-[8px] text-indigo-400 shrink-0 ml-2">[LANGUAGES]</span>
+          </div>
+          <div class="p-6">
+
+            <div class="flex items-center gap-3.5 mb-3.5">
+              <div class="w-10 h-10 shrink-0 flex items-center justify-center select-none">
+                <img src="/img/icons/code-brackets.png" alt="Programming Languages" class="w-full h-full object-cover pixelated select-none" />
+              </div>
+              <h3 data-i18n="skills_cat1_title" class="text-base font-bold text-white leading-snug">{t.skills_cat1_title}</h3>
+            </div>
+        <p data-i18n="skills_cat1_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">{t.skills_cat1_desc}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:divide-x md:divide-slate-800/80 lg:divide-x-0 text-sm">
+          <ul class="space-y-2.5 md:pr-8 lg:pr-0">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
+              <span class="text-slate-200">Python</span>
+              <span data-i18n="skill_py_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_py_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
+              <span class="text-slate-200">C++</span>
+              <span data-i18n="skill_cpp_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_cpp_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
+              <span class="text-slate-200">JavaScript</span>
+              <span data-i18n="skill_js_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_js_sub}</span>
+            </li>
+          </ul>
+          <ul class="space-y-2.5 md:pl-8 lg:pl-0 pt-2.5 md:pt-0">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
+              <span class="text-slate-200">TypeScript</span>
+              <span data-i18n="skill_ts_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_ts_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
+              <span class="text-slate-200">SQL</span>
+              <span data-i18n="skill_sql_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_sql_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b md:border-b-0 lg:border-b-0 border-slate-800/60 gap-4">
+              <span class="text-slate-200">Java</span>
+              <span data-i18n="skill_java_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_java_sub}</span>
+            </li>
+          </ul>
+        </div>
+      
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 2: CS Foundations -->
+      <div class="card-hover pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center min-w-0">
+              <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/algorithms.py</span>
+            </div>
+            <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[DSA & ARCH]</span>
+          </div>
+          <div class="p-6">
+
+            <div class="flex items-center gap-3.5 mb-3.5">
+              <div class="w-10 h-10 shrink-0 flex items-center justify-center select-none">
+                <img src="/img/icons/cs-fundamentals.png" alt="CS Fundamentals" class="w-full h-full object-cover pixelated select-none" />
+              </div>
+              <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white leading-snug">{t.skills_cat2_title}</h3>
+            </div>
+        <p data-i18n="skills_cat2_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">{t.skills_cat2_desc}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:divide-x md:divide-slate-800/80 lg:divide-x-0 text-sm">
+          <ul class="space-y-2.5 md:pr-8 lg:pr-0">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_ds_title" class="text-slate-200">{t.skill_ds_title}</span>
+              <span data-i18n="skill_ds_sub" class="text-xs text-cyan-400 font-mono">{t.skill_ds_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_bigo_title" class="text-slate-200">{t.skill_bigo_title}</span>
+              <span data-i18n="skill_bigo_sub" class="text-xs text-cyan-400 font-mono">{t.skill_bigo_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_search_title" class="text-slate-200">{t.skill_search_title}</span>
+              <span data-i18n="skill_search_sub" class="text-xs text-cyan-400 font-mono">{t.skill_search_sub}</span>
+            </li>
+          </ul>
+          <ul class="space-y-2.5 md:pl-8 lg:pl-0 pt-2.5 md:pt-0">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_patterns_title" class="text-slate-200">{t.skill_patterns_title}</span>
+              <span data-i18n="skill_patterns_sub" class="text-xs text-cyan-400 font-mono">{t.skill_patterns_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_solid_title" class="text-slate-200">{t.skill_solid_title}</span>
+              <span data-i18n="skill_solid_sub" class="text-xs text-cyan-400 font-mono">{t.skill_solid_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b md:border-b-0 lg:border-b-0 border-slate-800/60">
+              <span data-i18n="skill_algo_title" class="text-slate-200">{t.skill_algo_title}</span>
+              <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">{t.skill_algo_sub}</span>
+            </li>
+          </ul>
+        </div>
+      
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 3: Tools & Environment -->
+      <div class="card-hover pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center min-w-0">
+              <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/devops_ci.yml</span>
+            </div>
+            <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[DEV TOOLS]</span>
+          </div>
+          <div class="p-6">
+
+            <div class="flex items-center gap-3.5 mb-3.5">
+              <div class="w-10 h-10 shrink-0 flex items-center justify-center select-none">
+                <img src="/img/icons/terminal.png" alt="Tools & Environment" class="w-full h-full object-cover pixelated select-none" />
+              </div>
+              <h3 data-i18n="skills_cat3_title" class="text-base font-bold text-white leading-snug">{t.skills_cat3_title}</h3>
+            </div>
+        <p data-i18n="skills_cat3_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">{t.skills_cat3_desc}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:divide-x md:divide-slate-800/80 lg:divide-x-0 text-sm">
+          <ul class="space-y-2.5 md:pr-8 lg:pr-0">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_git_title" class="text-slate-200">{t.skill_git_title}</span>
+              <span data-i18n="skill_git_sub" class="text-xs text-emerald-400 font-mono">{t.skill_git_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_linux_title" class="text-slate-200">{t.skill_linux_title}</span>
+              <span data-i18n="skill_linux_sub" class="text-xs text-emerald-400 font-mono">{t.skill_linux_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_api_title" class="text-slate-200">{t.skill_api_title}</span>
+              <span data-i18n="skill_api_sub" class="text-xs text-emerald-400 font-mono">{t.skill_api_sub}</span>
+            </li>
+          </ul>
+          <ul class="space-y-2.5 md:pl-8 lg:pl-0 pt-2.5 md:pt-0">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_docker_title" class="text-slate-200">{t.skill_docker_title}</span>
+              <span data-i18n="skill_docker_sub" class="text-xs text-emerald-400 font-mono">{t.skill_docker_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_vscode_title" class="text-slate-200">{t.skill_vscode_title}</span>
+              <span data-i18n="skill_vscode_sub" class="text-xs text-emerald-400 font-mono">{t.skill_vscode_sub}</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b md:border-b-0 lg:border-b-0 border-slate-800/60">
+              <span data-i18n="skill_ci_title" class="text-slate-200">{t.skill_ci_title}</span>
+              <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">{t.skill_ci_sub}</span>
+            </li>
+          </ul>
+        </div>
+      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

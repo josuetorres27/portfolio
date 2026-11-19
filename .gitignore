@@ -22,3 +22,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+
+# Node & Astro build output
+node_modules/
+dist/
+.astro/

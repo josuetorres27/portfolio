@@ -1,0 +1,148 @@
+---
+// The page shell: <head>, the bundled styles and the scripts every page runs.
+// The retro, pixel and CRT styles come first and Tailwind (compiled from tailwind.config.mjs)
+// after them, the same cascade order the page had with the Play CDN.
+import '../styles/styles.css';
+import '../styles/tailwind.css';
+import { LANGUAGES, DEFAULT_LANGUAGE, getLanguage, localizedPath, useTranslations } from '../i18n/index.js';
+
+const lang = getLanguage(Astro.currentLocale);
+const t = useTranslations(lang);
+const site = 'https://josuetorressibaja.com';
+const pageUrl = new URL(localizedPath(lang), site).href;
+const ogLocales = { en: 'en_US', es: 'es_CR' };
+
+// The scripts read their strings from window.I18N; each page ships only its own language.
+// "<" is escaped so no string can close the <script> element early.
+const runtimeStrings = `window.I18N = ${JSON.stringify({ [lang]: t }).replace(/</g, '\\u003c')};`;
+---
+<!DOCTYPE html>
+<html lang={lang} class="dark scroll-smooth notranslate" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>{t.page_title}</title>
+  <meta name="description" content={t.meta_description}>
+  
+  <!-- Open Graph / SEO Site Name -->
+  <meta property="og:site_name" content="Josue Torres Sibaja">
+  <meta property="og:title" content={t.page_title}>
+  <meta property="og:description" content={t.meta_description}>
+  <link rel="canonical" href={pageUrl}>
+  <meta property="og:url" content={pageUrl}>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content={ogLocales[lang]}>
+  {LANGUAGES.filter((code) => code !== lang).map((code) => (
+    <meta property="og:locale:alternate" content={ogLocales[code]}>
+  ))}
+
+  <!-- The same page in each language -->
+  {LANGUAGES.map((code) => (
+    <link rel="alternate" hreflang={code} href={new URL(localizedPath(code), site).href}>
+  ))}
+  <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(DEFAULT_LANGUAGE), site).href}>
+
+  <!-- Schema.org Structured Data (Google Site Name & Person Entity) -->
+  <script is:inline type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Josue Torres Sibaja",
+        "alternateName": [
+          "Josué Torres Sibaja",
+          "Josue Torres"
+        ],
+        "url": "https://josuetorressibaja.com/"
+      },
+      {
+        "@type": "Person",
+        "name": "Josue Torres Sibaja",
+        "alternateName": [
+          "Josué Torres Sibaja",
+          "Josue Torres"
+        ],
+        "url": "https://josuetorressibaja.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/josue-torres-sibaja/",
+          "https://github.com/josuetorres27"
+        ],
+        "jobTitle": "Computer Science Graduating Senior",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Costa Rica",
+          "alternateName": "Universidad de Costa Rica"
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Official Pixel Art Favicon <J> -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+  
+  <!-- Preload Character Sprites for Butter-Smooth 60fps Adventure Mode Animations -->
+  <link rel="preload" as="image" href="/img/character-sprites/idle.png">
+  <link rel="preload" as="image" href="/img/character-sprites/front.png">
+  <link rel="preload" as="image" href="/img/character-sprites/jump.png">
+  <link rel="preload" as="image" href="/img/character-sprites/walk-1.png">
+  <link rel="preload" as="image" href="/img/character-sprites/walk-2.png">
+  <link rel="preload" as="image" href="/img/character-sprites/back.png">
+  <link rel="preload" as="image" href="/img/character-sprites/back-walk-1.png">
+  <link rel="preload" as="image" href="/img/character-sprites/back-walk-2.png">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  
+  <script is:inline>
+    // Theme initialization
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
+
+    // Each language has its own page: English at / and Spanish at /es/.
+    // A ?lang=en|es link wins over the saved preference, so a language can be shared by URL;
+    // either one sends the visitor to the matching page, otherwise this page's language is saved.
+    const pageLang = document.documentElement.lang;
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    const savedLang = localStorage.getItem('portfolio_lang');
+    const wantedLang = (urlLang === 'en' || urlLang === 'es') ? urlLang : savedLang;
+    if ((wantedLang === 'en' || wantedLang === 'es') && wantedLang !== pageLang) {
+      localStorage.setItem('portfolio_lang', wantedLang);
+      window.location.replace((wantedLang === 'es' ? '/es/' : '/') + window.location.hash);
+    } else {
+      localStorage.setItem('portfolio_lang', pageLang);
+    }
+    window.__portfolioLoaderActive = true;
+  </script>
+
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
+
+  <slot />
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script is:inline set:html={runtimeStrings}></script>
+  <script is:inline src="/js/modules/audio.js"></script>
+  <script is:inline src="/js/modules/theme.js"></script>
+  <script is:inline src="/js/modules/ui.js"></script>
+  <script is:inline src="/js/modules/i18n.js"></script>
+  <script is:inline src="/js/modules/lightbox.js"></script>
+  <script is:inline src="/js/modules/adventure.js"></script>
+  <script is:inline src="/js/main.js"></script>
+</body>
+</html>

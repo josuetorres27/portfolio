@@ -1,7 +1,7 @@
 /**
  * Portfolio Main Orchestrator & Application Bootstrap
  * Connects modular subsystem components into unified window.Portfolio namespace.
- * Ensures zero-build deployment compatibility with offline file:/// and GitHub Pages.
+ * Loaded as a plain script from public/js, after the page's strings (window.I18N) are in place.
  */
 
 (function () {

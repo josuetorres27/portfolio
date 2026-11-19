@@ -113,10 +113,10 @@
     var activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
 
     if (!soundEnabled) {
-      muteImg.src = isLight ? './img/icons/sound-off-light.png' : './img/icons/sound-off-dark.png';
+      muteImg.src = isLight ? '/img/icons/sound-off-light.png' : '/img/icons/sound-off-dark.png';
       muteImg.alt = activeLang === 'es' ? 'Sonido silenciado' : 'Sound muted';
     } else {
-      muteImg.src = isLight ? './img/icons/sound-on-light.png' : './img/icons/sound-on-dark.png';
+      muteImg.src = isLight ? '/img/icons/sound-on-light.png' : '/img/icons/sound-on-dark.png';
       muteImg.alt = activeLang === 'es' ? 'Sonido activado' : 'Sound active';
     }
   }

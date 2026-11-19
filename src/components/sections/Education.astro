@@ -1,0 +1,145 @@
+---
+import { useTranslations } from '../../i18n/index.js';
+
+const t = useTranslations(Astro.currentLocale);
+---
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="py-12 md:py-16 border-t border-slate-800/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="w-full mb-10">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="h-px w-8 bg-brand-500"></span>
+        <h2 data-i18n="education_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">{t.education_section_tag}</h2>
+      </div>
+      <h3 data-i18n="education_heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 text-balance">{t.education_heading}</h3>
+      <p data-i18n="education_sub" class="text-slate-300 text-base leading-relaxed">{t.education_sub}</p>
+    </div>
+
+    <!-- Education Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+
+      <!-- Degree 1: University of Costa Rica (UCR) -->
+      <article class="card-hover pixel-frame-outer pixel-corners-card h-full flex flex-col">
+        <div class="pixel-frame-inner pixel-corners-card flex-1 flex flex-col justify-between h-full">
+          <div class="terminal-header">
+            <div class="flex items-center min-w-0">
+              <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/ucr_computer_science.md</span>
+            </div>
+            <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[CS DEGREE]</span>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+
+      
+        <div>
+          <div class="edu-header-container flex items-start justify-between gap-4 mb-4 md:min-h-[4.75rem]">
+            <div class="flex items-start gap-3 flex-1 min-w-0">
+              <div class="w-11 h-11 shrink-0 flex items-center justify-center select-none mt-0.5">
+                <img src="/img/icons/graduation-cap.png" alt="Graduation Cap" class="w-full h-full object-cover pixelated select-none" />
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 data-i18n-html="edu_ucr_degree" class="text-base sm:text-lg font-bold text-white leading-snug"><Fragment set:html={t.edu_ucr_degree} /></h4>
+                <p data-i18n="edu_ucr_emphasis" class="text-xs text-brand-400 font-mono font-semibold mt-0.5">{t.edu_ucr_emphasis}</p>
+              </div>
+            </div>
+            <span data-i18n="edu_ucr_status" class="shrink-0 px-2.5 py-1 pixel-corners-btn text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/40">{t.edu_ucr_status}</span>
+          </div>
+
+          <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+            <span data-i18n="edu_ucr_institution" class="edu-meta-inst text-slate-200 font-semibold shrink-0">{t.edu_ucr_institution}</span>
+            <span class="edu-meta-divider font-mono text-slate-500 select-none self-center shrink-0 text-center" aria-hidden="true"><span class="edu-dot hidden sm:inline md:hidden xl:inline font-bold">·</span><span class="edu-pipe hidden md:inline xl:hidden text-xs opacity-75">|</span></span>
+            <span data-i18n-html="edu_ucr_dates" class="edu-meta-dates text-left md:text-right xl:text-left"><Fragment set:html={t.edu_ucr_dates} /></span>
+          </div>
+
+          <p data-i18n="edu_ucr_desc" class="edu-desc-container text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 pb-4 border-b border-slate-800/80 md:min-h-[5.75rem]">{t.edu_ucr_desc}</p>
+        </div>
+
+        <div>
+          <h5 data-i18n="edu_ucr_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-brand-400 font-bold mb-2">{t.edu_ucr_skills_title}</h5>
+          <div class="edu-skills-container grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Microsoft SQL Server</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Python</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">C++</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Java</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Data Structures & DSA</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Software Architecture</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Distributed Systems</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Scrum</span>
+          </div>
+          
+          <div class="edu-bottom-container mt-4 pt-3 border-t border-slate-800/80 flex items-center">
+            <span data-i18n="edu_ucr_level" class="text-[11px] text-brand-400 font-mono font-semibold">{t.edu_ucr_level}</span>
+          </div>
+        </div>
+      
+          </div>
+        </div>
+      </article>
+
+      <!-- Degree 2: National University of Costa Rica (UNA) -->
+      <article class="card-hover pixel-frame-outer pixel-corners-card h-full flex flex-col">
+        <div class="pixel-frame-inner pixel-corners-card flex-1 flex flex-col justify-between h-full">
+          <div class="terminal-header">
+            <div class="flex items-center min-w-0">
+              <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/una_english.md</span>
+            </div>
+            <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[LANG CERT]</span>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+
+      
+        <div>
+          <div class="edu-header-container flex items-start justify-between gap-4 mb-4 md:min-h-[4.75rem]">
+            <div class="flex items-start gap-3 flex-1 min-w-0">
+              <div class="w-11 h-11 shrink-0 flex items-center justify-center select-none mt-0.5">
+                <img src="/img/icons/chat-cyan.png" alt="Conversational English" class="w-full h-full object-cover pixelated select-none" />
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 data-i18n="edu_una_degree" class="text-base sm:text-lg font-bold text-white leading-snug">{t.edu_una_degree}</h4>
+                <p data-i18n="edu_una_hours" class="text-xs text-cyan-400 font-mono font-semibold mt-0.5">{t.edu_una_hours}</p>
+              </div>
+            </div>
+            <span data-i18n="edu_una_status" class="shrink-0 px-2.5 py-1 pixel-corners-btn text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/40">{t.edu_una_status}</span>
+          </div>
+
+          <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+            <span data-i18n="edu_una_institution" class="edu-meta-inst text-slate-200 font-semibold shrink-0">{t.edu_una_institution}</span>
+            <span class="edu-meta-divider font-mono text-slate-500 select-none self-center shrink-0 text-center" aria-hidden="true"><span class="edu-dot hidden sm:inline md:hidden xl:inline font-bold">·</span><span class="edu-pipe hidden md:inline xl:hidden text-xs opacity-75">|</span></span>
+            <span data-i18n-html="edu_una_dates" class="edu-meta-dates text-left md:text-center xl:text-left"><Fragment set:html={t.edu_una_dates} /></span>
+            <span class="edu-meta-divider font-mono text-slate-500 select-none self-center shrink-0 text-center" aria-hidden="true"><span class="edu-dot hidden sm:inline md:hidden xl:inline font-bold">·</span><span class="edu-pipe hidden md:inline xl:hidden text-xs opacity-75">|</span></span>
+            <span data-i18n-html="edu_una_cefr" class="edu-meta-cefr text-cyan-300 font-semibold shrink-0 text-left md:text-right xl:text-left"><Fragment set:html={t.edu_una_cefr} /></span>
+          </div>
+
+          <p data-i18n="edu_una_desc" class="edu-desc-container text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 pb-4 border-b border-slate-800/80 md:min-h-[5.75rem]">{t.edu_una_desc}</p>
+        </div>
+
+        <div>
+          <h5 data-i18n="edu_una_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-cyan-400 font-bold mb-2">{t.edu_una_skills_title}</h5>
+          <div class="edu-skills-container grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Oral Communication</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Listening Comprehension</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">English Writing</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">English Grammar</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Technical Reading</span>
+            <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Workplace Collaboration</span>
+          </div>
+          
+          <div class="edu-bottom-container mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3 flex-wrap">
+            <span data-i18n="edu_una_level" class="text-[11px] text-cyan-400 font-mono font-semibold">{t.edu_una_level}</span>
+            <a id="una-cert-link" href="/docs/Josue_Torres_Sibaja_English_Certificate_UNA.pdf" target="_blank" rel="noopener noreferrer" class="shrink-0 pixel-btn pixel-btn-secondary pixel-corners-btn px-3 py-1.5 text-xs font-semibold font-mono inline-flex items-center gap-2" title="Ver certificado oficial / View certificate">
+              <span data-i18n="edu_una_cert_btn">{t.edu_una_cert_btn}</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+        </div>
+      
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>

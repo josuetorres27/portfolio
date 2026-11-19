@@ -1,0 +1,49 @@
+---
+// The whole portfolio. Each language page (src/pages) renders it, and every component
+// picks its strings from the page's locale.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Preloader from './Preloader.astro';
+import PixelSprites from './PixelSprites.astro';
+import Navbar from './Navbar.astro';
+import Hero from './sections/Hero.astro';
+import About from './sections/About.astro';
+import Experience from './sections/Experience.astro';
+import Education from './sections/Education.astro';
+import Skills from './sections/Skills.astro';
+import Projects from './sections/Projects.astro';
+import Ai from './sections/Ai.astro';
+import Mindset from './sections/Mindset.astro';
+import Interests from './sections/Interests.astro';
+import Contact from './sections/Contact.astro';
+import Footer from './Footer.astro';
+import Lightbox from './Lightbox.astro';
+import AdventureMode from './AdventureMode.astro';
+---
+<BaseLayout>
+  <Preloader />
+
+  <PixelSprites />
+
+  <!-- Glow Background Effect -->
+  <div class="absolute top-0 left-0 right-0 h-[600px] radial-bg pointer-events-none -z-10"></div>
+
+  <!-- Main Page Content Stage Wrapper (Shifts during Adventure Mode) -->
+  <div id="adventure-stage-wrapper">
+    <Navbar />
+    <Hero />
+    <About />
+    <Experience />
+    <Education />
+    <Skills />
+    <Projects />
+    <Ai />
+    <Mindset />
+    <Interests />
+    <Contact />
+    <Footer />
+  </div><!-- /adventure-stage-wrapper -->
+
+  <Lightbox />
+
+  <AdventureMode />
+</BaseLayout>
