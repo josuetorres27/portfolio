@@ -257,13 +257,13 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertEqual(monograms[0].get("class"), "w-full h-full object-cover pixelated")
 
     def test_sun_button_light_background_restored(self):
-        """Verify the sun button in light mode has its clean white background restored."""
+        """Verify the sun button in light mode uses the light button surface, not the chassis gray."""
         css_path = os.path.join(ROOT_DIR, "src", "styles", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
         self.assertIn("html.light #theme-toggle-btn::before", css_code)
-        self.assertIn("background: #ffffff !important; /* Clean normal white button surface (restored from gray) */", css_code)
+        self.assertIn("background: var(--light-surface) !important; /* Same light surface as the other buttons (not the darker chassis gray) */", css_code)
 
     def test_primary_button_hover_effects(self):
         """Verify primary blue/celeste button has an illuminated hover effect and glow in light mode."""

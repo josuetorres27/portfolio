@@ -344,7 +344,7 @@
     html.light .pixel-corners-sm.hover\:border-emerald-500\/40::before,
     html.light .pixel-corners-sm.hover\:border-cyan-500\/40::before,
     html.light .pixel-corners-sm.hover\:border-amber-500\/40::before {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light .pixel-corners-sm.hover\:border-indigo-500\/40:hover {
       background: #6366f1 !important;
@@ -564,21 +564,35 @@
 
 
     /* Light Mode Theme Overrides */
+    /* Light surfaces are soft cool grays instead of pure white, so the theme is easy on the eyes.
+       They keep the old order: surface (cards) > soft (page) > muted > sunken. */
+    html.light {
+      --light-surface: #edf0f4;
+      --light-surface-rgb: 237, 240, 244;
+      --light-surface-soft: #e5e9ee;
+      --light-surface-soft-rgb: 229, 233, 238;
+      --light-surface-muted: #dce1e8;
+      --light-surface-sunken: #cfd6df;
+      --light-border: #cbd3dd;
+      --light-tint: #dce7f1;
+      --light-tint-cyan: #d9e9ec;
+      --light-tint-strong: #d0e2f0;
+    }
     html.light body {
-      background-color: #f8fafc !important;
+      background-color: var(--light-surface-soft) !important;
       color: #0f172a !important;
     }
     html.light .glass-nav {
-      background: rgba(255, 255, 255, 0.9) !important;
-      border-color: #e2e8f0 !important;
+      background: rgba(var(--light-surface-rgb), 0.9) !important;
+      border-color: var(--light-border) !important;
     }
     html.light .radial-bg {
-      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, rgba(248, 250, 252, 0) 70%) !important;
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, rgba(var(--light-surface-soft-rgb), 0) 70%) !important;
     }
     html.light .bg-slate-950,
     html.light .bg-slate-950\/80,
     html.light .bg-slate-950\/60 {
-      background-color: #f1f5f9 !important;
+      background-color: var(--light-surface-muted) !important;
     }
     html.light .bg-slate-900,
     html.light .bg-slate-900\/95,
@@ -586,7 +600,7 @@
     html.light .bg-slate-900\/70,
     html.light .bg-slate-900\/60,
     html.light .bg-slate-900\/30 {
-      background-color: #ffffff !important;
+      background-color: var(--light-surface) !important;
     }
     html.light .border-slate-800,
     html.light .border-slate-800\/90,
@@ -597,7 +611,7 @@
     html.light .border-slate-700,
     html.light .border-slate-700\/80,
     html.light .border-slate-700\/60 {
-      border-color: #e2e8f0 !important;
+      border-color: var(--light-border) !important;
     }
     html.light .text-white {
       color: #0f172a !important;
@@ -616,13 +630,13 @@
     html.light .bg-slate-800,
     html.light .bg-slate-800\/80,
     html.light .bg-slate-800\/60 {
-      background-color: #f8fafc !important;
+      background-color: var(--light-surface-soft) !important;
       color: #1e293b !important;
-      border-color: #e2e8f0 !important;
+      border-color: var(--light-border) !important;
     }
     html.light .hover\:bg-slate-800:hover,
     html.light .hover\:bg-slate-700:hover {
-      background-color: #e2e8f0 !important;
+      background-color: var(--light-surface-sunken) !important;
     }
     html.light .card-hover:hover {
       box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.35) !important;
@@ -630,12 +644,12 @@
 
     /* Light Mode Retro & Gaming Styles */
     html.light .retro-hud-box {
-      background: rgba(255, 255, 255, 0.95) !important;
+      background: rgba(var(--light-surface-rgb), 0.95) !important;
       border-color: #cbd5e1 !important;
       box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
     }
     html.light .retro-card {
-      background-color: #ffffff !important;
+      background-color: var(--light-surface) !important;
       border-color: #cbd5e1 !important;
       border-radius: 6px !important;
       box-shadow: 4px 4px 0px 0px #cbd5e1 !important;
@@ -667,11 +681,11 @@
       color: #ffffff !important;
     }
     html.light .pixel-frame-inner {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light .terminal-header {
-      background: #f8fafc !important;
-      border-bottom-color: #e2e8f0 !important;
+      background: var(--light-surface-soft) !important;
+      border-bottom-color: var(--light-border) !important;
       color: #64748b !important;
     }
     html.light .pixel-badge {
@@ -683,23 +697,23 @@
 
     /* Light Mode Adventure Mode (Companion & Rail) Overrides */
     html.light #adventure-rail-card {
-      background-color: rgba(255, 255, 255, 0.96) !important;
+      background-color: rgba(var(--light-surface-rgb), 0.96) !important;
       border-color: #cbd5e1 !important;
       box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.12), 0 0 0 1px #cbd5e1 !important;
     }
     html.light #adventure-rail-card .border-slate-800\/80 {
-      border-color: #e2e8f0 !important;
+      border-color: var(--light-border) !important;
     }
     html.light #adventure-rail-card span.text-brand-400 {
       color: #0284c7 !important;
     }
     html.light .rail-node:not(.bg-brand-600) {
-      background-color: #f8fafc !important;
+      background-color: var(--light-surface-soft) !important;
       border-color: #cbd5e1 !important;
       color: #475569 !important;
     }
     html.light .rail-node:not(.bg-brand-600):hover {
-      background-color: #f1f5f9 !important;
+      background-color: var(--light-surface-muted) !important;
       border-color: #0284c7 !important;
       color: #0f172a !important;
     }
@@ -739,7 +753,7 @@
       filter: drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.5));
     }
     html.light .rail-tooltip::before {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light #rail-exit-btn {
       color: #64748b !important;
@@ -772,7 +786,7 @@
       background-color: transparent !important;
     }
     html.light #hero-portal-overlay {
-      background-color: rgba(248, 250, 252, 0.88) !important;
+      background-color: rgba(var(--light-surface-soft-rgb), 0.88) !important;
       backdrop-filter: blur(8px) !important;
     }
     html.light #hero-portal-sprite {
@@ -792,7 +806,7 @@
       color: #94a3b8 !important;
     }
     html.light #adventure-dialogue-box .border-slate-800\/80 {
-      border-color: #e2e8f0 !important;
+      border-color: var(--light-border) !important;
     }
     /* Dynamic Theme Icons */
     .theme-icon-light {
@@ -808,7 +822,7 @@
       display: inline-block !important;
     }
     html.light #adventure-dialogue-box .bg-brand-500\/20 {
-      background-color: #e0f2fe !important;
+      background-color: var(--light-tint-strong) !important;
       color: #0284c7 !important;
       border-color: #bae6fd !important;
     }
@@ -878,12 +892,12 @@
     /* Badge & Tag Container Contrast in Light Mode */
     html.light .bg-brand-950\/60,
     html.light .bg-brand-500\/10 {
-      background-color: #f0f9ff !important;
+      background-color: var(--light-tint) !important;
       border-color: #bae6fd !important;
     }
     html.light .bg-blue-950\/60,
     html.light .bg-blue-500\/10 {
-      background-color: #eff6ff !important;
+      background-color: var(--light-tint) !important;
       border-color: #bfdbfe !important;
     }
     html.light .text-blue-400 {
@@ -893,7 +907,7 @@
     html.light .bg-cyan-950\/50,
     html.light .bg-cyan-500\/10,
     html.light .bg-cyan-500\/20 {
-      background-color: #ecfeff !important;
+      background-color: var(--light-tint-cyan) !important;
       border-color: #a5f3fc !important;
     }
 
@@ -923,7 +937,7 @@
       border-color: #99f6e4 !important;
     }
     html.light .bg-sky-950\/60 {
-      background-color: #f0f9ff !important;
+      background-color: var(--light-tint) !important;
       border-color: #bae6fd !important;
     }
     html.light .bg-purple-950\/60 {
@@ -943,10 +957,10 @@
 
     /* Fix Dark Island Sections in Light Mode (Selected Projects spotlight) */
     html.light #spotlight-project .pixel-frame-inner {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light #spotlight-project .bg-slate-800 {
-      background-color: #f1f5f9 !important;
+      background-color: var(--light-surface-muted) !important;
       color: #334155 !important;
       border-color: #cbd5e1 !important;
     }
@@ -1014,7 +1028,7 @@
       color: #94a3b8 !important;
     }
     html.light .nav-item-link:hover {
-      background-color: #e2e8f0 !important;
+      background-color: var(--light-surface-sunken) !important;
       color: #0f172a !important;
     }
 
@@ -1103,7 +1117,7 @@
       max-height: calc(85dvh - 80px);
     }
     html.light #image-lightbox-modal #lightbox-content-box {
-      background-color: #ffffff !important;
+      background-color: var(--light-surface) !important;
       box-shadow: inset 0 0 0 2px #0284c7, 4px 4px 0px 0px #cbd5e1 !important;
     }
 
@@ -1364,7 +1378,7 @@
       color: #334155 !important;
     }
     html.light .pixel-btn-secondary::before {
-      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+      background: linear-gradient(180deg, var(--light-surface) 0%, var(--light-surface-muted) 100%) !important;
     }
     html.light .pixel-btn-secondary:hover {
       background: #0284c7 !important; /* Stepped Sky Blue / Celeste Border on Hover */
@@ -1372,14 +1386,14 @@
       filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.35)) !important;
     }
     html.light .pixel-btn-secondary:hover::before {
-      background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+      background: linear-gradient(180deg, var(--light-tint) 0%, var(--light-tint-strong) 100%) !important;
     }
     html.light .pixel-btn-icon {
       background: #cbd5e1 !important;
       color: #475569 !important;
     }
     html.light .pixel-btn-icon::before {
-      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+      background: linear-gradient(180deg, var(--light-surface) 0%, var(--light-surface-muted) 100%) !important;
     }
     html.light .pixel-btn-icon:hover {
       background: #0284c7 !important; /* Stepped Sky Blue / Celeste Border on Hover */
@@ -1387,7 +1401,7 @@
       filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.35)) !important;
     }
     html.light .pixel-btn-icon:hover::before {
-      background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+      background: linear-gradient(180deg, var(--light-tint) 0%, var(--light-tint-strong) 100%) !important;
     }
 
     /* ================= TECH CAPSULES & BADGES STEPPED BORDERS ================= */
@@ -1427,7 +1441,7 @@
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
       clip-path: inherit !important;
       z-index: -1 !important;
       border: none !important;
@@ -1463,7 +1477,7 @@
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
       clip-path: inherit !important;
       z-index: -1 !important;
       border: none !important;
@@ -1471,7 +1485,7 @@
       -webkit-mask: none !important;
     }
     html.light #hero .pixel-corners-btn.border-emerald-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     /* 3. Cyan Badges (Guide / Guia, Python, Ethical Vodcast) */
@@ -1506,7 +1520,7 @@
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
       clip-path: inherit !important;
       z-index: -1 !important;
       border: none !important;
@@ -1515,7 +1529,7 @@
     }
     html.light #hero .pixel-corners-btn.border-cyan-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
     html.light #hero .pixel-corners-btn.border-cyan-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     /* 4. Indigo Badges (C++, Virtual Microscope) */
@@ -1550,7 +1564,7 @@
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
       clip-path: inherit !important;
       z-index: -1 !important;
       border: none !important;
@@ -1559,7 +1573,7 @@
     }
     html.light #hero .pixel-corners-btn.border-indigo-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
     html.light #hero .pixel-corners-btn.border-indigo-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     /* 5. Amber Badges (JavaScript) */
@@ -1594,7 +1608,7 @@
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
       clip-path: inherit !important;
       z-index: -1 !important;
       border: none !important;
@@ -1603,7 +1617,7 @@
     }
     html.light #hero .pixel-corners-btn.border-amber-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
     html.light #hero .pixel-corners-btn.border-amber-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     /* 6. Blue Badges (C# / .NET, Brand Badges) */
@@ -1638,7 +1652,7 @@
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
       clip-path: inherit !important;
       z-index: -1 !important;
       border: none !important;
@@ -1647,7 +1661,7 @@
     }
     html.light #hero .pixel-corners-btn.border-blue-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
     html.light #hero .pixel-corners-btn.border-brand-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     /* 7. Purple Badges (Online Learning Platform) */
@@ -1682,7 +1696,7 @@
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
       clip-path: inherit !important;
       z-index: -1 !important;
       border: none !important;
@@ -1691,7 +1705,7 @@
     }
     html.light #hero .pixel-corners-btn.border-purple-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
     html.light #hero .pixel-corners-btn.border-purple-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     /* Dialogue avatar button: standardized with map level buttons in dark & light mode */
@@ -1726,14 +1740,14 @@
       filter: none !important;
     }
     html.light #dialogue-avatar-btn::before {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light #dialogue-avatar-btn:hover {
       background: #0284c7 !important; /* Azulito on Hover matching map buttons (Light Mode) */
       filter: drop-shadow(0 0 10px rgba(2, 132, 199, 0.5)) !important;
     }
     html.light #dialogue-avatar-btn:hover::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     .rail-node {
@@ -1771,13 +1785,13 @@
       background: #cbd5e1 !important;
     }
     html.light .rail-node.bg-slate-900::before {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light .rail-node.bg-slate-900:hover {
       background: #0284c7 !important;
     }
     html.light .rail-node.bg-slate-900:hover::before {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
 
     /* Adventure Rail Exit Button Stepped Pixel Border System (Dark & Light Mode) */
@@ -1810,14 +1824,14 @@
       color: #475569 !important;
     }
     html.light #rail-exit-btn::before {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light #rail-exit-btn:hover {
       background: #0284c7 !important;
       filter: drop-shadow(0 0 10px rgba(2, 132, 199, 0.5)) !important;
     }
     html.light #rail-exit-btn:hover::before {
-      background: #f1f5f9 !important;
+      background: var(--light-surface-muted) !important;
     }
     /* Theme Toggle Icons (Pure CSS instant toggle without flash) */
     html.light .theme-icon-sun {
@@ -1885,7 +1899,7 @@
       display: block !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #f1f5f9 !important; /* Inner surface matches light navbar chassis */
+      background: var(--light-surface-muted) !important; /* Inner surface matches light navbar chassis */
       clip-path: inherit !important;
       z-index: -1 !important;
       transition: background 0.15s ease;
@@ -1896,7 +1910,7 @@
       display: block !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #ffffff !important; /* Clean normal white button surface (restored from gray) */
+      background: var(--light-surface) !important; /* Same light surface as the other buttons (not the darker chassis gray) */
       clip-path: inherit !important;
       z-index: -1 !important;
       transition: background 0.15s ease;
@@ -1908,7 +1922,7 @@
     }
     html.light #theme-toggle-btn:hover::before,
     html.light #theme-toggle-mobile:hover::before {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light #theme-toggle-btn:hover .theme-icon-sun,
     html.light #theme-toggle-mobile:hover .theme-icon-sun {
@@ -1936,7 +1950,7 @@
     }
     html.light .lang-switch-btn:not(.bg-brand-600):hover {
       color: #0f172a !important;
-      background-color: #e2e8f0 !important;
+      background-color: var(--light-surface-sunken) !important;
     }
     html.light .lang-switch-btn.bg-brand-600 {
       background-color: #0284c7 !important;
@@ -2036,7 +2050,7 @@
       filter: drop-shadow(0 0 16px rgba(2, 132, 199, 0.35)) drop-shadow(0 10px 25px rgba(15, 23, 42, 0.15)) !important;
     }
     html.light #adventure-dialogue-inner {
-      background: rgba(255, 255, 255, 0.98) !important;
+      background: rgba(var(--light-surface-rgb), 0.98) !important;
       color: #0f172a !important;
     }
 
@@ -2113,13 +2127,13 @@
       filter: drop-shadow(3px 3px 0px #cbd5e1) drop-shadow(0 10px 25px rgba(15, 23, 42, 0.1)) !important;
     }
     html.light #hero-cv-dropdown::before {
-      background: #ffffff !important;
+      background: var(--light-surface) !important;
     }
     html.light #hero-cv-dropdown a {
       color: #334155 !important;
     }
     html.light #hero-cv-dropdown a:hover {
-      background-color: #f1f5f9 !important;
+      background-color: var(--light-surface-muted) !important;
     }
     html.light #hero-cv-dropdown a .text-white {
       color: #0f172a !important;
@@ -2131,7 +2145,7 @@
       color: #64748b !important;
     }
     html.light #hero-cv-dropdown .border-t {
-      border-color: #e2e8f0 !important;
+      border-color: var(--light-border) !important;
     }
     #mobile-subnav .subnav-grid {
       display: grid;
@@ -2186,7 +2200,7 @@
       html.light #skills .md\:divide-x > :not([hidden]) ~ :not([hidden]),
       html.light #skills [class*="divide-"] > :not([hidden]) ~ :not([hidden]),
       html.light #skills [class*="divide-"] > * {
-        border-color: #e2e8f0 !important;
+        border-color: var(--light-border) !important;
       }
     }
 
@@ -2215,7 +2229,7 @@
       pointer-events: none !important;
     }
     html.light #portfolio-loader {
-      background: #f8fafc !important;
+      background: var(--light-surface-soft) !important;
     }
     html.light #portfolio-loader .font-pixel {
       color: #0284c7 !important;
@@ -2267,10 +2281,10 @@
       filter: drop-shadow(2px 2px 0px rgba(203, 213, 225, 0.8)) !important;
     }
     html.light #portfolio-loader .loader-progress-wrapper::before {
-      background: #ffffff !important; /* Clean light casing well */
+      background: var(--light-surface) !important; /* Clean light casing well */
     }
     html.light #portfolio-loader .loader-progress-chassis {
-      background: #e2e8f0 !important; /* Sunken light track */
+      background: var(--light-surface-sunken) !important; /* Sunken light track */
       border: 1px solid #cbd5e1 !important;
       box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
     }
@@ -2302,7 +2316,7 @@
       animation: skeleton-pulse 1.8s ease-in-out infinite;
     }
     html.light .photo-skeleton {
-      background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+      background: linear-gradient(90deg, var(--light-surface-muted) 0%, var(--light-surface-sunken) 50%, var(--light-surface-muted) 100%);
       background-size: 200% 100%;
     }
     @keyframes skeleton-pulse {
