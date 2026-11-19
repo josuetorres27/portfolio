@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
 
   <!-- Schema.org Structured Data (Google Site Name & Person Entity) -->
-  <script type="application/ld+json">
+  <script is:inline type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -76,8 +76,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+  <script is:inline src="https://cdn.tailwindcss.com"></script>
+  <script is:inline>
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -111,7 +111,7 @@
     }
   </script>
 
-  <script>
+  <script is:inline>
     // Theme & Language initialization
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
@@ -168,7 +168,7 @@
     </div>
   </div>
 
-  <script>
+  <script is:inline>
     // Synchronize preloader language immediately from saved preference (zero language flash)
     (function () {
       var savedLang = localStorage.getItem('portfolio_lang') || document.documentElement.lang || 'en';
@@ -2282,13 +2282,13 @@
   </div>
 
   <!-- ================= JAVASCRIPT ================= -->
-  <script src="js/translations.js"></script>
-  <script src="js/modules/audio.js"></script>
-  <script src="js/modules/theme.js"></script>
-  <script src="js/modules/ui.js"></script>
-  <script src="js/modules/i18n.js"></script>
-  <script src="js/modules/lightbox.js"></script>
-  <script src="js/modules/adventure.js"></script>
-  <script src="js/main.js"></script>
+  <script is:inline src="js/translations.js"></script>
+  <script is:inline src="js/modules/audio.js"></script>
+  <script is:inline src="js/modules/theme.js"></script>
+  <script is:inline src="js/modules/ui.js"></script>
+  <script is:inline src="js/modules/i18n.js"></script>
+  <script is:inline src="js/modules/lightbox.js"></script>
+  <script is:inline src="js/modules/adventure.js"></script>
+  <script is:inline src="js/main.js"></script>
 </body>
 </html>

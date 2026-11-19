@@ -9,9 +9,11 @@ import re
 import unittest
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-INDEX_PATH = os.path.join(ROOT_DIR, "index.html")
-CSS_PATH = os.path.join(ROOT_DIR, "css", "styles.css")
-JS_DIR = os.path.join(ROOT_DIR, "js")
+PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
+DIST_DIR = os.path.join(ROOT_DIR, "dist")
+INDEX_PATH = os.path.join(DIST_DIR, "index.html")
+CSS_PATH = os.path.join(PUBLIC_DIR, "css", "styles.css")
+JS_DIR = os.path.join(PUBLIC_DIR, "js")
 
 
 class TestAssetsIntegrity(unittest.TestCase):
@@ -35,14 +37,14 @@ class TestAssetsIntegrity(unittest.TestCase):
     def _resolve_path(self, relative_path):
         clean = relative_path.strip().lstrip("./").replace("/", os.sep)
         clean = clean.split("?")[0].split("#")[0]
-        return os.path.join(ROOT_DIR, clean)
+        return os.path.join(PUBLIC_DIR, clean)
 
     def test_favicon_exists(self):
         """Verify root favicon.ico exists, img/icons/favicon.png exists, and other duplicates are removed."""
-        ico_path = os.path.join(ROOT_DIR, "favicon.ico")
-        icons_png_path = os.path.join(ROOT_DIR, "img", "icons", "favicon.png")
-        img_png_path = os.path.join(ROOT_DIR, "img", "favicon.png")
-        root_png_path = os.path.join(ROOT_DIR, "favicon.png")
+        ico_path = os.path.join(PUBLIC_DIR, "favicon.ico")
+        icons_png_path = os.path.join(PUBLIC_DIR, "img", "icons", "favicon.png")
+        img_png_path = os.path.join(PUBLIC_DIR, "img", "favicon.png")
+        root_png_path = os.path.join(PUBLIC_DIR, "favicon.png")
 
         self.assertTrue(os.path.exists(ico_path), "favicon.ico missing from root")
         self.assertGreater(os.path.getsize(ico_path), 0, "favicon.ico in root is empty")
@@ -90,7 +92,7 @@ class TestAssetsIntegrity(unittest.TestCase):
             "back-walk-1.png",
             "back-walk-2.png",
         ]
-        sprites_dir = os.path.join(ROOT_DIR, "img", "character-sprites")
+        sprites_dir = os.path.join(PUBLIC_DIR, "img", "character-sprites")
         self.assertTrue(os.path.isdir(sprites_dir), "img/character-sprites directory does not exist")
 
         for sprite in required_sprites:
@@ -106,7 +108,7 @@ class TestAssetsIntegrity(unittest.TestCase):
             "sound-off-dark.png",
             "sound-off-light.png",
         ]
-        icons_dir = os.path.join(ROOT_DIR, "img", "icons")
+        icons_dir = os.path.join(PUBLIC_DIR, "img", "icons")
         self.assertTrue(os.path.isdir(icons_dir), "img/icons directory does not exist")
 
         for icon in sound_icons:
@@ -119,7 +121,7 @@ class TestAssetsIntegrity(unittest.TestCase):
         import json
         import struct
 
-        with open(os.path.join(ROOT_DIR, "favicon.ico"), "rb") as f:
+        with open(os.path.join(PUBLIC_DIR, "favicon.ico"), "rb") as f:
             _, kind, count = struct.unpack("<HHH", f.read(6))
             self.assertEqual(kind, 1, "favicon.ico is not an icon file")
             sizes = set()
@@ -130,27 +132,27 @@ class TestAssetsIntegrity(unittest.TestCase):
         for size in [(48, 48), (96, 96), (144, 144), (192, 192)]:
             self.assertIn(size, sizes, f"favicon.ico lacks the {size[0]}x{size[1]} frame")
 
-        with open(os.path.join(ROOT_DIR, "favicon.svg"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "favicon.svg"), "r", encoding="utf-8") as f:
             self.assertIn("<svg", f.read(), "favicon.svg is not an SVG")
 
-        with open(os.path.join(ROOT_DIR, "apple-touch-icon.png"), "rb") as f:
+        with open(os.path.join(PUBLIC_DIR, "apple-touch-icon.png"), "rb") as f:
             head = f.read(24)
         self.assertEqual(head[:8], b"\x89PNG\r\n\x1a\n", "apple-touch-icon.png is not a PNG")
         self.assertEqual(struct.unpack(">II", head[16:24]), (180, 180), "apple-touch-icon.png must be 180x180")
 
-        with open(os.path.join(ROOT_DIR, "site.webmanifest"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "site.webmanifest"), "r", encoding="utf-8") as f:
             manifest = json.load(f)
         for icon in manifest["icons"]:
             self.assertTrue(os.path.exists(self._resolve_path("." + icon["src"])), f"Manifest icon missing: {icon['src']}")
 
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             html = f.read()
         for needle in ['href="/favicon.ico"', 'href="/favicon.svg"', 'href="/apple-touch-icon.png"', 'href="/site.webmanifest"', 'name="theme-color"']:
             self.assertIn(needle, html, f"index.html does not declare {needle}")
 
     def test_photography_photos_exist(self):
         """Verify that all photography gallery images exist and are non-empty."""
-        photo_dir = os.path.join(ROOT_DIR, "img", "photography")
+        photo_dir = os.path.join(PUBLIC_DIR, "img", "photography")
         self.assertTrue(os.path.isdir(photo_dir), "img/photography directory does not exist")
 
         photos = [f for f in os.listdir(photo_dir) if f.lower().endswith((".webp", ".jpg", ".jpeg", ".png"))]
@@ -163,7 +165,7 @@ class TestAssetsIntegrity(unittest.TestCase):
     def test_experience_and_handicraft_images_exist(self):
         """Verify that experience and handicrafts photo directories exist with valid images."""
         for sub in ["experience", "handicrafts"]:
-            d = os.path.join(ROOT_DIR, "img", sub)
+            d = os.path.join(PUBLIC_DIR, "img", sub)
             self.assertTrue(os.path.isdir(d), f"img/{sub} directory does not exist")
             files = [f for f in os.listdir(d) if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))]
             self.assertGreaterEqual(len(files), 1, f"img/{sub} has no images")
@@ -192,7 +194,7 @@ class TestAssetsIntegrity(unittest.TestCase):
             os.path.join("js", "main.js"),
         ]
         for rel in expected_modules:
-            full = os.path.join(ROOT_DIR, rel)
+            full = os.path.join(PUBLIC_DIR, rel)
             self.assertTrue(os.path.exists(full), f"Modular JS file missing: {rel}")
             self.assertGreater(os.path.getsize(full), 50, f"Modular JS file is too small or empty: {rel}")
 

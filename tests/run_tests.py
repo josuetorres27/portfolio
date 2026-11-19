@@ -10,9 +10,15 @@ import unittest
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TESTS_DIR = os.path.join(ROOT_DIR, "tests")
+DIST_INDEX = os.path.join(ROOT_DIR, "dist", "index.html")
 
 
 def run_all_tests():
+    # The page tests read the built site, so it has to exist first.
+    if not os.path.exists(DIST_INDEX):
+        print("dist/index.html not found: run `npm run build` before the tests.")
+        sys.exit(1)
+
     start_time = time.time()
 
     loader = unittest.TestLoader()

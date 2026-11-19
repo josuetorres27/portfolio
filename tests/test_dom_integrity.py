@@ -11,7 +11,9 @@ import unittest
 from html.parser import HTMLParser
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-INDEX_PATH = os.path.join(ROOT_DIR, "index.html")
+PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
+DIST_DIR = os.path.join(ROOT_DIR, "dist")
+INDEX_PATH = os.path.join(DIST_DIR, "index.html")
 
 
 class TagCollector(HTMLParser):
@@ -208,9 +210,9 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_audio_suppressed_during_preloader(self):
         """Verify audio system and UI preloader cooperate to maintain 100% silence during loading."""
-        audio_path = os.path.join(ROOT_DIR, "js", "modules", "audio.js")
-        ui_path = os.path.join(ROOT_DIR, "js", "modules", "ui.js")
-        index_path = os.path.join(ROOT_DIR, "index.html")
+        audio_path = os.path.join(PUBLIC_DIR, "js", "modules", "audio.js")
+        ui_path = os.path.join(PUBLIC_DIR, "js", "modules", "ui.js")
+        index_path = os.path.join(DIST_DIR, "index.html")
 
         with open(audio_path, "r", encoding="utf-8") as f:
             audio_code = f.read()
@@ -230,7 +232,7 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("__portfolioLoaderActive = false", ui_code)
 
         # Adventure dialogue & UI updates do not run or play speaking blips when adventure mode is not active
-        adv_path = os.path.join(ROOT_DIR, "js", "modules", "adventure.js")
+        adv_path = os.path.join(PUBLIC_DIR, "js", "modules", "adventure.js")
         with open(adv_path, "r", encoding="utf-8") as f:
             adv_code = f.read()
         self.assertIn("function typeAdventureDialogue(text, onComplete) {\n    if (!isAdventureActive) return;", adv_code)
@@ -238,7 +240,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_pulsing_badges_have_no_text_shadow(self):
         """Verify that pulsing dot status/project badges have no inline filter: drop-shadow creating duplicate letters."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
 
         # Find all divs containing animate-pulse dots
@@ -247,13 +249,14 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_navbar_monogram_icon_source(self):
         """Verify the navbar monogram icon references ./img/icons/favicon.png."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
-            index_code = f.read()
-        self.assertIn('<img src="./img/icons/favicon.png" alt="Josue" class="w-full h-full object-cover pixelated" />', index_code)
+        monograms = [img for img in self.collector.images if img.get("alt") == "Josue"]
+        self.assertEqual(len(monograms), 1, "Expected exactly one navbar monogram image")
+        self.assertEqual(monograms[0].get("src"), "./img/icons/favicon.png")
+        self.assertEqual(monograms[0].get("class"), "w-full h-full object-cover pixelated")
 
     def test_sun_button_light_background_restored(self):
         """Verify the sun button in light mode has its clean white background restored."""
-        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -262,7 +265,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_primary_button_hover_effects(self):
         """Verify primary blue/celeste button has an illuminated hover effect and glow in light mode."""
-        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -272,7 +275,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_stepped_border_badges_light_mode_corners(self):
         """Verify tech capsules and Guía badges use stepped border bevel system with 1.5px inset in light mode."""
-        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -286,9 +289,9 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_hero_bio_has_period_with_nowrap_protection(self):
         """Verify hero bio has the final period (.) in both EN and ES, protected by whitespace-nowrap with C# / .NET so it never orphans alone."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        with open(os.path.join(ROOT_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
             trans_code = f.read()
 
         # Protected structure: whitespace-nowrap wrapper around badge and period
@@ -300,9 +303,9 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_loader_init_text_has_no_brackets(self):
         """Verify the preloader initialization status text has no enclosing brackets [] in HTML and translations."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        with open(os.path.join(ROOT_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
             trans_code = f.read()
 
         # In index.html
@@ -318,7 +321,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_hero_mobile_spacing_compact(self):
         """Verify hero section does not have excessive empty space (pt-20) on mobile between subnav and status badge."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
 
         hero_section_match = re.search(r'<section id="hero" class="([^"]+)"', index_code)
@@ -335,7 +338,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_hero_cursor_blink_calmed(self):
         """Verify the hero typewriter cursor blink rate is slowed down to 1s (calmed by ~0.2s from 0.8s)."""
-        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -344,8 +347,8 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_preloader_animation_and_fadeout_integrity(self):
         """Verify preloader fadeout transition, hidden styles, and progress animation logic."""
-        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
-        ui_path = os.path.join(ROOT_DIR, "js", "modules", "ui.js")
+        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
+        ui_path = os.path.join(PUBLIC_DIR, "js", "modules", "ui.js")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
         with open(ui_path, "r", encoding="utf-8") as f:
@@ -369,9 +372,9 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_loader_progress_bar_wrapper_container(self):
         """Verify the loading bar on the preloader screen has an outer wrapper casing container that encases the chassis and bar."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        css_path = os.path.join(PUBLIC_DIR, "css", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
@@ -392,13 +395,13 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_preloader_bilingual_full_implementation(self):
         """Verify preloader is fully implemented in both languages without language bleed or hardcoded Spanish leaks."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        with open(os.path.join(ROOT_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
             trans_code = f.read()
-        with open(os.path.join(ROOT_DIR, "js", "modules", "i18n.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "modules", "i18n.js"), "r", encoding="utf-8") as f:
             i18n_code = f.read()
-        with open(os.path.join(ROOT_DIR, "js", "main.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "main.js"), "r", encoding="utf-8") as f:
             main_code = f.read()
 
         # 1. Default index.html preloader is 100% English (matches site default lang="en")
@@ -438,9 +441,9 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_character_sprites_preloading_and_dom_cache(self):
         """Verify all 8 character sprites are preloaded in head, pre-cached in DOM, and decoded in preloader."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        with open(os.path.join(ROOT_DIR, "js", "modules", "ui.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "modules", "ui.js"), "r", encoding="utf-8") as f:
             ui_code = f.read()
 
         sprites = [
@@ -477,9 +480,9 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_adventure_smooth_scroll_and_gpu_acceleration(self):
         """Verify programmatic scroll flag suppresses thrashing during startAdventure and sprites have GPU acceleration."""
-        with open(os.path.join(ROOT_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
             adv_code = f.read()
-        with open(os.path.join(ROOT_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
             css_code = f.read()
 
         # 1. startAdventure sets isProgrammaticScroll = true to prevent scroll listener thrashing
@@ -494,9 +497,9 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_adventure_motion_stays_on_compositor(self):
         """Verify the companion, rail indicator and page shift animate with transform, never top/left layout."""
-        with open(os.path.join(ROOT_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
             adv_code = f.read()
-        with open(os.path.join(ROOT_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
             css_code = f.read()
 
         # 1. Walker and indicator move with translate3d, not the top property
@@ -521,7 +524,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_long_scrolls_avoid_per_frame_blur(self):
         """Verify long scrolls (e.g. a companion jump to the last section) don't re-blur the page every frame."""
-        with open(os.path.join(ROOT_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
             css_code = f.read()
 
         # 1. The ~30 near-opaque cards and the fixed dialogue box have no backdrop blur
@@ -537,7 +540,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_adventure_intro_cancelled_on_close(self):
         """Verify the intro timers are tied to a session so closing mid-intro never revives the rail or dialogue."""
-        with open(os.path.join(ROOT_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
+        with open(os.path.join(PUBLIC_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
             adv_code = f.read()
 
         self.assertIn("function later(", adv_code)
@@ -554,7 +557,7 @@ class TestDOMIntegrity(unittest.TestCase):
 
     def test_language_url_parameter_support(self):
         """Verify ?lang=en|es is honored before the saved preference is read."""
-        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
 
         head_code = index_code.split("</head>")[0]

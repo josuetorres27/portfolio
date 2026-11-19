@@ -9,7 +9,8 @@ import re
 import unittest
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-JS_DIR = os.path.join(ROOT_DIR, "js")
+PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
+JS_DIR = os.path.join(PUBLIC_DIR, "js")
 
 
 def strip_js_comments_and_strings(code):
@@ -87,7 +88,7 @@ class TestJSSyntax(unittest.TestCase):
             for file in files:
                 if file.endswith(".js"):
                     full_path = os.path.join(root, file)
-                    rel_path = os.path.relpath(full_path, ROOT_DIR)
+                    rel_path = os.path.relpath(full_path, PUBLIC_DIR)
                     with open(full_path, "rb") as f:
                         raw = f.read()
                     cls.js_files[rel_path] = raw

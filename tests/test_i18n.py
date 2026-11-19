@@ -9,8 +9,10 @@ import re
 import unittest
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TRANSLATIONS_PATH = os.path.join(ROOT_DIR, "js", "translations.js")
-INDEX_PATH = os.path.join(ROOT_DIR, "index.html")
+PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
+DIST_DIR = os.path.join(ROOT_DIR, "dist")
+TRANSLATIONS_PATH = os.path.join(PUBLIC_DIR, "js", "translations.js")
+INDEX_PATH = os.path.join(DIST_DIR, "index.html")
 
 
 def extract_translation_keys_and_dicts():
