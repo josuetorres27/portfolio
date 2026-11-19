@@ -1,11 +1,12 @@
 # Josue Torres Sibaja — Software Engineering Portfolio
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorressibaja.com-3b82f6?style=flat-square&logo=google-chrome&logoColor=white)](https://josuetorressibaja.com/)
+[![Astro](https://img.shields.io/badge/Astro-bc52ee?style=flat-square&logo=astro&logoColor=white)](https://astro.build/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#features)
 [![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#features)
 [![CI Test Suite](https://img.shields.io/github/actions/workflow/status/josuetorres27/portfolio/ci.yml?style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/josuetorres27/portfolio/actions/workflows/ci.yml)
-[![Automated Tests](https://img.shields.io/badge/Tests-313%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
+[![Automated Tests](https://img.shields.io/badge/Tests-330%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
 [![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorressibaja.com/)
 
 This repository contains the source of a personal software engineering portfolio. The website presents academic background, featured software engineering projects, production experience in Information Technology infrastructure and web administration, applied AI workflows, and personal interests, in a custom retro gaming and terminal style.
@@ -88,8 +89,8 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 
 - **Retro Gaming Aesthetic and Interactive Adventure Mode:** Custom stepped pixel-art frames, arcade CRT/terminal window headers, quest tags, and an interactive pixel companion with animated checkpoints, responsive dialogue engine, and smooth section navigation.
 - **Procedural 8-Bit Audio Synthesis:** Real-time retro sound effects (blip, coin, jump, level-up, exit) synthesized on the fly using native Web Audio API oscillators, with zero external audio files or dependencies.
-- **Zero-Build Static Site:** Built with clean HTML5, Tailwind CSS, and vanilla ES6+ JavaScript, with zero framework bundle overhead.
-- **Dual-Language Architecture (EN / ES):** Complete client-side internationalization system (`I18N`) with persistent language preference, `?lang=en|es` URL parameter support, and translated `aria-label` and tooltip bindings.
+- **Static Site Built with Astro:** One Astro component per section, Tailwind CSS compiled at build time, and the interactive features in vanilla ES6+ JavaScript modules, so the browser receives plain HTML, one stylesheet, and no framework runtime.
+- **Dual-Language Architecture (EN / ES):** Each language is pre-rendered as its own page, English at `/` and Spanish at `/es/`, with its own title, description, canonical address, and `hreflang` alternates. The language switch, the saved preference, and the `?lang=en|es` URL parameter take visitors to the matching page, and every `aria-label`, tooltip, and alt text is translated.
 - **Adaptive Theme Engine:** Dark and Light theme switching with custom retro color palettes, system preference detection, and smooth color transitions.
 - **Cross-Platform Responsive and Accessible:** Optimized for devices ranging from mobile (360px – 414px) and tablet (768px – 834px) to widescreen desktop, adhering to semantic HTML, keyboard navigation, and WCAG contrast guidelines.
 - **Interactive Galleries and Lightbox:** Custom carousels and a full-screen image inspection modal with geolocation metadata and photography details. Cards load 1000 px copies from each photo folder's `thumbs/` and decode them asynchronously; the modal opens the full-resolution photo.
@@ -98,28 +99,43 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 
 ## Testing
 
-The repository includes an automated test suite of 313 tests, executed on Python 3.12+ and integrated into GitHub Actions CI, so that no component or translation breaks silently:
+The repository includes an automated test suite of 330 tests, executed on Python 3.12+ against the built site and integrated into GitHub Actions CI, so that no component or translation breaks silently:
 
-- **Internationalization Suite (`tests/test_i18n.py`):** 263 tests validating symmetry across all 253 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` DOM bindings.
+- **Internationalization Suite (`tests/test_i18n.py`):** 267 tests validating symmetry across all 257 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` bindings on both pages.
+- **Localized Pages (`tests/test_localized_pages.py`):** 13 tests verifying that `/` and `/es/` each declare their language, title, description, canonical address, and `hreflang` alternates, render every translated element and attribute in that language, ship only that language to the scripts, link to each other from the language switch, and appear in the sitemap.
 - **DOM and Semantic Integrity (`tests/test_dom_integrity.py`):** 33 tests verifying HTML5 compliance, OpenGraph metadata, Twitter cards, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
 - **Assets Integrity (`tests/test_assets_integrity.py`):** 11 tests verifying that every image, sprite sheet, icon, PDF document, and modular script referenced across the codebase physically exists on disk with non-zero size.
 - **JavaScript Syntax and Scope Hygiene (`tests/test_js_syntax.py`):** 6 tests performing lexical scope tracking to prevent variable redeclaration collisions (e.g. duplicate `const`/`let`), delimiter balancing (`{}`, `[]`, `()`), and absence of debugger leftovers.
 
-Run the suite locally:
+Build the site, then run the suite locally:
 
 ```bash
+npm run build
 python tests/run_tests.py
+```
+
+---
+
+## Local Development
+
+The site needs Node.js 22.23.4 or newer (CI uses Node.js 26) and Python 3.12+ for the tests:
+
+```bash
+npm install        # Install Astro, Tailwind CSS and PostCSS
+npm run dev        # Start the dev server at http://localhost:4321 (Spanish at /es/)
+npm run build      # Write the static site to dist/
+npm run preview    # Serve dist/ locally
 ```
 
 ---
 
 ## Hosting & Deployment
 
-The site is fully static (no build step), so every push to `main` goes live without a bundler:
+The site is fully static: Astro builds it into `dist/`, and every push to `main` publishes that folder:
 
-- **Primary:** [josuetorressibaja.com](https://josuetorressibaja.com) on GitHub Pages, with HTTPS enforced and DNS managed on Cloudflare (`www` redirects to the apex domain).
-- **Search Engines:** The page declares `josuetorressibaja.com` as its canonical address and publishes a `sitemap.xml` and `robots.txt` for it.
-- **Quality Gate:** `ci.yml` runs the full test suite on every push and pull request.
+- **Primary:** [josuetorressibaja.com](https://josuetorressibaja.com) on GitHub Pages, with HTTPS enforced and DNS managed on Cloudflare (`www` redirects to the apex domain). `pages.yml` builds the site, runs the test suite, and deploys `dist/`.
+- **Search Engines:** Each page declares its own canonical address (`/` and `/es/`) with `hreflang` alternates, and the site publishes a `sitemap.xml` listing both languages and a `robots.txt`.
+- **Quality Gate:** `ci.yml` builds the site and runs the full test suite on every push and pull request.
 
 ---
 
@@ -129,44 +145,67 @@ The site is fully static (no build step), so every push to `main` goes live with
 portfolio/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml                               # GitHub Actions automated test runner
-├── css/
-│   └── styles.css                               # Custom retro, CRT scanlines & pixel styling
-├── docs/
-│   ├── Josue_Torres_Sibaja_Resume.pdf                  # English Resume (PDF)
-│   ├── Josue_Torres_Sibaja_CV.pdf                      # Spanish Curriculum Vitae (PDF)
-│   └── Josue_Torres_Sibaja_English_Certificate_UNA.pdf # UNA Conversational English Certificate (PDF)
-├── img/
-│   ├── portfolio.jpeg                           # Professional profile photograph
-│   ├── icons/                                   # Custom retro pixel-art icon suite (favicon.png is the navbar copy of favicon.ico)
-│   ├── character-sprites/                       # Pixel companion animation sprite sheets
-│   ├── experience/                              # Workplace & Information Technology operations photographic evidence
-│   ├── handicrafts/                             # Foamy clay sculpting & TCU workshop creations
-│   └── photography/                             # Costa Rica landscape & nature gallery
-├── js/
-│   ├── modules/
-│   │   ├── audio.js                             # Native Web Audio API 8-bit retro sound synthesizer
-│   │   ├── theme.js                             # Dark/Light mode engine & icon synchronization
-│   │   ├── ui.js                                # Dropdowns, mobile menu & clipboard manager
-│   │   ├── i18n.js                              # Bilingual translation engine & hero typewriter
-│   │   ├── lightbox.js                          # Touch carousel & full-screen photo viewer
-│   │   └── adventure.js                         # 8-bit companion, rail map & scrollytelling
-│   ├── translations.js                          # Bilingual (EN/ES) dictionaries (253 keys)
-│   └── main.js                                  # Application orchestrator (window.Portfolio)
+│       ├── ci.yml                               # Builds the site and runs the test suite
+│       ├── pages.yml                            # Builds, tests and deploys dist/ to GitHub Pages
+│       └── deploy.yml                           # Coolify deployment webhook
+├── public/                                      # Copied as is to the root of the built site
+│   ├── docs/
+│   │   ├── Josue_Torres_Sibaja_Resume.pdf                  # English Resume (PDF)
+│   │   ├── Josue_Torres_Sibaja_CV.pdf                      # Spanish Curriculum Vitae (PDF)
+│   │   └── Josue_Torres_Sibaja_English_Certificate_UNA.pdf # UNA Conversational English Certificate (PDF)
+│   ├── img/
+│   │   ├── portfolio.jpeg                       # Professional profile photograph
+│   │   ├── icons/                               # Custom retro pixel-art icon suite (favicon.png is the navbar copy of favicon.ico)
+│   │   ├── character-sprites/                   # Pixel companion animation sprite sheets
+│   │   ├── experience/                          # Workplace & Information Technology operations photographic evidence
+│   │   ├── handicrafts/                         # Foamy clay sculpting & TCU workshop creations
+│   │   └── photography/                         # Costa Rica landscape & nature gallery
+│   ├── js/
+│   │   ├── modules/
+│   │   │   ├── audio.js                         # Native Web Audio API 8-bit retro sound synthesizer
+│   │   │   ├── theme.js                         # Dark/Light mode engine & icon synchronization
+│   │   │   ├── ui.js                            # Dropdowns, mobile menu, clipboard & preloader
+│   │   │   ├── i18n.js                          # Language switch between pages & hero typewriter
+│   │   │   ├── lightbox.js                      # Touch carousel & full-screen photo viewer
+│   │   │   └── adventure.js                     # 8-bit companion, rail map & scrollytelling
+│   │   └── main.js                              # Application orchestrator (window.Portfolio)
+│   ├── CNAME                                    # Custom domain for GitHub Pages
+│   ├── apple-touch-icon.png                     # 180x180 home-screen icon
+│   ├── favicon.ico                              # Site favicon (16, 32, 48 and 96 px)
+│   ├── favicon.svg                              # Vector favicon, rebuilt from the pixel-art grid
+│   ├── robots.txt                               # Crawler rules and sitemap location
+│   ├── site.webmanifest                         # Web app manifest (name and icons)
+│   └── sitemap.xml                              # Sitemap with the English and Spanish pages
+├── src/
+│   ├── components/
+│   │   ├── sections/                            # Hero, About, Experience, Education, Skills, Projects, AI, Mindset, Interests, Contact
+│   │   ├── Portfolio.astro                      # The whole page, composed from the sections
+│   │   ├── Navbar.astro                         # Navigation, theme toggle & language switch
+│   │   ├── LanguageSwitch.astro                 # EN/ES links between / and /es/
+│   │   ├── AdventureMode.astro                  # Level rail, companion dialogue & sprite cache
+│   │   └── ...                                  # Preloader, pixel sprites, lightbox & footer
+│   ├── i18n/
+│   │   ├── translations.js                      # Bilingual (EN/ES) dictionaries (257 keys)
+│   │   └── index.js                             # Language helpers used by the components
+│   ├── layouts/
+│   │   └── BaseLayout.astro                     # <head>, SEO tags, styles & scripts
+│   ├── pages/
+│   │   ├── index.astro                          # English page (/)
+│   │   └── es/index.astro                       # Spanish page (/es/)
+│   └── styles/
+│       ├── styles.css                           # Custom retro, CRT scanlines & pixel styling
+│       └── tailwind.css                         # Tailwind CSS entry point
 ├── tests/
 │   ├── test_i18n.py                             # Symmetry, encoding, non-emptiness & DOM checks
+│   ├── test_localized_pages.py                  # Per-language pages, SEO tags & rendered strings
 │   ├── test_dom_integrity.py                    # DOCTYPE, OpenGraph, JSON-LD, IDs & A11y
 │   ├── test_assets_integrity.py                 # Images, sprites, icons, documents & scripts
 │   ├── test_js_syntax.py                        # Balanced tokens, lexical scopes & syntax
 │   └── run_tests.py                             # Master CLI runner with formatted report
-├── CNAME                                        # Custom domain for GitHub Pages
-├── apple-touch-icon.png                         # 180x180 home-screen icon
-├── favicon.ico                                  # Site favicon (16, 32, 48 and 96 px)
-├── favicon.svg                                  # Vector favicon, rebuilt from the pixel-art grid
-├── robots.txt                                   # Crawler rules and sitemap location
-├── site.webmanifest                             # Web app manifest (name and icons)
-├── sitemap.xml                                  # Sitemap for josuetorressibaja.com
-├── index.html                                   # Semantic, accessible HTML markup structure
+├── astro.config.mjs                             # Site address, i18n routes & build options
+├── tailwind.config.mjs                          # Tailwind theme (fonts, brand & accent colors)
+├── postcss.config.mjs                           # Runs Tailwind CSS and Autoprefixer
+├── package.json                                 # Scripts and dependencies
 └── README.md                                    # Repository documentation & presentation
 ```
 
@@ -174,8 +213,8 @@ portfolio/
 
 ## Resume & Certifications
 
-The latest resumes and certifications are available in `docs/`:
+The latest resumes and certifications are available in `public/docs/`:
 
-- [English Resume (PDF)](./docs/Josue_Torres_Sibaja_Resume.pdf)
-- [Curriculum Vitae in Spanish (PDF)](./docs/Josue_Torres_Sibaja_CV.pdf)
-- [UNA Conversational English Certificate (PDF)](./docs/Josue_Torres_Sibaja_English_Certificate_UNA.pdf)
+- [English Resume (PDF)](./public/docs/Josue_Torres_Sibaja_Resume.pdf)
+- [Curriculum Vitae in Spanish (PDF)](./public/docs/Josue_Torres_Sibaja_CV.pdf)
+- [UNA Conversational English Certificate (PDF)](./public/docs/Josue_Torres_Sibaja_English_Certificate_UNA.pdf)
