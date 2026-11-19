@@ -1,6 +1,6 @@
 /**
  * Portfolio Internationalization (i18n) & Typewriter System
- * Handles bilingual switching (EN/ES), DOM text/HTML updates, aria labels,
+ * Handles the EN/ES language switch between the two pre-rendered pages
  * and the responsive typewriter effect in the hero section.
  */
 
@@ -259,162 +259,65 @@
     tickTypewriter();
   }
 
+  // Each language is its own pre-rendered page (English at /, Spanish at /es/), so the text,
+  // labels and alt texts are already in place. This only remembers the choice and moves
+  // between the two pages, keeping the section the visitor was reading.
+  function getPageLanguage() {
+    return document.documentElement.lang === 'es' ? 'es' : 'en';
+  }
+
+  function languagePath(lang) {
+    return lang === 'es' ? '/es/' : '/';
+  }
+
+  // The section the visitor is reading: the last one whose top has passed a third of the screen.
+  function currentSectionHash() {
+    var current = '';
+    document.querySelectorAll('section[id]').forEach(function (section) {
+      if (section.getBoundingClientRect().top <= window.innerHeight / 3) {
+        current = section.id;
+      }
+    });
+    return current && current !== 'hero' ? '#' + current : '';
+  }
+
   function applyLanguage(lang) {
-    var activeLang = lang === 'es' ? 'es' : 'en';
-    if (typeof I18N === 'undefined' || !I18N[activeLang]) return;
-    var dict = I18N[activeLang];
-    document.documentElement.lang = activeLang;
-
-    if (dict.page_title) {
-      document.title = dict.page_title;
+    var targetLang = lang === 'es' ? 'es' : 'en';
+    localStorage.setItem('portfolio_lang', targetLang);
+    if (targetLang !== getPageLanguage()) {
+      window.location.href = languagePath(targetLang) + currentSectionHash();
     }
+  }
 
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) {
-        el.textContent = dict[key];
-      }
+  // Opens the other language at the section that was being read.
+  function restoreSection() {
+    var target = window.location.hash ? document.getElementById(window.location.hash.slice(1)) : null;
+    if (!target) return;
+    window.addEventListener('load', function () {
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    });
+  }
+
+  function initI18n() {
+    var pageLang = getPageLanguage();
+
+    document.querySelectorAll('.lang-switch-btn[data-lang]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        applyLanguage(link.getAttribute('data-lang'));
+      });
     });
 
-    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-html');
-      if (dict[key] !== undefined) {
-        el.innerHTML = dict[key];
-      }
-    });
+    restoreSection();
 
-    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-aria');
-      if (dict[key] !== undefined) {
-        el.setAttribute('aria-label', dict[key]);
-      }
-    });
-
-    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-title');
-      if (dict[key] !== undefined) {
-        el.setAttribute('title', dict[key]);
-      }
-    });
-
-    document.querySelectorAll('.lang-switch-btn').forEach(function (btn) {
-      var isMobileBtn = btn.id.endsWith('-m');
-      var isEn = btn.id.includes('-en');
-      var isSelected = (activeLang === 'en' && isEn) || (activeLang === 'es' && !isEn);
-      var sizeClasses = isMobileBtn ? 'w-6 h-full text-[11px]' : 'w-7 h-full text-xs';
-
-      if (isSelected) {
-        btn.className = 'lang-switch-btn ' + sizeClasses + ' pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none select-none';
-      } else {
-        btn.className = 'lang-switch-btn ' + sizeClasses + ' pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none select-none';
-      }
-    });
-
-    localStorage.setItem('portfolio_lang', activeLang);
-
+    var dict = (typeof I18N !== 'undefined' && I18N[pageLang]) ? I18N[pageLang] : {};
     if (dict.hero_phrases) {
       initTypewriter(dict.hero_phrases);
-    }
-
-    var walker = document.getElementById('rail-character-walker');
-    if (walker && dict.adv_click_jump) {
-      walker.setAttribute('title', dict.adv_click_jump);
-    }
-    var loaderEl = document.getElementById('portfolio-loader');
-    if (loaderEl) {
-      loaderEl.setAttribute('aria-label', (dict && dict.loader_aria) ? dict.loader_aria : (activeLang === 'es' ? 'Cargando portafolio...' : 'Loading portfolio...'));
-    }
-    var loaderSprite = document.getElementById('loader-sprite');
-    if (loaderSprite) {
-      loaderSprite.setAttribute('alt', (dict && dict.loader_alt) ? dict.loader_alt : (activeLang === 'es' ? 'Cargando...' : 'Loading...'));
-    }
-    var avatarBtn = document.getElementById('dialogue-avatar-btn');
-    if (avatarBtn && dict.adv_click_jump) {
-      avatarBtn.setAttribute('title', dict.adv_click_jump);
-    }
-    var railExitBtn = document.getElementById('rail-exit-btn');
-    if (railExitBtn && dict.adv_close_mode) {
-      railExitBtn.setAttribute('title', dict.adv_close_mode);
-      railExitBtn.querySelectorAll('img').forEach(function (img) {
-        img.alt = dict.adv_close || 'Cerrar';
-      });
-    }
-    var dialogueCloseBtn = document.getElementById('dialogue-close-btn');
-    if (dialogueCloseBtn && dict.adv_close_guide) {
-      dialogueCloseBtn.setAttribute('title', dict.adv_close_guide);
-      dialogueCloseBtn.querySelectorAll('img').forEach(function (img) {
-        img.alt = dict.adv_close || 'Cerrar';
-      });
-    }
-    var dialogueMuteBtn = document.getElementById('dialogue-mute-btn');
-    if (dialogueMuteBtn && dict.adv_sound_toggle) {
-      dialogueMuteBtn.setAttribute('title', dict.adv_sound_toggle);
-    }
-    var startAdvBtn = document.getElementById('start-adventure-btn');
-    if (startAdvBtn) {
-      startAdvBtn.setAttribute('aria-label', activeLang === 'es' ? 'Iniciar Aventura / Iniciar Guía' : 'Start Adventure / Press Start');
-    }
-    var railEl = document.getElementById('adventure-rail');
-    if (railEl) {
-      railEl.setAttribute('aria-label', activeLang === 'es' ? 'Mapa de aventura y niveles' : 'Adventure map and levels');
-    }
-    var dialogueBoxEl = document.getElementById('adventure-dialogue-box');
-    if (dialogueBoxEl) {
-      dialogueBoxEl.setAttribute('aria-label', activeLang === 'es' ? 'Cuadro de diálogo de la guía' : 'Guide dialogue box');
-    }
-    var exitTooltip = document.getElementById('rail-exit-tooltip');
-    if (exitTooltip) {
-      exitTooltip.textContent = (dict && dict.adv_exit) ? dict.adv_exit : (activeLang === 'es' ? 'Salir' : 'Exit');
-    }
-
-    // The companion's sprites share its name: "Pixel Josue" in English, "Josué Pixel" in Spanish.
-    if (dict && dict.adv_companion_name) {
-      ['hero-portal-sprite', 'flying-pixel-sprite-img', 'rail-character-sprite', 'dialogue-avatar-sprite'].forEach(function (id) {
-        var sprite = document.getElementById(id);
-        if (sprite) sprite.alt = dict.adv_companion_name;
-      });
     }
 
     if (window.PortfolioAudio && typeof window.PortfolioAudio.updateUI === 'function') {
       window.PortfolioAudio.updateUI();
     }
-
-    var railNodes = document.querySelectorAll('.rail-node');
-    railNodes.forEach(function (node, idx) {
-      if (dict.adv_node_arias && dict.adv_node_arias[idx]) {
-        node.setAttribute('aria-label', dict.adv_node_arias[idx]);
-      }
-      var tooltip = node.querySelector('.rail-tooltip');
-      if (tooltip && dict.adv_node_tooltips && dict.adv_node_tooltips[idx]) {
-        tooltip.textContent = dict.adv_node_tooltips[idx];
-      }
-      var icons = node.querySelectorAll('img');
-      if (icons.length && dict.adv_node_tooltips && dict.adv_node_tooltips[idx]) {
-        var rawLabel = dict.adv_node_tooltips[idx].replace(/^\d+\.\s*/, '');
-        icons.forEach(function (img) {
-          img.alt = rawLabel;
-        });
-      }
-    });
-
-    if (window.PortfolioAdventure && typeof window.PortfolioAdventure.updateUI === 'function') {
-      window.PortfolioAdventure.updateUI();
-    }
-  }
-
-  function initI18n() {
-    var langBtnEn = document.getElementById('lang-btn-en');
-    var langBtnEs = document.getElementById('lang-btn-es');
-    var langBtnEnM = document.getElementById('lang-btn-en-m');
-    var langBtnEsM = document.getElementById('lang-btn-es-m');
-
-    if (langBtnEn) langBtnEn.addEventListener('click', function () { applyLanguage('en'); });
-    if (langBtnEs) langBtnEs.addEventListener('click', function () { applyLanguage('es'); });
-    if (langBtnEnM) langBtnEnM.addEventListener('click', function () { applyLanguage('en'); });
-    if (langBtnEsM) langBtnEsM.addEventListener('click', function () { applyLanguage('es'); });
-
-    var initialLang = localStorage.getItem('portfolio_lang') || 'en';
-    applyLanguage(initialLang);
   }
 
   window.PortfolioI18n = {

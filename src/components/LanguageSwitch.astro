@@ -1,0 +1,36 @@
+---
+import { getLanguage, localizedPath, useTranslations } from '../i18n/index.js';
+
+interface Props {
+  mobile?: boolean;
+}
+
+const { mobile = false } = Astro.props;
+const lang = getLanguage(Astro.currentLocale);
+const t = useTranslations(lang);
+
+// Each language has its own page, so the switch links to it and the current one is highlighted.
+const options = [
+  { code: 'en', label: 'EN', aria: 'Switch to English' },
+  { code: 'es', label: 'ES', aria: 'Cambiar a Español' },
+];
+const size = mobile ? 'w-6 h-full text-[11px]' : 'w-7 h-full text-xs';
+const state = (code) =>
+  code === lang
+    ? 'bg-brand-600 text-white shadow-sm'
+    : 'text-slate-400 hover:text-white';
+---
+<div class="lang-switch-chassis h-8 inline-flex items-center p-0.5 text-xs font-mono select-none pixel-corners-btn" role="group" aria-label={mobile ? t.aria_lang_selection_mobile : t.aria_lang_selection} data-i18n-aria={mobile ? 'aria_lang_selection_mobile' : 'aria_lang_selection'}>
+  {options.map(({ code, label, aria }) => (
+    <a
+      id={`lang-btn-${code}${mobile ? '-m' : ''}`}
+      href={localizedPath(code)}
+      hreflang={code}
+      lang={code}
+      data-lang={code}
+      aria-label={aria}
+      aria-current={code === lang ? 'page' : undefined}
+      class={`lang-switch-btn ${size} pixel-corners-btn font-mono font-bold transition-all ${state(code)} flex items-center justify-center leading-none select-none`}
+    >{label}</a>
+  ))}
+</div>

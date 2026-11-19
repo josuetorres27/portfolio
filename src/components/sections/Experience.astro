@@ -1,3 +1,8 @@
+---
+import { useTranslations } from '../../i18n/index.js';
+
+const t = useTranslations(Astro.currentLocale);
+---
 <!-- ================= WORK EXPERIENCE ================= -->
 <section id="experience" class="py-12 md:py-16 border-t border-slate-800/70">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -6,14 +11,10 @@
     <div class="w-full mb-10">
       <div class="inline-flex items-center gap-2 mb-3">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 data-i18n="experience_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">02. Work Experience</h2>
+        <h2 data-i18n="experience_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">{t.experience_section_tag}</h2>
       </div>
-      <h3 data-i18n="experience_heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 text-balance">
-        Professional Background & Hands-On Roles
-      </h3>
-      <p data-i18n="experience_sub" class="text-slate-300 text-base leading-relaxed">
-        Roles where I have applied my technical skills in real work environments, from day-to-day technical support to institutional platforms used by staff and students.
-      </p>
+      <h3 data-i18n="experience_heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 text-balance">{t.experience_heading}</h3>
+      <p data-i18n="experience_sub" class="text-slate-300 text-base leading-relaxed">{t.experience_sub}</p>
     </div>
 
     <!-- Experience Main Card -->
@@ -36,25 +37,21 @@
       <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
         <div>
           <div class="flex flex-wrap items-center gap-2.5 mb-2">
-            <span data-i18n="experience_timeframe" class="text-xs font-mono text-slate-400">Aug 2026 – Dec 2026 · 5 mos</span>
+            <span data-i18n="experience_timeframe" class="text-xs font-mono text-slate-400">{t.experience_timeframe}</span>
             <span class="text-slate-600 hidden sm:inline">·</span>
-            <span data-i18n="experience_location" class="text-xs font-mono text-slate-400">San Pedro, San José</span>
+            <span data-i18n="experience_location" class="text-xs font-mono text-slate-400">{t.experience_location}</span>
           </div>
-          <h4 data-i18n="experience_role_title" class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            Information Technology Support Assistant
-          </h4>
+          <h4 data-i18n="experience_role_title" class="text-xl sm:text-2xl font-bold text-white tracking-tight">{t.experience_role_title}</h4>
           <div class="flex flex-col sm:flex-row sm:items-center text-sm sm:text-base font-medium mt-1">
-            <span data-i18n="experience_company" class="text-brand-300 font-semibold">University of Costa Rica (UCR)</span>
+            <span data-i18n="experience_company" class="text-brand-300 font-semibold">{t.experience_company}</span>
             <span class="text-slate-500 hidden sm:inline mx-1.5 select-none font-bold">·</span>
-            <span data-i18n="experience_department" class="text-slate-300">Oficina de Orientación</span>
+            <span data-i18n="experience_department" class="text-slate-300">{t.experience_department}</span>
           </div>
         </div>
       </div>
 
       <!-- Summary Paragraph -->
-      <p data-i18n="experience_role_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed py-5">
-        Deliver end-to-end Information Technology support for the Orientation Office at the University of Costa Rica, keeping hardware, software, and institutional web infrastructure reliable for staff and students across academic units.
-      </p>
+      <p data-i18n="experience_role_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed py-5">{t.experience_role_desc}</p>
 
       <!-- Responsibilities & Impact Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
@@ -64,10 +61,8 @@
             <img src="/img/icons/diagnostics.png" alt="Hardware & Software Diagnostics" class="w-full h-full object-cover pixelated select-none" />
           </div>
           <div>
-            <h5 data-i18n="experience_item1_title" class="text-sm font-semibold text-white mb-1">Hardware & Software Diagnostics</h5>
-            <p data-i18n="experience_item1_desc" class="text-xs text-slate-300 leading-relaxed">
-              Diagnose and resolve hardware and software issues, installing and updating Windows and institutional programs to minimize downtime.
-            </p>
+            <h5 data-i18n="experience_item1_title" class="text-sm font-semibold text-white mb-1">{t.experience_item1_title}</h5>
+            <p data-i18n="experience_item1_desc" class="text-xs text-slate-300 leading-relaxed">{t.experience_item1_desc}</p>
           </div>
         </div>
 
@@ -76,10 +71,8 @@
             <img src="/img/icons/ram-upgrade.png" alt="Component Upgrades & SSD Migration" class="w-full h-full object-cover pixelated select-none" />
           </div>
           <div>
-            <h5 data-i18n="experience_item2_title" class="text-sm font-semibold text-white mb-1">Component Upgrades & SSD Migration</h5>
-            <p data-i18n="experience_item2_desc" class="text-xs text-slate-300 leading-relaxed">
-              Upgrade and replace components — including swapping HDDs for SSDs — to improve system performance and reliability.
-            </p>
+            <h5 data-i18n="experience_item2_title" class="text-sm font-semibold text-white mb-1">{t.experience_item2_title}</h5>
+            <p data-i18n="experience_item2_desc" class="text-xs text-slate-300 leading-relaxed">{t.experience_item2_desc}</p>
           </div>
         </div>
 
@@ -88,10 +81,8 @@
             <img src="/img/icons/floppy.png" alt="OS Image Deployment & Data Safeguarding" class="w-full h-full object-cover pixelated select-none" />
           </div>
           <div>
-            <h5 data-i18n="experience_item3_title" class="text-sm font-semibold text-white mb-1">OS Image Deployment & Data Safeguarding</h5>
-            <p data-i18n="experience_item3_desc" class="text-xs text-slate-300 leading-relaxed">
-              Deploy Windows OS images and manage system backups and disk cloning to safeguard institutional data.
-            </p>
+            <h5 data-i18n="experience_item3_title" class="text-sm font-semibold text-white mb-1">{t.experience_item3_title}</h5>
+            <p data-i18n="experience_item3_desc" class="text-xs text-slate-300 leading-relaxed">{t.experience_item3_desc}</p>
           </div>
         </div>
 
@@ -100,10 +91,8 @@
             <img src="/img/icons/web-admin.png" alt="Institutional Web Administration" class="w-full h-full object-cover pixelated select-none" />
           </div>
           <div>
-            <h5 data-i18n="experience_item4_title" class="text-sm font-semibold text-white mb-1">Institutional Web Administration</h5>
-            <p data-i18n="experience_item4_desc" class="text-xs text-slate-300 leading-relaxed">
-              Build, edit, and maintain WordPress pages through secure remote host connections, supporting content needs across academic units.
-            </p>
+            <h5 data-i18n="experience_item4_title" class="text-sm font-semibold text-white mb-1">{t.experience_item4_title}</h5>
+            <p data-i18n="experience_item4_desc" class="text-xs text-slate-300 leading-relaxed">{t.experience_item4_desc}</p>
           </div>
         </div>
 
@@ -112,30 +101,28 @@
       <!-- Photographic Evidence 1x3 Grid -->
       <div class="mt-8 pt-6 border-t border-slate-800/80">
         <div class="mb-4">
-          <h5 data-i18n="experience_gallery_title" class="text-sm uppercase tracking-wider font-bold text-slate-400 font-mono">
-            Workplace & Technical Operations Evidence
-          </h5>
+          <h5 data-i18n="experience_gallery_title" class="text-sm uppercase tracking-wider font-bold text-slate-400 font-mono">{t.experience_gallery_title}</h5>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="View full image" data-i18n-aria="aria_view_image">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label={t.aria_view_image} data-i18n-aria="aria_view_image">
             <img src="/img/experience/thumbs/1.jpeg" data-full-src="/img/experience/1.jpeg" decoding="async" alt="Workstation Teardown and Motherboard Servicing" class="w-full h-full object-cover object-center transition-all duration-300">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span data-i18n="experience_img2_caption" class="text-xs font-semibold text-white drop-shadow">Hardware Servicing & Internal Diagnostics</span>
+              <span data-i18n="experience_img2_caption" class="text-xs font-semibold text-white drop-shadow">{t.experience_img2_caption}</span>
             </div>
           </div>
 
-          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="View full image" data-i18n-aria="aria_view_image">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label={t.aria_view_image} data-i18n-aria="aria_view_image">
             <img src="/img/experience/thumbs/2.jpeg" data-full-src="/img/experience/2.jpeg" decoding="async" alt="Storage Component Diagnostic and HDD to SSD Upgrade" class="w-full h-full object-cover object-center transition-all duration-300">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span data-i18n="experience_img3_caption" class="text-xs font-semibold text-white drop-shadow">Storage Upgrades & SATA Diagnostics</span>
+              <span data-i18n="experience_img3_caption" class="text-xs font-semibold text-white drop-shadow">{t.experience_img3_caption}</span>
             </div>
           </div>
 
-          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="View full image" data-i18n-aria="aria_view_image">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label={t.aria_view_image} data-i18n-aria="aria_view_image">
             <img src="/img/experience/thumbs/3.jpeg" data-full-src="/img/experience/3.jpeg" decoding="async" alt="Orientation Office - University of Costa Rica" class="w-full h-full object-cover object-center transition-all duration-300">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span data-i18n="experience_img1_caption" class="text-xs font-semibold text-white drop-shadow">Orientation Office · University of Costa Rica</span>
+              <span data-i18n="experience_img1_caption" class="text-xs font-semibold text-white drop-shadow">{t.experience_img1_caption}</span>
             </div>
           </div>
         </div>

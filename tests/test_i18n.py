@@ -11,8 +11,9 @@ import unittest
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 DIST_DIR = os.path.join(ROOT_DIR, "dist")
-TRANSLATIONS_PATH = os.path.join(PUBLIC_DIR, "js", "translations.js")
+TRANSLATIONS_PATH = os.path.join(ROOT_DIR, "src", "i18n", "translations.js")
 INDEX_PATH = os.path.join(DIST_DIR, "index.html")
+ES_INDEX_PATH = os.path.join(DIST_DIR, "es", "index.html")
 
 
 def extract_translation_keys_and_dicts():
@@ -34,8 +35,10 @@ class TestTranslationsSuite(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.en_keys, cls.es_keys, cls.full_text = extract_translation_keys_and_dicts()
-        with open(INDEX_PATH, "r", encoding="utf-8") as f:
-            cls.html_content = f.read()
+        cls.html_content = ""
+        for path in (INDEX_PATH, ES_INDEX_PATH):
+            with open(path, "r", encoding="utf-8") as f:
+                cls.html_content += f.read()
 
     def test_translation_keys_not_empty(self):
         """Verify that translation dictionaries contain keys."""

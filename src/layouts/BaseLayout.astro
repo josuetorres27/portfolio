@@ -4,23 +4,44 @@
 // after them, the same cascade order the page had with the Play CDN.
 import '../styles/styles.css';
 import '../styles/tailwind.css';
+import { LANGUAGES, DEFAULT_LANGUAGE, getLanguage, localizedPath, useTranslations } from '../i18n/index.js';
+
+const lang = getLanguage(Astro.currentLocale);
+const t = useTranslations(lang);
+const site = 'https://josuetorressibaja.com';
+const pageUrl = new URL(localizedPath(lang), site).href;
+const ogLocales = { en: 'en_US', es: 'es_CR' };
+
+// The scripts read their strings from window.I18N; each page ships only its own language.
+// "<" is escaped so no string can close the <script> element early.
+const runtimeStrings = `window.I18N = ${JSON.stringify({ [lang]: t }).replace(/</g, '\\u003c')};`;
 ---
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth notranslate" translate="no">
+<html lang={lang} class="dark scroll-smooth notranslate" translate="no">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google" content="notranslate">
-  <title>Josue Torres Sibaja | Computer Science Graduating Senior</title>
-  <meta name="description" content="Portafolio de Josué Torres Sibaja. Egresado en Ciencias de la Computación (énfasis en Ingeniería de Software) de la Universidad de Costa Rica (UCR), enfocado en desarrollo full stack, sistemas y backend.">
+  <title>{t.page_title}</title>
+  <meta name="description" content={t.meta_description}>
   
   <!-- Open Graph / SEO Site Name -->
   <meta property="og:site_name" content="Josue Torres Sibaja">
-  <meta property="og:title" content="Josue Torres Sibaja | Computer Science Graduating Senior">
-  <meta property="og:description" content="Portafolio de Josué Torres Sibaja. Egresado en Ciencias de la Computación (énfasis en Ingeniería de Software) de la Universidad de Costa Rica (UCR), enfocado en desarrollo full stack, sistemas y backend.">
-  <link rel="canonical" href="https://josuetorressibaja.com/">
-  <meta property="og:url" content="https://josuetorressibaja.com/">
+  <meta property="og:title" content={t.page_title}>
+  <meta property="og:description" content={t.meta_description}>
+  <link rel="canonical" href={pageUrl}>
+  <meta property="og:url" content={pageUrl}>
   <meta property="og:type" content="website">
+  <meta property="og:locale" content={ogLocales[lang]}>
+  {LANGUAGES.filter((code) => code !== lang).map((code) => (
+    <meta property="og:locale:alternate" content={ogLocales[code]}>
+  ))}
+
+  <!-- The same page in each language -->
+  {LANGUAGES.map((code) => (
+    <link rel="alternate" hreflang={code} href={new URL(localizedPath(code), site).href}>
+  ))}
+  <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(DEFAULT_LANGUAGE), site).href}>
 
   <!-- Schema.org Structured Data (Google Site Name & Person Entity) -->
   <script is:inline type="application/ld+json">
@@ -83,7 +104,7 @@ import '../styles/tailwind.css';
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   
   <script is:inline>
-    // Theme & Language initialization
+    // Theme initialization
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
       document.documentElement.classList.add('light');
@@ -93,13 +114,19 @@ import '../styles/tailwind.css';
       document.documentElement.classList.remove('light');
     }
 
-    // A ?lang=en|es link wins over the saved preference, so a language can be shared by URL
+    // Each language has its own page: English at / and Spanish at /es/.
+    // A ?lang=en|es link wins over the saved preference, so a language can be shared by URL;
+    // either one sends the visitor to the matching page, otherwise this page's language is saved.
+    const pageLang = document.documentElement.lang;
     const urlLang = new URLSearchParams(window.location.search).get('lang');
-    if (urlLang === 'en' || urlLang === 'es') {
-      localStorage.setItem('portfolio_lang', urlLang);
+    const savedLang = localStorage.getItem('portfolio_lang');
+    const wantedLang = (urlLang === 'en' || urlLang === 'es') ? urlLang : savedLang;
+    if ((wantedLang === 'en' || wantedLang === 'es') && wantedLang !== pageLang) {
+      localStorage.setItem('portfolio_lang', wantedLang);
+      window.location.replace((wantedLang === 'es' ? '/es/' : '/') + window.location.hash);
+    } else {
+      localStorage.setItem('portfolio_lang', pageLang);
     }
-    const savedLang = localStorage.getItem('portfolio_lang') || 'en';
-    document.documentElement.lang = savedLang;
     window.__portfolioLoaderActive = true;
   </script>
 
@@ -109,7 +136,7 @@ import '../styles/tailwind.css';
   <slot />
 
   <!-- ================= JAVASCRIPT ================= -->
-  <script is:inline src="/js/translations.js"></script>
+  <script is:inline set:html={runtimeStrings}></script>
   <script is:inline src="/js/modules/audio.js"></script>
   <script is:inline src="/js/modules/theme.js"></script>
   <script is:inline src="/js/modules/ui.js"></script>

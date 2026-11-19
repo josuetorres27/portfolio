@@ -1,3 +1,8 @@
+---
+import { useTranslations } from '../../i18n/index.js';
+
+const t = useTranslations(Astro.currentLocale);
+---
 <!-- ================= MINDSET & ATTITUDE ================= -->
 <section id="mindset" class="py-12 md:py-16 border-t border-slate-800/70">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -6,14 +11,10 @@
     <div class="w-full mb-10">
       <div class="inline-flex items-center gap-2 mb-3">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 data-i18n="mindset_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">07. Work Approach</h2>
+        <h2 data-i18n="mindset_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">{t.mindset_section_tag}</h2>
       </div>
-      <h3 data-i18n="mindset_heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 text-balance">
-        Attitude & Working Values
-      </h3>
-      <p data-i18n="mindset_intro" class="text-slate-300 text-base leading-relaxed">
-        Technical skills grow with practice, but everyday attitude, willingness to learn, and clear communication are just as essential for working well in a team.
-      </p>
+      <h3 data-i18n="mindset_heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 text-balance">{t.mindset_heading}</h3>
+      <p data-i18n="mindset_intro" class="text-slate-300 text-base leading-relaxed">{t.mindset_intro}</p>
     </div>
 
     <!-- 4 Pillars Grid -->
@@ -36,13 +37,11 @@
                 <img src="/img/icons/shield.png" alt="Ownership & Responsibility" class="w-full h-full object-cover pixelated select-none" />
               </div>
               <div>
-                <h4 data-i18n="mindset_p1_title" class="text-base font-bold text-white">Ownership & Responsibility</h4>
-                <p data-i18n="mindset_p1_sub" class="text-xs text-brand-300 font-mono">Doing things thoroughly</p>
+                <h4 data-i18n="mindset_p1_title" class="text-base font-bold text-white">{t.mindset_p1_title}</h4>
+                <p data-i18n="mindset_p1_sub" class="text-xs text-brand-300 font-mono">{t.mindset_p1_sub}</p>
               </div>
             </div>
-            <p data-i18n="mindset_p1_desc" class="text-slate-300 text-sm leading-relaxed">
-              I take responsibility for the tasks I take on: understanding requirements clearly, testing my code carefully, and making sure solutions actually work reliably in practice.
-            </p>
+            <p data-i18n="mindset_p1_desc" class="text-slate-300 text-sm leading-relaxed">{t.mindset_p1_desc}</p>
           </div>
         </div>
       </div>
@@ -64,13 +63,11 @@
                 <img src="/img/icons/book.png" alt="Willingness to Learn" class="w-full h-full object-cover pixelated select-none" />
               </div>
               <div>
-                <h4 data-i18n="mindset_p2_title" class="text-base font-bold text-white">Willingness to Learn</h4>
-                <p data-i18n="mindset_p2_sub" class="text-xs text-cyan-300 font-mono">Learning from feedback and peers</p>
+                <h4 data-i18n="mindset_p2_title" class="text-base font-bold text-white">{t.mindset_p2_title}</h4>
+                <p data-i18n="mindset_p2_sub" class="text-xs text-cyan-300 font-mono">{t.mindset_p2_sub}</p>
               </div>
             </div>
-            <p data-i18n="mindset_p2_desc" class="text-slate-300 text-sm leading-relaxed">
-              I recognize that I am early in my career and have plenty to learn. I welcome constructive feedback and code reviews as genuine opportunities to improve and learn from experienced teammates.
-            </p>
+            <p data-i18n="mindset_p2_desc" class="text-slate-300 text-sm leading-relaxed">{t.mindset_p2_desc}</p>
           </div>
         </div>
       </div>
@@ -92,13 +89,11 @@
                 <img src="/img/icons/persistence.png" alt="Patience & Persistence" class="w-full h-full object-cover pixelated select-none" />
               </div>
               <div>
-                <h4 data-i18n="mindset_p3_title" class="text-base font-bold text-white">Patience & Persistence</h4>
-                <p data-i18n="mindset_p3_sub" class="text-xs text-emerald-300 font-mono">Working through tough problems</p>
+                <h4 data-i18n="mindset_p3_title" class="text-base font-bold text-white">{t.mindset_p3_title}</h4>
+                <p data-i18n="mindset_p3_sub" class="text-xs text-emerald-300 font-mono">{t.mindset_p3_sub}</p>
               </div>
             </div>
-            <p data-i18n="mindset_p3_desc" class="text-slate-300 text-sm leading-relaxed">
-              When a bug or concept proves tricky, I stay patient, research thoroughly, read the documentation, and keep testing until I understand the cause and resolve it.
-            </p>
+            <p data-i18n="mindset_p3_desc" class="text-slate-300 text-sm leading-relaxed">{t.mindset_p3_desc}</p>
           </div>
         </div>
       </div>
@@ -120,13 +115,11 @@
                 <img src="/img/icons/chat-amber.png" alt="Communication & Teamwork" class="w-full h-full object-cover pixelated select-none" />
               </div>
               <div>
-                <h4 data-i18n="mindset_p4_title" class="text-base font-bold text-white">Communication & Teamwork</h4>
-                <p data-i18n="mindset_p4_sub" class="text-xs text-amber-300 font-mono">Clear and straightforward communication</p>
+                <h4 data-i18n="mindset_p4_title" class="text-base font-bold text-white">{t.mindset_p4_title}</h4>
+                <p data-i18n="mindset_p4_sub" class="text-xs text-amber-300 font-mono">{t.mindset_p4_sub}</p>
               </div>
             </div>
-            <p data-i18n="mindset_p4_desc" class="text-slate-300 text-sm leading-relaxed">
-              I aim to communicate clearly, raise blockers early so they don't hold others back, and write clean, readable code that teammates can easily maintain.
-            </p>
+            <p data-i18n="mindset_p4_desc" class="text-slate-300 text-sm leading-relaxed">{t.mindset_p4_desc}</p>
           </div>
         </div>
       </div>

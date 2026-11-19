@@ -1,8 +1,11 @@
+---
+import { useTranslations } from '../i18n/index.js';
+
+const t = useTranslations(Astro.currentLocale);
+---
 <!-- ================= FOOTER ================= -->
 <footer class="py-8 border-t border-slate-900 bg-slate-950 text-slate-500 text-xs">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center text-center">
-    <p data-i18n="footer_copyright">
-      &copy; 2026 Josue Torres Sibaja · Professional Portfolio.
-    </p>
+    <p data-i18n="footer_copyright">{t.footer_copyright}</p>
   </div>
 </footer>

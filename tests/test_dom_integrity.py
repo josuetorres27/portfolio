@@ -14,6 +14,8 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 DIST_DIR = os.path.join(ROOT_DIR, "dist")
 INDEX_PATH = os.path.join(DIST_DIR, "index.html")
+ES_INDEX_PATH = os.path.join(DIST_DIR, "es", "index.html")
+TRANSLATIONS_PATH = os.path.join(ROOT_DIR, "src", "i18n", "translations.js")
 
 
 class TagCollector(HTMLParser):
@@ -291,7 +293,7 @@ class TestDOMIntegrity(unittest.TestCase):
         """Verify hero bio has the final period (.) in both EN and ES, protected by whitespace-nowrap with C# / .NET so it never orphans alone."""
         with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        with open(os.path.join(PUBLIC_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+        with open(TRANSLATIONS_PATH, "r", encoding="utf-8") as f:
             trans_code = f.read()
 
         # Protected structure: whitespace-nowrap wrapper around badge and period
@@ -305,7 +307,7 @@ class TestDOMIntegrity(unittest.TestCase):
         """Verify the preloader initialization status text has no enclosing brackets [] in HTML and translations."""
         with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        with open(os.path.join(PUBLIC_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+        with open(TRANSLATIONS_PATH, "r", encoding="utf-8") as f:
             trans_code = f.read()
 
         # In index.html
@@ -394,30 +396,36 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("html.light #portfolio-loader .loader-progress-chassis", css_code)
 
     def test_preloader_bilingual_full_implementation(self):
-        """Verify preloader is fully implemented in both languages without language bleed or hardcoded Spanish leaks."""
-        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
+        """Verify each language page renders its own preloader, with no text from the other language."""
+        with open(INDEX_PATH, "r", encoding="utf-8") as f:
             index_code = f.read()
-        with open(os.path.join(PUBLIC_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+        with open(ES_INDEX_PATH, "r", encoding="utf-8") as f:
+            es_index_code = f.read()
+        with open(TRANSLATIONS_PATH, "r", encoding="utf-8") as f:
             trans_code = f.read()
-        with open(os.path.join(PUBLIC_DIR, "js", "modules", "i18n.js"), "r", encoding="utf-8") as f:
-            i18n_code = f.read()
         with open(os.path.join(PUBLIC_DIR, "js", "main.js"), "r", encoding="utf-8") as f:
             main_code = f.read()
 
-        # 1. Default index.html preloader is 100% English (matches site default lang="en")
-        loader_markup = index_code.split('<div id="portfolio-loader"')[1].split('</div>\n  </div>')[0]
+        def loader_markup(page):
+            return page.split('<div id="portfolio-loader"')[1].split('</div>\n  </div>')[0]
 
-        self.assertIn('aria-label="Loading portfolio..."', loader_markup)
-        self.assertIn('alt="Loading..."', loader_markup)
-        self.assertIn('SYSTEM INITIALIZING', loader_markup)
-        self.assertIn('LOADING ASSETS...', loader_markup)
-        self.assertNotIn('CARGANDO ASSETS...', loader_markup)
-        self.assertNotIn('Cargando portafolio...', loader_markup)
+        # 1. The English page (/) has an English preloader
+        en_loader = loader_markup(index_code)
+        self.assertIn('aria-label="Loading portfolio..."', en_loader)
+        self.assertIn('alt="Loading..."', en_loader)
+        self.assertIn('SYSTEM INITIALIZING', en_loader)
+        self.assertIn('LOADING ASSETS...', en_loader)
+        self.assertNotIn('CARGANDO ASSETS...', en_loader)
+        self.assertNotIn('Cargando portafolio...', en_loader)
 
-        # 2. Instant preloader language hydration script exists right after portfolio-loader
-        self.assertIn("localStorage.getItem('portfolio_lang') || 'en'", index_code)
-        self.assertIn("INICIALIZANDO SISTEMA", index_code)
-        self.assertIn("CARGANDO ASSETS...", index_code)
+        # 2. The Spanish page (/es/) has a Spanish preloader from the first paint
+        es_loader = loader_markup(es_index_code)
+        self.assertIn('aria-label="Cargando portafolio..."', es_loader)
+        self.assertIn('alt="Cargando..."', es_loader)
+        self.assertIn('INICIALIZANDO SISTEMA', es_loader)
+        self.assertIn('CARGANDO ASSETS...', es_loader)
+        self.assertNotIn('LOADING ASSETS...', es_loader)
+        self.assertNotIn('Loading portfolio...', es_loader)
 
         # 3. Bilingual completeness in translations.js
         self.assertIn('loader_init: "SYSTEM INITIALIZING"', trans_code)
@@ -430,11 +438,7 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn('loader_aria: "Cargando portafolio..."', trans_code)
         self.assertIn('loader_alt: "Cargando..."', trans_code)
 
-        # 4. i18n module updates preloader ARIA and alt on language switch
-        self.assertIn("portfolio-loader", i18n_code)
-        self.assertIn("loader-sprite", i18n_code)
-
-        # 5. Application bootstrap runs i18n before UI preloader initialization
+        # 4. Application bootstrap runs i18n before UI preloader initialization
         i18n_pos = main_code.find("PortfolioI18n.init")
         ui_pos = main_code.find("PortfolioUI.init")
         self.assertTrue(i18n_pos < ui_pos, "PortfolioI18n.init must run before PortfolioUI.init to ensure translated DOM")
@@ -556,15 +560,15 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("clearIntroIntervals();", close_block)
 
     def test_language_url_parameter_support(self):
-        """Verify ?lang=en|es is honored before the saved preference is read."""
-        with open(os.path.join(DIST_DIR, "index.html"), "r", encoding="utf-8") as f:
-            index_code = f.read()
+        """Verify ?lang=en|es wins over the saved preference and sends the visitor to that language's page."""
+        for path in (INDEX_PATH, ES_INDEX_PATH):
+            with open(path, "r", encoding="utf-8") as f:
+                head_code = f.read().split("</head>")[0]
 
-        head_code = index_code.split("</head>")[0]
-        self.assertIn("new URLSearchParams(window.location.search).get('lang')", head_code)
-        url_pos = head_code.find("URLSearchParams")
-        saved_pos = head_code.find("const savedLang = localStorage.getItem('portfolio_lang') || 'en';")
-        self.assertTrue(0 <= url_pos < saved_pos, "URL language must be applied before the saved language is read")
+            self.assertIn("const urlLang = new URLSearchParams(window.location.search).get('lang');", head_code)
+            self.assertIn("const savedLang = localStorage.getItem('portfolio_lang');", head_code)
+            self.assertIn("const wantedLang = (urlLang === 'en' || urlLang === 'es') ? urlLang : savedLang;", head_code)
+            self.assertIn("window.location.replace((wantedLang === 'es' ? '/es/' : '/') + window.location.hash);", head_code)
 
 
 if __name__ == "__main__":

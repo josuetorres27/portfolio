@@ -1,5 +1,7 @@
 // ================= BILINGUAL I18N SYSTEM =================
-    const I18N = {
+// Every string the page shows, in English and Spanish. The pages render them at build time
+// (src/i18n/index.js) and each page also ships its own language to the scripts as window.I18N.
+export const I18N = {
       en: {
         nav_about: "About Me",
         nav_experience: "Experience",
@@ -224,6 +226,7 @@
         contact_btn_write: "Email Me",
         footer_copyright: "© 2026 Josue Torres Sibaja · Professional Portfolio.",
         page_title: "Josue Torres Sibaja | Computer Science Graduating Senior",
+        meta_description: "Portfolio of Josue Torres Sibaja, Computer Science Graduating Senior (Software Engineering emphasis) at the University of Costa Rica (UCR), focused on full-stack, systems and backend development.",
         hero_photo_caption: "Josue Torres Sibaja | Computer Science Graduating Senior",
         hero_photo_caption_mobile: "Josue | Computer Science Graduating Senior",
         experience_img2_caption_mobile: "PC Maintenance",
@@ -251,6 +254,9 @@
         adv_close_mode: "Close Adventure Mode",
         adv_sound_toggle: "Mute/Unmute sound",
         adv_close: "Close",
+        adv_start_aria: "Start Adventure / Press Start",
+        adv_rail_aria: "Adventure map and levels",
+        adv_dialogue_aria: "Guide dialogue box",
 
         aria_lang_selection: "Language selection",
         aria_lang_selection_mobile: "Mobile language selector",
@@ -531,6 +537,7 @@
         contact_btn_write: "Escribir",
         footer_copyright: "© 2026 Josué Torres Sibaja · Portafolio Profesional.",
         page_title: "Josué Torres Sibaja | Egresado en Ciencias de la Computación",
+        meta_description: "Portafolio de Josué Torres Sibaja. Egresado en Ciencias de la Computación (énfasis en Ingeniería de Software) de la Universidad de Costa Rica (UCR), enfocado en desarrollo full stack, sistemas y backend.",
         hero_photo_caption: "Josué Torres Sibaja | Egresado en Ciencias de la Computación",
         hero_photo_caption_mobile: "Josué | Egresado en Ciencias de la Computación",
         experience_img2_caption_mobile: "Mantenimiento de PC",
@@ -558,6 +565,9 @@
         adv_close_mode: "Cerrar Modo Aventura",
         adv_sound_toggle: "Activar/Silenciar sonido",
         adv_close: "Cerrar",
+        adv_start_aria: "Iniciar Aventura / Iniciar Guía",
+        adv_rail_aria: "Mapa de aventura y niveles",
+        adv_dialogue_aria: "Cuadro de diálogo de la guía",
 
         aria_lang_selection: "Selección de idioma",
         aria_lang_selection_mobile: "Selector de idioma móvil",
@@ -615,6 +625,3 @@
         ]
       }
     };
-
-// Expose globally for cross-script access
-window.I18N = I18N;

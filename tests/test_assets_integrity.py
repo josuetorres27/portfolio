@@ -184,7 +184,6 @@ class TestAssetsIntegrity(unittest.TestCase):
     def test_all_modular_js_files_exist(self):
         """Verify all modular JS architecture files exist and are non-empty."""
         expected_modules = [
-            os.path.join("js", "translations.js"),
             os.path.join("js", "modules", "audio.js"),
             os.path.join("js", "modules", "theme.js"),
             os.path.join("js", "modules", "ui.js"),

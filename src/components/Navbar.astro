@@ -1,3 +1,9 @@
+---
+import { useTranslations } from '../i18n/index.js';
+import LanguageSwitch from './LanguageSwitch.astro';
+
+const t = useTranslations(Astro.currentLocale);
+---
 <!-- ================= NAVBAR ================= -->
 <header class="relative z-50 glass-nav border-b border-slate-800/80 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -14,30 +20,27 @@
 
     <!-- Desktop Navigation Links (Desktop 1024px+ Only) -->
     <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs font-mono font-semibold tracking-tight text-slate-300">
-      <a href="#about" data-i18n="nav_about" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">About Me</a>
+      <a href="#about" data-i18n="nav_about" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_about}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Experience</a>
+      <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_experience}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#education" data-i18n="nav_education" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Education</a>
+      <a href="#education" data-i18n="nav_education" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_education}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Skills</a>
+      <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_skills}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Projects</a>
+      <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_projects}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">AI & LLMs</a>
+      <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_ai}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Hobbies</a>
+      <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_interests}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Contact</a>
+      <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">{t.nav_contact}</a>
     </nav>
 
     <!-- Desktop & Tablet Actions: Language, Theme -->
     <div class="hidden md:flex items-center gap-2">
       <!-- Language Switcher Desktop/Tablet (Pixel Art Style) -->
-      <div class="lang-switch-chassis h-8 inline-flex items-center p-0.5 text-xs font-mono select-none pixel-corners-btn" role="group" aria-label="Language selection" data-i18n-aria="aria_lang_selection">
-        <button id="lang-btn-en" type="button" class="lang-switch-btn w-7 h-full pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-xs select-none" aria-label="Switch to English">EN</button>
-        <button id="lang-btn-es" type="button" class="lang-switch-btn w-7 h-full pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-xs select-none" aria-label="Cambiar a Español">ES</button>
-      </div>
+      <LanguageSwitch />
 
       <!-- Theme Toggle Desktop/Tablet (Pixel Art Style) -->
       <button id="theme-toggle-btn" type="button" aria-label="Cambiar tema / Toggle theme" class="h-8 w-8 flex items-center justify-center p-0 text-slate-400 hover:text-white pixel-corners-btn transition-all active:scale-95 box-border">
@@ -49,10 +52,7 @@
     <!-- Mobile Right Controls (Lang, Theme) -->
     <div class="flex items-center gap-1.5 sm:gap-2 md:hidden">
       <!-- Language Switcher Mobile (Pixel Art Style) -->
-      <div class="lang-switch-chassis h-8 inline-flex items-center p-0.5 text-xs font-mono select-none pixel-corners-btn" role="group" aria-label="Mobile language selector" data-i18n-aria="aria_lang_selection_mobile">
-        <button id="lang-btn-en-m" type="button" class="lang-switch-btn w-6 h-full pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-[11px] select-none" aria-label="Switch to English">EN</button>
-        <button id="lang-btn-es-m" type="button" class="lang-switch-btn w-6 h-full pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-[11px] select-none" aria-label="Cambiar a Español">ES</button>
-      </div>
+      <LanguageSwitch mobile />
 
       <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema / Toggle theme" class="h-8 w-8 flex items-center justify-center p-0 text-slate-400 hover:text-white pixel-corners-btn transition-all active:scale-95 box-border">
         <img src="/img/icons/sun.png" alt="Light Mode" class="theme-icon-sun w-4 h-4 hidden pixelated select-none pointer-events-none drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]" />
@@ -65,46 +65,46 @@
   <nav id="mobile-subnav" class="flex md:hidden flex-col items-center justify-center border-t border-slate-800/80 bg-slate-900/95 backdrop-blur-md px-1 py-1 text-[10px] sm:text-[11px] font-mono font-semibold tracking-tight text-slate-300">
     <div class="subnav-grid">
       <!-- Tier 1: About Me | Experience | Education | Skills -->
-      <a href="#about" data-i18n="nav_about" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">About Me</a>
+      <a href="#about" data-i18n="nav_about" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_about}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#experience" data-i18n="nav_experience" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Experience</a>
+      <a href="#experience" data-i18n="nav_experience" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_experience}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#education" data-i18n="nav_education" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Education</a>
+      <a href="#education" data-i18n="nav_education" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_education}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#skills" data-i18n="nav_skills" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Skills</a>
+      <a href="#skills" data-i18n="nav_skills" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_skills}</a>
 
       <!-- Horizontal divider line spanning all 7 columns -->
       <div class="subnav-divider-row border-t border-slate-800/50 my-0.5" aria-hidden="true"></div>
 
       <!-- Tier 2: Projects | AI & LLMs | Hobbies | Contact -->
-      <a href="#projects" data-i18n="nav_projects" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Projects</a>
+      <a href="#projects" data-i18n="nav_projects" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_projects}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#ai" data-i18n="nav_ai" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">AI & LLMs</a>
+      <a href="#ai" data-i18n="nav_ai" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_ai}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#interests" data-i18n="nav_interests" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Hobbies</a>
+      <a href="#interests" data-i18n="nav_interests" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_interests}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#contact" data-i18n="nav_contact" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Contact</a>
+      <a href="#contact" data-i18n="nav_contact" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_contact}</a>
     </div>
   </nav>
 
   <!-- Tablet Sub-Navbar (Second bar directly below the top bar, exclusively on tablet) -->
   <nav id="tablet-subnav" class="hidden md:flex lg:hidden items-center justify-center border-t border-slate-800/80 bg-slate-900/90 backdrop-blur-md px-3 py-2 text-xs font-mono font-semibold tracking-tight text-slate-300">
     <div class="max-w-3xl w-full mx-auto flex items-center justify-between">
-      <a href="#about" data-i18n="nav_about" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">About Me</a>
+      <a href="#about" data-i18n="nav_about" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_about}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Experience</a>
+      <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_experience}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#education" data-i18n="nav_education" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Education</a>
+      <a href="#education" data-i18n="nav_education" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_education}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Skills</a>
+      <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_skills}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Projects</a>
+      <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_projects}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">AI & LLMs</a>
+      <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_ai}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Hobbies</a>
+      <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_interests}</a>
       <span class="nav-divider" aria-hidden="true">|</span>
-      <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Contact</a>
+      <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">{t.nav_contact}</a>
     </div>
   </nav>
 </header>

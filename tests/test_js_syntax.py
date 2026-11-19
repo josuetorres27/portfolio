@@ -11,6 +11,7 @@ import unittest
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 JS_DIR = os.path.join(PUBLIC_DIR, "js")
+I18N_DIR = os.path.join(ROOT_DIR, "src", "i18n")
 
 
 def strip_js_comments_and_strings(code):
@@ -84,14 +85,15 @@ class TestJSSyntax(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.js_files = {}
-        for root, _, files in os.walk(JS_DIR):
-            for file in files:
-                if file.endswith(".js"):
-                    full_path = os.path.join(root, file)
-                    rel_path = os.path.relpath(full_path, PUBLIC_DIR)
-                    with open(full_path, "rb") as f:
-                        raw = f.read()
-                    cls.js_files[rel_path] = raw
+        for js_dir in (JS_DIR, I18N_DIR):
+            for root, _, files in os.walk(js_dir):
+                for file in files:
+                    if file.endswith(".js"):
+                        full_path = os.path.join(root, file)
+                        rel_path = os.path.relpath(full_path, ROOT_DIR).replace(os.sep, "/")
+                        with open(full_path, "rb") as f:
+                            raw = f.read()
+                        cls.js_files[rel_path] = raw
 
     def test_no_utf8_bom(self):
         """Verify that no JS file starts with a UTF-8 Byte Order Mark (BOM)."""
@@ -189,10 +191,10 @@ class TestJSSyntax(unittest.TestCase):
                     i += 1
 
     def test_translations_defines_i18n(self):
-        """Verify translations.js defines the I18N constant."""
-        self.assertIn("js\\translations.js", [p.replace("/", "\\") for p in self.js_files.keys()])
-        text = self.js_files.get("js/translations.js", self.js_files.get("js\\translations.js")).decode("utf-8")
-        self.assertIn("const I18N =", text)
+        """Verify src/i18n/translations.js exports the I18N dictionaries."""
+        self.assertIn("src/i18n/translations.js", self.js_files)
+        text = self.js_files["src/i18n/translations.js"].decode("utf-8")
+        self.assertIn("export const I18N =", text)
         self.assertIn("en:", text)
         self.assertIn("es:", text)
 

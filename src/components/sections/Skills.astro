@@ -1,10 +1,15 @@
+---
+import { useTranslations } from '../../i18n/index.js';
+
+const t = useTranslations(Astro.currentLocale);
+---
 <!-- ================= TECHNICAL SKILLS ================= -->
 <section id="skills" class="py-12 md:py-16 border-t border-slate-800/70">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="flex items-center gap-3 mb-8">
       <span class="h-px w-8 bg-brand-500"></span>
-      <h2 data-i18n="skills_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">04. Stack & Skills</h2>
+      <h2 data-i18n="skills_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">{t.skills_section_tag}</h2>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -24,38 +29,36 @@
               <div class="w-10 h-10 shrink-0 flex items-center justify-center select-none">
                 <img src="/img/icons/code-brackets.png" alt="Programming Languages" class="w-full h-full object-cover pixelated select-none" />
               </div>
-              <h3 data-i18n="skills_cat1_title" class="text-base font-bold text-white leading-snug">Programming Languages</h3>
+              <h3 data-i18n="skills_cat1_title" class="text-base font-bold text-white leading-snug">{t.skills_cat1_title}</h3>
             </div>
-        <p data-i18n="skills_cat1_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
-          Proficiency in imperative, OOP, and static/dynamic typed paradigms.
-        </p>
+        <p data-i18n="skills_cat1_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">{t.skills_cat1_desc}</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:divide-x md:divide-slate-800/80 lg:divide-x-0 text-sm">
           <ul class="space-y-2.5 md:pr-8 lg:pr-0">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
               <span class="text-slate-200">Python</span>
-              <span data-i18n="skill_py_sub" class="text-xs text-indigo-400 font-mono text-right">Scripting / DSA</span>
+              <span data-i18n="skill_py_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_py_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
               <span class="text-slate-200">C++</span>
-              <span data-i18n="skill_cpp_sub" class="text-xs text-indigo-400 font-mono text-right">Pointers / Memory</span>
+              <span data-i18n="skill_cpp_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_cpp_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
               <span class="text-slate-200">JavaScript</span>
-              <span data-i18n="skill_js_sub" class="text-xs text-indigo-400 font-mono text-right">Frontend / Async</span>
+              <span data-i18n="skill_js_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_js_sub}</span>
             </li>
           </ul>
           <ul class="space-y-2.5 md:pl-8 lg:pl-0 pt-2.5 md:pt-0">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
               <span class="text-slate-200">TypeScript</span>
-              <span data-i18n="skill_ts_sub" class="text-xs text-indigo-400 font-mono text-right">Full-Stack / Types</span>
+              <span data-i18n="skill_ts_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_ts_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
               <span class="text-slate-200">SQL</span>
-              <span data-i18n="skill_sql_sub" class="text-xs text-indigo-400 font-mono text-right">SQL Server / PostgreSQL</span>
+              <span data-i18n="skill_sql_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_sql_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b md:border-b-0 lg:border-b-0 border-slate-800/60 gap-4">
               <span class="text-slate-200">Java</span>
-              <span data-i18n="skill_java_sub" class="text-xs text-indigo-400 font-mono text-right">OOP / Architecture</span>
+              <span data-i18n="skill_java_sub" class="text-xs text-indigo-400 font-mono text-right">{t.skill_java_sub}</span>
             </li>
           </ul>
         </div>
@@ -80,38 +83,36 @@
               <div class="w-10 h-10 shrink-0 flex items-center justify-center select-none">
                 <img src="/img/icons/cs-fundamentals.png" alt="CS Fundamentals" class="w-full h-full object-cover pixelated select-none" />
               </div>
-              <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white leading-snug">CS Fundamentals</h3>
+              <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white leading-snug">{t.skills_cat2_title}</h3>
             </div>
-        <p data-i18n="skills_cat2_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
-          Mathematical and algorithmic foundations to craft efficient, scalable code.
-        </p>
+        <p data-i18n="skills_cat2_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">{t.skills_cat2_desc}</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:divide-x md:divide-slate-800/80 lg:divide-x-0 text-sm">
           <ul class="space-y-2.5 md:pr-8 lg:pr-0">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_ds_title" class="text-slate-200">Data Structures</span>
-              <span data-i18n="skill_ds_sub" class="text-xs text-cyan-400 font-mono">Trees, Maps</span>
+              <span data-i18n="skill_ds_title" class="text-slate-200">{t.skill_ds_title}</span>
+              <span data-i18n="skill_ds_sub" class="text-xs text-cyan-400 font-mono">{t.skill_ds_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_bigo_title" class="text-slate-200">Big-O Analysis</span>
-              <span data-i18n="skill_bigo_sub" class="text-xs text-cyan-400 font-mono">O(n), O(log n)</span>
+              <span data-i18n="skill_bigo_title" class="text-slate-200">{t.skill_bigo_title}</span>
+              <span data-i18n="skill_bigo_sub" class="text-xs text-cyan-400 font-mono">{t.skill_bigo_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_search_title" class="text-slate-200">Search & Traversal</span>
-              <span data-i18n="skill_search_sub" class="text-xs text-cyan-400 font-mono">BFS / DFS</span>
+              <span data-i18n="skill_search_title" class="text-slate-200">{t.skill_search_title}</span>
+              <span data-i18n="skill_search_sub" class="text-xs text-cyan-400 font-mono">{t.skill_search_sub}</span>
             </li>
           </ul>
           <ul class="space-y-2.5 md:pl-8 lg:pl-0 pt-2.5 md:pt-0">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_patterns_title" class="text-slate-200">Design Patterns</span>
-              <span data-i18n="skill_patterns_sub" class="text-xs text-cyan-400 font-mono">Factory, Singleton</span>
+              <span data-i18n="skill_patterns_title" class="text-slate-200">{t.skill_patterns_title}</span>
+              <span data-i18n="skill_patterns_sub" class="text-xs text-cyan-400 font-mono">{t.skill_patterns_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_solid_title" class="text-slate-200">SOLID Principles</span>
-              <span data-i18n="skill_solid_sub" class="text-xs text-cyan-400 font-mono">Clean Architecture</span>
+              <span data-i18n="skill_solid_title" class="text-slate-200">{t.skill_solid_title}</span>
+              <span data-i18n="skill_solid_sub" class="text-xs text-cyan-400 font-mono">{t.skill_solid_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b md:border-b-0 lg:border-b-0 border-slate-800/60">
-              <span data-i18n="skill_algo_title" class="text-slate-200">Algorithms</span>
-              <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">Intervals, Two Pointers</span>
+              <span data-i18n="skill_algo_title" class="text-slate-200">{t.skill_algo_title}</span>
+              <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">{t.skill_algo_sub}</span>
             </li>
           </ul>
         </div>
@@ -136,38 +137,36 @@
               <div class="w-10 h-10 shrink-0 flex items-center justify-center select-none">
                 <img src="/img/icons/terminal.png" alt="Tools & Environment" class="w-full h-full object-cover pixelated select-none" />
               </div>
-              <h3 data-i18n="skills_cat3_title" class="text-base font-bold text-white leading-snug">Tools & Environment</h3>
+              <h3 data-i18n="skills_cat3_title" class="text-base font-bold text-white leading-snug">{t.skills_cat3_title}</h3>
             </div>
-        <p data-i18n="skills_cat3_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
-          Collaborative development, version control, and CI/CD deployment pipelines.
-        </p>
+        <p data-i18n="skills_cat3_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">{t.skills_cat3_desc}</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:divide-x md:divide-slate-800/80 lg:divide-x-0 text-sm">
           <ul class="space-y-2.5 md:pr-8 lg:pr-0">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_git_title" class="text-slate-200">Git & GitHub</span>
-              <span data-i18n="skill_git_sub" class="text-xs text-emerald-400 font-mono">Branching, PRs, CI</span>
+              <span data-i18n="skill_git_title" class="text-slate-200">{t.skill_git_title}</span>
+              <span data-i18n="skill_git_sub" class="text-xs text-emerald-400 font-mono">{t.skill_git_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_linux_title" class="text-slate-200">Linux & Shell</span>
-              <span data-i18n="skill_linux_sub" class="text-xs text-emerald-400 font-mono">Bash Scripting</span>
+              <span data-i18n="skill_linux_title" class="text-slate-200">{t.skill_linux_title}</span>
+              <span data-i18n="skill_linux_sub" class="text-xs text-emerald-400 font-mono">{t.skill_linux_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_api_title" class="text-slate-200">RESTful APIs</span>
-              <span data-i18n="skill_api_sub" class="text-xs text-emerald-400 font-mono">HTTP & JSON</span>
+              <span data-i18n="skill_api_title" class="text-slate-200">{t.skill_api_title}</span>
+              <span data-i18n="skill_api_sub" class="text-xs text-emerald-400 font-mono">{t.skill_api_sub}</span>
             </li>
           </ul>
           <ul class="space-y-2.5 md:pl-8 lg:pl-0 pt-2.5 md:pt-0">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_docker_title" class="text-slate-200">Docker (Basics)</span>
-              <span data-i18n="skill_docker_sub" class="text-xs text-emerald-400 font-mono">Containers</span>
+              <span data-i18n="skill_docker_title" class="text-slate-200">{t.skill_docker_title}</span>
+              <span data-i18n="skill_docker_sub" class="text-xs text-emerald-400 font-mono">{t.skill_docker_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span data-i18n="skill_vscode_title" class="text-slate-200">VS Code & Debuggers</span>
-              <span data-i18n="skill_vscode_sub" class="text-xs text-emerald-400 font-mono">GDB, PyTest</span>
+              <span data-i18n="skill_vscode_title" class="text-slate-200">{t.skill_vscode_title}</span>
+              <span data-i18n="skill_vscode_sub" class="text-xs text-emerald-400 font-mono">{t.skill_vscode_sub}</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b md:border-b-0 lg:border-b-0 border-slate-800/60">
-              <span data-i18n="skill_ci_title" class="text-slate-200">Testing & CI/CD</span>
-              <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">GitHub Actions</span>
+              <span data-i18n="skill_ci_title" class="text-slate-200">{t.skill_ci_title}</span>
+              <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">{t.skill_ci_sub}</span>
             </li>
           </ul>
         </div>
