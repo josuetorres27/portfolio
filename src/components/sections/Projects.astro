@@ -68,7 +68,60 @@ const t = useTranslations(Astro.currentLocale);
         </div>
       </article>
 
-      <!-- Project 2: PAdES-LTA Renewer -->
+      <!-- Project 2: Mi VuelTica -->
+      <article class="card-hover pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center min-w-0">
+              <span class="text-amber-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/mi_vueltica.tsx</span>
+            </div>
+            <span class="font-pixel text-[8px] text-amber-400 shrink-0 ml-2">[MOBILE / FULL-STACK]</span>
+          </div>
+          <div class="p-6 sm:p-8">
+
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+          <div>
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-slate-900 border border-amber-500/40 text-amber-400 text-xs font-semibold font-mono">
+                <span class="w-2 h-2 rounded-none bg-amber-400 animate-pulse shrink-0"></span>
+                <span data-i18n="p5_type">{t.p5_type}</span>
+              </div>
+              <span data-i18n="p5_date" class="hidden sm:inline text-xs font-mono text-slate-400">{t.p5_date}</span>
+            </div>
+            <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:hidden">
+              <a href="https://github.com/MiVuelticaApp" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center gap-1.5" aria-label={t.aria_gh_mivueltica} data-i18n-aria="aria_gh_mivueltica">
+                <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+                <span>GitHub</span>
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+              <span data-i18n="p5_date" class="text-xs font-mono text-slate-400">{t.p5_date}</span>
+            </div>
+            <h4 data-i18n="p5_title" class="text-xl sm:text-2xl font-bold text-white">{t.p5_title}</h4>
+          </div>
+          <a href="https://github.com/MiVuelticaApp" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 items-center gap-2 self-start" aria-label={t.aria_gh_mivueltica} data-i18n-aria="aria_gh_mivueltica">
+            <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            <span>GitHub</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <p data-i18n="p5_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">{t.p5_desc}</p>
+
+        <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 sm:gap-2 pt-3 border-t border-slate-800/80 font-mono text-[11px] sm:text-xs">
+          <span class="px-2 py-1 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">React Native / Expo</span>
+          <span class="px-2 py-1 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">TypeScript</span>
+          <span class="px-2 py-1 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">Express / Prisma</span>
+          <span class="px-2 py-1 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">MySQL / MariaDB</span>
+          <span class="px-2 py-1 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">OpenAI Moderation</span>
+          <span class="px-2 py-1 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">Jest / Playwright</span>
+        </div>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: PAdES-LTA Renewer -->
       <article class="card-hover pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
@@ -121,7 +174,7 @@ const t = useTranslations(Astro.currentLocale);
         </div>
       </article>
 
-      <!-- Project 3: Virtual Microscope -->
+      <!-- Project 4: Virtual Microscope -->
       <article class="card-hover pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
@@ -172,7 +225,7 @@ const t = useTranslations(Astro.currentLocale);
         </div>
       </article>
 
-      <!-- Project 4: ThemePark UCR -->
+      <!-- Project 5: ThemePark UCR -->
       <article class="card-hover pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
@@ -212,7 +265,7 @@ const t = useTranslations(Astro.currentLocale);
         </div>
       </article>
 
-      <!-- Project 5: Ethical Vodcast -->
+      <!-- Project 6: Ethical Vodcast -->
       <article class="card-hover pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
