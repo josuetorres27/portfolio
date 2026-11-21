@@ -955,16 +955,6 @@
     html.light .text-rose-300 { color: #e11d48 !important; }
     html.light .text-blue-300 { color: #1d4ed8 !important; }
 
-    /* Fix Dark Island Sections in Light Mode (Selected Projects spotlight) */
-    html.light #spotlight-project .pixel-frame-inner {
-      background: var(--light-surface) !important;
-    }
-    html.light #spotlight-project .bg-slate-800 {
-      background-color: var(--light-surface-muted) !important;
-      color: #334155 !important;
-      border-color: #cbd5e1 !important;
-    }
-
     /* Buttons in Light Mode: Modern Vibrant Tech Blue */
     html.light .bg-brand-600 {
       background-color: #0284c7 !important;

@@ -17,7 +17,100 @@ const t = useTranslations(Astro.currentLocale);
       <p data-i18n="experience_sub" class="text-slate-300 text-base leading-relaxed">{t.experience_sub}</p>
     </div>
 
-    <!-- Experience Main Card -->
+    <div class="space-y-8">
+
+    <!-- Role 1: LASCE professional practicum -->
+    <div class="card-hover pixel-frame-outer pixel-corners-card">
+      <div class="pixel-frame-inner pixel-corners-card">
+        <div class="terminal-header">
+          <div class="flex items-center min-w-0">
+            <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+            <span class="font-mono text-slate-400 text-[11px] truncate">~/career/lasce_practicum.log</span>
+          </div>
+          <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[SOFTWARE ENGINEERING]</span>
+        </div>
+        <div class="p-6 sm:p-8 relative overflow-hidden">
+
+      <!-- Glow accent -->
+      <div class="glow-blob absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10">
+      <!-- Role Header Row -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
+        <div>
+          <div class="flex flex-wrap items-center gap-2.5 mb-2">
+            <span data-i18n="lasce_timeframe" class="text-xs font-mono text-slate-400">{t.lasce_timeframe}</span>
+            <span class="text-slate-600 hidden sm:inline">·</span>
+            <span data-i18n="lasce_location" class="text-xs font-mono text-slate-400">{t.lasce_location}</span>
+          </div>
+          <h4 data-i18n="lasce_role_title" class="text-xl sm:text-2xl font-bold text-white tracking-tight">{t.lasce_role_title}</h4>
+          <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center text-sm sm:text-base font-medium mt-1">
+            <span data-i18n="lasce_company" class="text-brand-300 font-semibold sm:whitespace-nowrap">{t.lasce_company}</span>
+            <span class="text-slate-500 hidden sm:inline mx-1.5 select-none font-bold">·</span>
+            <span data-i18n="lasce_department" class="text-slate-300">{t.lasce_department}</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 sm:gap-2 shrink-0">
+          <a href="https://lasce.ucr.ac.cr" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-primary pixel-corners-btn px-4 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-1.5">
+            <span data-i18n="lasce_btn">{t.lasce_btn}</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+          <a href="https://github.com/LasceUCR/lasce" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-2" aria-label={t.aria_gh_lasce} data-i18n-aria="aria_gh_lasce">
+            <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            <span>GitHub</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Summary Paragraph -->
+      <p data-i18n="lasce_role_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed py-5">{t.lasce_role_desc}</p>
+
+      <!-- Contributions -->
+      <ul class="space-y-2.5 pb-6 text-sm text-slate-300 leading-relaxed">
+        <li class="flex gap-3 items-start">
+          <span class="mt-2 w-1.5 h-1.5 shrink-0 bg-cyan-400" aria-hidden="true"></span>
+          <span data-i18n="lasce_b1">{t.lasce_b1}</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="mt-2 w-1.5 h-1.5 shrink-0 bg-cyan-400" aria-hidden="true"></span>
+          <span data-i18n="lasce_b2">{t.lasce_b2}</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="mt-2 w-1.5 h-1.5 shrink-0 bg-cyan-400" aria-hidden="true"></span>
+          <span data-i18n="lasce_b3">{t.lasce_b3}</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="mt-2 w-1.5 h-1.5 shrink-0 bg-cyan-400" aria-hidden="true"></span>
+          <span data-i18n="lasce_b4">{t.lasce_b4}</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="mt-2 w-1.5 h-1.5 shrink-0 bg-cyan-400" aria-hidden="true"></span>
+          <span data-i18n="lasce_b5">{t.lasce_b5}</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="mt-2 w-1.5 h-1.5 shrink-0 bg-cyan-400" aria-hidden="true"></span>
+          <span data-i18n="lasce_b6">{t.lasce_b6}</span>
+        </li>
+      </ul>
+
+      <!-- Stack -->
+      <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 lg:gap-2 pt-5 border-t border-slate-800/80 font-mono text-[11px] sm:text-xs">
+        <span class="px-2 py-1 lg:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">Next.js 16</span>
+        <span class="px-2 py-1 lg:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">React 19</span>
+        <span class="px-2 py-1 lg:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">TypeScript</span>
+        <span class="px-2 py-1 lg:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">PostgreSQL / Prisma</span>
+        <span class="px-2 py-1 lg:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">Redis / BullMQ</span>
+        <span class="px-2 py-1 lg:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight sm:whitespace-nowrap">Python 3.13 Worker</span>
+        <span class="hidden xl:inline-flex px-2 py-1 lg:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] items-center justify-center leading-tight sm:whitespace-nowrap">Playwright</span>
+      </div>
+
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Role 2: Information Technology support -->
     <div class="card-hover pixel-frame-outer pixel-corners-card">
       <div class="pixel-frame-inner pixel-corners-card">
         <div class="terminal-header">
@@ -131,6 +224,8 @@ const t = useTranslations(Astro.currentLocale);
       </div>
         </div>
       </div>
+    </div>
+
     </div>
 
   </div>
