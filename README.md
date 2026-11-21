@@ -6,7 +6,7 @@
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#features)
 [![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#features)
 [![CI Test Suite](https://img.shields.io/github/actions/workflow/status/josuetorres27/portfolio/ci.yml?style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/josuetorres27/portfolio/actions/workflows/ci.yml)
-[![Automated Tests](https://img.shields.io/badge/Tests-330%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
+[![Automated Tests](https://img.shields.io/badge/Tests-337%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
 [![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorressibaja.com/)
 
 This repository contains the source of a personal software engineering portfolio. The website presents academic background, featured software engineering projects, production experience in Information Technology infrastructure and web administration, applied AI workflows, and personal interests, in a custom retro gaming and terminal style.
@@ -21,7 +21,7 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 
 - **Education:** B.Sc. in Computer Science (Software Engineering emphasis), University of Costa Rica (UCR), Mar 2023 – Dec 2026; coursework completed, degree expected Apr 2027.
 - **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency; National University of Costa Rica (UNA), 2019 – 2021; 13 levels / 520 hours).
-- **Work Experience:** Information Technology Support Assistant at the University of Costa Rica (Orientation Office), Aug 2026 – Dec 2026.
+- **Work Experience:** Full-Stack Developer (Professional Practicum) at the Solar Astrophysics and Space Weather Laboratory (LASCE) and Information Technology Support Assistant at the Orientation Office, both at the University of Costa Rica (UCR), Aug 2026 – Dec 2026.
 - **Availability:** Full-time entry-level and junior Software Engineering roles, available immediately.
 
 ---
@@ -36,6 +36,35 @@ I am a Computer Science Graduating Senior (Software Engineering emphasis) at the
 | **Applied AI** | Claude Code, GitHub Copilot, Google Antigravity, Multi-Agent Systems, Prompt & Context Engineering |
 | **Specialized** | Applied Cryptography (PKI, X.509, RFC 3161, OCSP), Pthreads, OpenMP, TCP/IP Sockets |
 | **Practices** | Data Structures & Algorithms, OOP, SOLID, REST APIs, CI/CD, Agile/Scrum |
+
+---
+
+## Work Experience
+
+### Full-Stack Developer · Professional Practicum
+
+**Solar Astrophysics and Space Weather Laboratory (LASCE), University of Costa Rica (UCR)** · Aug 2026 – Dec 2026
+
+Professional practicum on the production web platform of the laboratory: a bilingual public portal and an admin CMS for its research, publications, news, and the ROSAC radio observatory, built in a team.
+
+- Built the news, research, publications, gallery, and academic-activities modules, with research-area detail pages and research-group filters.
+- Developed content management for the ROSAC radio observatory and migrated it from local storage to the database, with file uploads to object storage and optimistic concurrency control.
+- Implemented Spanish and English support for scientific and institutional content.
+- Built reusable modal, confirmation, and skeleton-loading components, and improved keyboard and multimedia accessibility.
+- Wrote unit, end-to-end, and Storybook tests, including cross-browser fixes for WebKit.
+- Worked across frontend, backend, and database through the full cycle: implementation, testing, fixes, documentation, and maintenance.
+
+- **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr).
+- **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce).
+- **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest, Storybook.
+
+### Information Technology Support Assistant
+
+**Orientation Office, University of Costa Rica (UCR)** · Aug 2026 – Dec 2026
+
+- Diagnosed and upgraded 50+ institutional workstations (HDD to SSD migration), reducing boot times by about 60%.
+- Automated Windows imaging and disk cloning, cutting per-machine setup from about 2 hours to under 20 minutes.
+- Maintained academic WordPress sites through secure remote hosts, supporting 99%+ uptime during enrollment periods.
 
 ---
 
@@ -58,15 +87,6 @@ Research project for CI-0140 Software Quality: an engine and web service that re
 - **Stack:** Python, Flask, cryptography, asn1crypto, pypdf, RFC 3161, X.509, OCSP, CRL, pytest.
 - **Highlights:** RFC 3161 client for the SINPE Time Stamping Authority (BCCR), X.509 chain reconstruction up to the national root CA with OCSP/CRL revocation checks, and incremental PDF updates that add `/DSS` evidence and `/DocTimeStamp` seals without invalidating existing signatures.
 - **Co-Author:** Gabriel Serrano Rojas.
-
-### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr)
-
-Full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory (LASCE) at the University of Costa Rica.
-
-- **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr).
-- **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce).
-- **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
-- **Contributions:** Built the news, research, publications, gallery and academic-activities modules, research-area detail pages with research-group filters, and the scientific collaborations section. Developed content management for the ROSAC radio observatory (instruments, awards, construction stages, photos and logos) and migrated it from local storage to the database, with file and image uploads to object storage, URL validation, 404 handling and optimistic concurrency control. Added Spanish/English support for scientific and institutional content, reusable modal, confirmation and accessible skeleton-loading components, keyboard and multimedia accessibility, and standardized sign-in and registration errors. Contributed unit, end-to-end and Storybook tests with cross-browser fixes (viewport, WebKit), plus real content, the sitemap and technical documentation, across the full cycle from implementation to maintenance.
 
 ### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel)
 
@@ -99,9 +119,9 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 
 ## Testing
 
-The repository includes an automated test suite of 330 tests, executed on Python 3.12+ against the built site and integrated into GitHub Actions CI, so that no component or translation breaks silently:
+The repository includes an automated test suite of 337 tests, executed on Python 3.12+ against the built site and integrated into GitHub Actions CI, so that no component or translation breaks silently:
 
-- **Internationalization Suite (`tests/test_i18n.py`):** 267 tests validating symmetry across all 257 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` bindings on both pages.
+- **Internationalization Suite (`tests/test_i18n.py`):** 274 tests validating symmetry across all 264 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` bindings on both pages.
 - **Localized Pages (`tests/test_localized_pages.py`):** 13 tests verifying that `/` and `/es/` each declare their language, title, description, canonical address, and `hreflang` alternates, render every translated element and attribute in that language, ship only that language to the scripts, link to each other from the language switch, and appear in the sitemap.
 - **DOM and Semantic Integrity (`tests/test_dom_integrity.py`):** 33 tests verifying HTML5 compliance, OpenGraph metadata, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
 - **Assets Integrity (`tests/test_assets_integrity.py`):** 11 tests verifying that every image, sprite sheet, icon, PDF document, and modular script referenced across the codebase physically exists on disk with non-zero size.
@@ -184,7 +204,7 @@ portfolio/
 │   │   ├── AdventureMode.astro                  # Level rail, companion dialogue & sprite cache
 │   │   └── ...                                  # Preloader, pixel sprites, lightbox & footer
 │   ├── i18n/
-│   │   ├── translations.js                      # Bilingual (EN/ES) dictionaries (257 keys)
+│   │   ├── translations.js                      # Bilingual (EN/ES) dictionaries (264 keys)
 │   │   └── index.js                             # Language helpers used by the components
 │   ├── layouts/
 │   │   └── BaseLayout.astro                     # <head>, SEO tags, styles & scripts
