@@ -6,7 +6,7 @@
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#features)
 [![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#features)
 [![CI Test Suite](https://img.shields.io/github/actions/workflow/status/josuetorres27/portfolio/ci.yml?style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/josuetorres27/portfolio/actions/workflows/ci.yml)
-[![Automated Tests](https://img.shields.io/badge/Tests-337%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
+[![Automated Tests](https://img.shields.io/badge/Tests-342%20Passing-success?style=flat-square&logo=python&logoColor=white)](#testing)
 [![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorressibaja.com/)
 
 This repository contains the source of a personal software engineering portfolio. The website presents academic background, featured software engineering projects, production experience in Information Technology infrastructure and web administration, applied AI workflows, and personal interests, in a custom retro gaming and terminal style.
@@ -79,6 +79,15 @@ Interactive web workshop for Computer Science students at the University of Cost
 - **Stack:** C11, C++17, POSIX Threads, OpenMP, BSD Sockets (TCP/IP), JavaScript, Firebase (Hosting, Auth, Firestore), GitHub Actions.
 - **Highlights:** Thirteen stations on sorting, algorithm races, data structures, concurrency, networking, classic interview problems, SQL, and Git; step-by-step code tracers; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; a Git station that hashes objects exactly like real Git; Google sign-in with cloud-saved progress; and a CI pipeline running 1,538 automated tests before every deployment.
 
+### [Mi VuelTica](https://github.com/MiVuelticaApp)
+
+Mobile app (iOS, Android, and web) for discovering free and low-cost places and events in Costa Rica, with community reviews, verifications, and vote-based moderation. It started as a course project for a team of five, which keeps developing it.
+
+- **Repositories:** [App](https://github.com/MiVuelticaApp/mi-vueltica-app), [API](https://github.com/MiVuelticaApp/mi-vueltica-api), [Website](https://github.com/MiVuelticaApp/mi-vueltica-web).
+- **Stack:** TypeScript, React Native, Expo, Node.js, Express, Prisma, MySQL/MariaDB, OpenAI Moderation API, Docker, Jest, Playwright, GitHub Actions, EAS.
+- **Role:** Full-stack integrator: connected the app to the full REST API (reputation, community moderation, reviews, reports, blocking, and photos), implemented privacy consent under Costa Rica's Law 8968, designed fail-open AI pre-moderation (OpenAI moderation plus a local spam check), fixed a rate-limit bypass and a default JWT secret in production, built push notifications end to end and an itinerary builder, and set up CI and EAS release builds, reviewing and merging 26 pull requests.
+- **Team:** Rolando Villavicencio (the API's base), Aaron Santana, Gabriel Serrano, and contributors; built with AI-assisted development (Claude Code) under my own review.
+
 ### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer)
 
 Research project for CI-0140 Software Quality: an engine and web service that renews timestamps on digitally signed PDF documents for long-term preservation (PAdES-B-LTA / ETSI EN 319 142), in line with Costa Rica's Law 8454.
@@ -119,9 +128,9 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 
 ## Testing
 
-The repository includes an automated test suite of 337 tests, executed on Python 3.12+ against the built site and integrated into GitHub Actions CI, so that no component or translation breaks silently:
+The repository includes an automated test suite of 342 tests, executed on Python 3.12+ against the built site and integrated into GitHub Actions CI, so that no component or translation breaks silently:
 
-- **Internationalization Suite (`tests/test_i18n.py`):** 274 tests validating symmetry across all 264 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` bindings on both pages.
+- **Internationalization Suite (`tests/test_i18n.py`):** 279 tests validating symmetry across all 269 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` bindings on both pages.
 - **Localized Pages (`tests/test_localized_pages.py`):** 13 tests verifying that `/` and `/es/` each declare their language, title, description, canonical address, and `hreflang` alternates, render every translated element and attribute in that language, ship only that language to the scripts, link to each other from the language switch, and appear in the sitemap.
 - **DOM and Semantic Integrity (`tests/test_dom_integrity.py`):** 33 tests verifying HTML5 compliance, OpenGraph metadata, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
 - **Assets Integrity (`tests/test_assets_integrity.py`):** 11 tests verifying that every image, sprite sheet, icon, PDF document, and modular script referenced across the codebase physically exists on disk with non-zero size.
@@ -204,7 +213,7 @@ portfolio/
 │   │   ├── AdventureMode.astro                  # Level rail, companion dialogue & sprite cache
 │   │   └── ...                                  # Preloader, pixel sprites, lightbox & footer
 │   ├── i18n/
-│   │   ├── translations.js                      # Bilingual (EN/ES) dictionaries (264 keys)
+│   │   ├── translations.js                      # Bilingual (EN/ES) dictionaries (269 keys)
 │   │   └── index.js                             # Language helpers used by the components
 │   ├── layouts/
 │   │   └── BaseLayout.astro                     # <head>, SEO tags, styles & scripts
