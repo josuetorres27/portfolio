@@ -138,6 +138,8 @@
 
     if (!modal || !lightboxImg || !lightboxCaption) return;
 
+    var openToken = 0;
+
     function openModal(src, captionKey, captionEl, img, locUrl, locKey, locFallback) {
       var isMobile = window.innerWidth < 640;
       var currentLang = document.documentElement.lang || 'en';
@@ -192,15 +194,35 @@
         }
       }
 
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+      // Show the viewer only once the photo has its real size, so the frame never opens as an empty sliver.
+      var token = ++openToken;
+      function reveal() {
+        if (token !== openToken) return;
+        lightboxImg.removeEventListener('load', reveal);
+        lightboxImg.removeEventListener('error', reveal);
+        clearTimeout(revealTimeout);
+        document.documentElement.style.cursor = '';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      var revealTimeout;
+      if (lightboxImg.complete && lightboxImg.naturalWidth > 0) {
+        reveal();
+      } else {
+        document.documentElement.style.cursor = 'progress';
+        lightboxImg.addEventListener('load', reveal);
+        lightboxImg.addEventListener('error', reveal);
+        revealTimeout = setTimeout(reveal, 6000);
+      }
     }
 
     function closeModal() {
+      var closeToken = ++openToken;
+      document.documentElement.style.cursor = '';
       modal.classList.add('hidden');
       document.body.style.overflow = '';
       setTimeout(function () {
-        if (modal.classList.contains('hidden')) {
+        if (modal.classList.contains('hidden') && closeToken === openToken) {
           lightboxImg.src = '';
           lightboxImg.alt = '';
           lightboxCaption.textContent = '';

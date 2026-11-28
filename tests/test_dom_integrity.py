@@ -368,9 +368,11 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("loader.classList.add('loader-hidden')", ui_code)
         self.assertIn("loader.style.display = 'none'", ui_code)
 
-        # Progress calculation logic (min 15%, max 100%, fallback 2500ms)
+        # Progress calculation logic (min 15%, max 100%, fallback 10000ms)
         self.assertIn("Math.min(100, Math.max(15, Math.round(ratio * 100)))", ui_code)
-        self.assertIn("setTimeout(dismissLoader, 2500)", ui_code)
+        self.assertIn("setTimeout(dismissLoader, 10000)", ui_code)
+        # The full-size gallery photos load behind the loading screen too
+        self.assertIn("querySelectorAll('img[data-full-src]')", ui_code)
 
     def test_loader_progress_bar_wrapper_container(self):
         """Verify the loading bar on the preloader screen has an outer wrapper casing container that encases the chassis and bar."""
