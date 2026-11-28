@@ -2330,8 +2330,7 @@
     }
 
     /* Hero headline: the size follows the width of the text column (capped at the usual sizes),
-       so the longest phrase, "& Técnico en Tecnologías de la Información", wraps into whole lines
-       without leaving a word stranded. 7.2cqi also keeps "Hola, soy Josué Torres Sibaja" on one line.
+       so every typewriter phrase wraps into whole lines without leaving a word stranded. 7.2cqi also keeps "Hola, soy Josué Torres Sibaja" on one line.
        Browsers without container query units ignore these rules and keep the Tailwind sizes. */
     #hero-text-col {
       container-type: inline-size;
